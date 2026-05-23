@@ -1,0 +1,57 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  /** Optional side image — when provided, hero renders as 2-col on desktop */
+  image?: string;
+  /** Optional alt text for image (decorative by default) */
+  imageAlt?: string;
+}
+
+const { eyebrow, title, subtitle, image, imageAlt = '' } = Astro.props;
+---
+
+<section class="container-page pt-32 pb-16 md:pt-44 md:pb-24 border-b border-(--color-border)">
+  {image ? (
+    <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:items-center">
+      <div class="max-w-2xl">
+        <p class="fade-in-up text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)" style="animation-delay: 0ms">
+          <span class="inline-block w-8 h-px bg-(--color-accent) align-middle mr-2"></span>
+          {eyebrow}
+        </p>
+        <h1 class="fade-in-up mt-6" style="animation-delay: 100ms">{title}</h1>
+        {subtitle && (
+          <p class="fade-in-up mt-8 text-xl text-(--color-ink-muted) leading-relaxed" style="animation-delay: 200ms">
+            {subtitle}
+          </p>
+        )}
+      </div>
+      <div
+        class="fade-in-up relative aspect-[4/5] lg:aspect-[5/6] overflow-hidden rounded-(--radius-2xl) bg-(--color-surface-sunken)"
+        style="animation-delay: 300ms"
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  ) : (
+    <div class="max-w-4xl">
+      <p class="fade-in-up text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)" style="animation-delay: 0ms">
+        <span class="inline-block w-8 h-px bg-(--color-accent) align-middle mr-2"></span>
+        {eyebrow}
+      </p>
+      <h1 class="fade-in-up mt-6" style="animation-delay: 100ms">{title}</h1>
+      {subtitle && (
+        <p class="fade-in-up mt-8 text-xl text-(--color-ink-muted) max-w-2xl leading-relaxed" style="animation-delay: 200ms">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )}
+</section>

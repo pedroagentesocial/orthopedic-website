@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import NumberTicker from '../ui/NumberTicker.tsx';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const locale = lang === 'es' ? 'es-MX' : 'en-US';
+
+const stats = [
+  { value: 12000, suffix: '+', label: t('home.stats.patients') },
+  { value: 25, suffix: '', label: t('home.stats.years') },
+  { value: 98, suffix: '%', label: t('home.stats.satisfaction') },
+  { value: 9, suffix: '', label: t('home.stats.specialists') },
+] as const;
+---
+
+<section class="container-page py-20 border-t border-(--color-border)">
+  <p class="text-sm uppercase tracking-[0.18em] text-(--color-ink-muted) text-center">
+    {t('home.stats.eyebrow')}
+  </p>
+
+  <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
+    {stats.map((s) => (
+      <div class="reveal-up flex flex-col items-center text-center border-l border-(--color-border) px-6 first:border-l-0 lg:border-l">
+        <div class="font-display text-5xl md:text-6xl text-(--color-ink) leading-none" style={{ fontVariationSettings: '"opsz" 144' }}>
+          <NumberTicker client:visible value={s.value} suffix={s.suffix} locale={locale} />
+        </div>
+        <p class="mt-4 text-sm uppercase tracking-wider text-(--color-ink-muted)">
+          {s.label}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

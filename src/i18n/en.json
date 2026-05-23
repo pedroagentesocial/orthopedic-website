@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "siteName": "Wasatch Orthopedic",
+    "siteDescription": "Orthopedic care rooted in Utah. Expert treatment for joints, spine, sports injuries and recovery.",
+    "locale": "en-US"
+  },
+  "nav": {
+    "services": "Services",
+    "conditions": "Conditions",
+    "patients": "For patients",
+    "faq": "FAQ",
+    "location": "Location",
+    "about": "About",
+    "contact": "Contact",
+    "book": "Book appointment"
+  },
+  "home": {
+    "heroEyebrow": "Orthopedic care, Utah",
+    "heroTitle": "Motion is medicine.",
+    "heroSubtitle": "Personalized orthopedic treatment that returns you to the life you love — from active recovery to advanced surgery.",
+    "heroCtaPrimary": "Book a consultation",
+    "heroCtaSecondary": "Explore services",
+    "scrollHint": "Scroll to discover",
+
+    "stats": {
+      "eyebrow": "By the numbers",
+      "patients": "Patients restored to motion",
+      "years": "Years caring for Utah",
+      "satisfaction": "Patient satisfaction",
+      "specialists": "Board-certified specialists"
+    },
+
+    "services": {
+      "eyebrow": "Specialties",
+      "title": "Care designed around every joint.",
+      "subtitle": "From the first consultation to the last day of recovery, our specialists treat the whole person — not just the injury.",
+      "learnMore": "Learn more",
+      "viewAll": "View all services",
+      "knee": { "title": "Knee & Hip", "description": "Joint preservation, replacement and minimally invasive surgery for active lives." },
+      "spine": { "title": "Spine", "description": "Targeted treatment for disc, nerve and structural conditions." },
+      "shoulder": { "title": "Shoulder & Elbow", "description": "From rotator cuff to tennis elbow — restoring range, restoring strength." },
+      "hand": { "title": "Hand & Wrist", "description": "Microsurgical precision for hand, wrist and elbow restoration." },
+      "sports": { "title": "Sports Medicine", "description": "From weekend athletes to professionals — recovery built to last." },
+      "joint": { "title": "Joint Replacement", "description": "Custom implants and rapid-recovery protocols for hip and knee." }
+    },
+
+    "why": {
+      "eyebrow": "Our approach",
+      "title": "Precision medicine, human pace.",
+      "subtitle": "Every plan is calibrated to your life — not the other way around.",
+      "items": {
+        "diagnosis": { "title": "Same-week diagnosis", "description": "On-site MRI and X-ray so you leave your first visit with a clear plan." },
+        "minimally": { "title": "Minimally invasive first", "description": "Conservative treatment when possible; advanced surgery only when truly indicated." },
+        "recovery": { "title": "Recovery built around you", "description": "In-house physical therapy with a single team from procedure to full return." }
+      }
+    },
+
+    "testimonials": {
+      "eyebrow": "Patient stories",
+      "title": "Recovery, told first-hand.",
+      "subtitle": "Verified reviews from real patients on Google.",
+      "source": "Google Review",
+      "items": {
+        "one": { "quote": "Six months after my knee replacement I was back on the slopes. The whole team made me feel like the only patient in the room.", "name": "Sarah K.", "treatment": "Knee replacement", "date": "2 weeks ago" },
+        "two": { "quote": "Every option was explained before surgery was recommended. I never felt rushed and the recovery was faster than I expected.", "name": "Michael R.", "treatment": "Lumbar microdiscectomy", "date": "1 month ago" },
+        "three": { "quote": "After years of pain, I have my grip back. I can hold my granddaughter without flinching — that's everything.", "name": "Diane M.", "treatment": "Carpal tunnel release", "date": "3 months ago" }
+      }
+    },
+
+    "faq": {
+      "eyebrow": "Common questions",
+      "title": "Everything you might be wondering.",
+      "items": {
+        "referral": { "q": "Do I need a referral to schedule a visit?", "a": "No referral is required for most orthopedic consultations. We coordinate directly with your primary care physician when relevant." },
+        "insurance": { "q": "Which insurance plans do you accept?", "a": "We accept most major insurers in Utah — including Medicare, SelectHealth, Blue Cross, Aetna and United Healthcare. Contact us to verify your specific plan." },
+        "wait": { "q": "How soon can I be seen?", "a": "Most patients are scheduled within 5 to 10 business days. Urgent cases — including post-injury — are seen within 48 hours when possible." },
+        "imaging": { "q": "Do you offer on-site imaging?", "a": "Yes. Our clinic includes in-house MRI and digital X-ray so most patients leave their first visit with a complete diagnosis." }
+      }
+    },
+
+    "cta": {
+      "eyebrow": "Take the next step",
+      "title": "Ready to move forward?",
+      "subtitle": "Book a same-week consultation with a board-certified orthopedic specialist.",
+      "primary": "Book appointment",
+      "secondary": "Call (801) 555-0100"
+    }
+  },
+
+  "pages": {
+    "services": {
+      "metaTitle": "Specialties",
+      "eyebrow": "What we treat",
+      "title": "Specialties built around every joint.",
+      "subtitle": "Comprehensive orthopedic care designed for active lives across Utah. Each specialty is led by a fellowship-trained surgeon focused on long-term outcomes.",
+      "filterAll": "All specialties",
+      "labels": {
+        "treatments": "Common treatments",
+        "conditions": "Conditions treated",
+        "duration": "Procedure time",
+        "recovery": "Recovery"
+      },
+      "detailIntro": "What to expect",
+      "ctaTitle": "Speak with a specialist",
+      "ctaSubtitle": "A free 15-minute call to understand your options.",
+      "ctaButton": "Book a consultation",
+      "backLabel": "All specialties",
+      "relatedTitle": "Related specialties"
+    },
+    "conditions": {
+      "metaTitle": "Conditions we treat",
+      "eyebrow": "Conditions",
+      "title": "If you have a diagnosis — or a symptom — we have a plan.",
+      "subtitle": "Browse the conditions our orthopedic specialists treat most often. Not sure where to start? Our intake team will route you to the right specialty.",
+      "callToActionLabel": "Talk to our intake team",
+      "featured": {
+        "eyebrow": "Common starting points",
+        "title": "Where most patients begin.",
+        "viewSpecialists": "View specialists",
+        "items": {
+          "joint": {
+            "title": "Joint pain",
+            "description": "Knee, hip and shoulder — when motion isn't what it was. Same-week imaging and a clear path forward."
+          },
+          "back": {
+            "title": "Back & neck pain",
+            "description": "Disc, nerve or structural. Non-surgical first; surgery only when truly indicated."
+          },
+          "sport": {
+            "title": "Sports injury",
+            "description": "Acute or recurring. Diagnostic-first plans built around your sport, season and return-to-play."
+          }
+        }
+      },
+      "all": {
+        "eyebrow": "By specialty",
+        "title": "Every condition we treat, organized by area.",
+        "subtitle": "Click a specialty to see how our team approaches each case.",
+        "countSuffix": "conditions",
+        "viewSpecialty": "View specialty"
+      },
+      "groups": {
+        "kneeHip": "Knee & Hip",
+        "spine": "Spine",
+        "shoulderElbow": "Shoulder & Elbow",
+        "handWrist": "Hand & Wrist",
+        "sports": "Sports injuries",
+        "general": "General orthopedic"
+      },
+      "items": {
+        "kneeArthritis": "Knee osteoarthritis",
+        "aclTear": "ACL & meniscus tears",
+        "hipImpingement": "Hip impingement",
+        "hipArthritis": "Hip osteoarthritis",
+        "discHerniation": "Herniated disc",
+        "spinalStenosis": "Spinal stenosis",
+        "sciatica": "Sciatica",
+        "rotatorCuff": "Rotator cuff injuries",
+        "frozenShoulder": "Frozen shoulder",
+        "tennisElbow": "Tennis & golfer's elbow",
+        "carpalTunnel": "Carpal tunnel syndrome",
+        "triggerFinger": "Trigger finger",
+        "wristFractures": "Wrist & hand fractures",
+        "concussion": "Sports concussion management",
+        "ankleSprains": "Ankle sprains & instability",
+        "stressFractures": "Stress fractures",
+        "plantarFasciitis": "Plantar fasciitis",
+        "achillesTendinopathy": "Achilles tendinopathy",
+        "osteoporosis": "Osteoporosis & bone health",
+        "jointReplacementRevision": "Joint replacement revision"
+      }
+    },
+    "about": {
+      "metaTitle": "About",
+      "eyebrow": "About",
+      "title": "Care that meets you where you are.",
+      "intro": "Wasatch Orthopedic was built on a single conviction: that recovery happens fastest when patients are partners — not passengers. We combine fellowship-trained specialists, on-site imaging and in-house physical therapy under one roof so your care moves at your pace, not the system's.",
+      "valuesEyebrow": "Our values",
+      "valuesTitle": "What guides every decision we make.",
+      "values": {
+        "trust": { "title": "Trust", "description": "Plain language. Honest options. Time enough to think." },
+        "precision": { "title": "Precision", "description": "Imaging-guided diagnosis and evidence-based care plans, tailored to each patient." },
+        "humanity": { "title": "Humanity", "description": "Recovery is more than physical. Our team supports the whole experience." }
+      },
+      "techEyebrow": "Technology",
+      "techTitle": "Tools as advanced as the medicine.",
+      "techDescription": "On-site 3-Tesla MRI, digital X-ray, robotic-assisted joint replacement and minimally invasive arthroscopy — the same technology used at top academic centers, available in your community.",
+      "techItems": [
+        "On-site 3-Tesla MRI",
+        "Robotic-assisted knee and hip replacement",
+        "Same-day digital X-ray",
+        "Minimally invasive arthroscopy",
+        "In-house physical therapy",
+        "Tele-orthopedic follow-up visits"
+      ]
+    },
+    "patients": {
+      "metaTitle": "For patients",
+      "eyebrow": "For patients",
+      "title": "Everything you need, before and after your visit.",
+      "subtitle": "Practical resources to help you prepare, recover, and stay informed every step of the way.",
+      "quickActions": {
+        "eyebrow": "Quick start",
+        "title": "Three quick ways to get going.",
+        "items": {
+          "book": {
+            "title": "Schedule your visit",
+            "description": "Same-week appointments. No referral required.",
+            "cta": "Book now"
+          },
+          "insurance": {
+            "title": "Verify your insurance",
+            "description": "We'll check your coverage in under 24 hours and call you back with a written estimate.",
+            "cta": "Verify coverage"
+          },
+          "forms": {
+            "title": "Download patient forms",
+            "description": "Fill out new-patient paperwork at home so check-in takes minutes, not an hour.",
+            "cta": "Get the forms"
+          }
+        }
+      },
+      "insurers": {
+        "eyebrow": "Insurance accepted",
+        "title": "We work with most major plans.",
+        "subtitle": "Don't see your insurer below? Call us — most coverage can be verified in minutes.",
+        "list": [
+          "Medicare",
+          "SelectHealth",
+          "Blue Cross",
+          "Aetna",
+          "United Healthcare",
+          "Cigna",
+          "Humana",
+          "Workers' Comp"
+        ]
+      },
+      "sections": {
+        "firstVisit": {
+          "title": "Your first visit",
+          "description": "Plan on 45 to 60 minutes. We'll review your history, examine the affected area, and — when needed — order on-site imaging so you leave with a clear plan.",
+          "items": [
+            "Photo ID and insurance card",
+            "List of current medications and supplements",
+            "Any prior imaging on a disc or by patient portal",
+            "Wear comfortable clothing that allows access to the affected area"
+          ]
+        },
+        "insurance": {
+          "title": "Insurance & costs",
+          "description": "We accept Medicare, SelectHealth, Blue Cross, Aetna, United Healthcare and most major plans. Our billing team will verify your coverage before your visit and provide a written estimate for any out-of-pocket cost."
+        },
+        "preop": {
+          "title": "Pre-op instructions",
+          "description": "If surgery is recommended, you'll receive personalized pre-op instructions at least two weeks in advance — including medication adjustments, fasting guidance, and what to bring on the day of surgery."
+        },
+        "postop": {
+          "title": "Post-op care",
+          "description": "Recovery is structured, supported, and stays with one team. Most patients begin gentle movement within 24 hours of surgery and meet with their physical therapist within the first week."
+        }
+      }
+    },
+    "location": {
+      "metaTitle": "Visit us",
+      "eyebrow": "Visit us",
+      "title": "Easy to reach. Easy to find.",
+      "subtitle": "Centrally located in the Wasatch Front, with free patient parking and accessible facilities.",
+      "address": {
+        "label": "Address",
+        "street": "1234 Wasatch Boulevard",
+        "cityState": "Salt Lake City, UT 84109"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "(801) 555-0100"
+      },
+      "hours": {
+        "label": "Hours",
+        "items": [
+          { "days": "Monday – Thursday", "time": "7:30 AM – 6:00 PM" },
+          { "days": "Friday", "time": "7:30 AM – 4:00 PM" },
+          { "days": "Saturday – Sunday", "time": "Closed" }
+        ]
+      },
+      "parking": {
+        "label": "Parking & accessibility",
+        "description": "Free patient parking on-site. Accessible spaces and ramp access at the main entrance. Public transit accessible via UTA bus routes 220 and 223."
+      },
+      "directionsCta": "Get directions",
+      "mapPlaceholder": "Interactive map loads on click — to protect your privacy, we don't load Google Maps until you ask."
+    },
+    "contact": {
+      "metaTitle": "Contact",
+      "eyebrow": "Get in touch",
+      "title": "Three ways to get started.",
+      "subtitle": "Book online, send us a message, or call us directly. We respond to every inquiry within one business day.",
+      "callTitle": "Speak with us today",
+      "callValue": "(801) 555-0100",
+      "callHours": "Monday – Friday, 7:30 AM – 6:00 PM",
+      "callCta": "Call now",
+      "calendarTitle": "Book online",
+      "calendarSubtitle": "Pick a time that works for you. Email confirmation in minutes.",
+      "calendarFallback": "The booking calendar is being configured. Please use the form below or call us.",
+      "formTitle": "Send a message",
+      "formSubtitle": "Tell us briefly what's going on and we'll route you to the right specialist.",
+      "form": {
+        "name": "Full name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "phoneHint": "We'll call only about your appointment.",
+        "reasonLabel": "What can we help with?",
+        "reasons": {
+          "consult": "New consultation",
+          "secondOpinion": "Second opinion",
+          "followUp": "Follow-up visit",
+          "other": "Something else"
+        },
+        "message": "Briefly describe your concern",
+        "messagePlaceholder": "When did it start? What makes it better or worse?",
+        "consent": "I consent to be contacted by Wasatch Orthopedic about my inquiry.",
+        "consentDescription": "We'll only reach out about your appointment and care — never marketing without your permission.",
+        "submit": "Send message",
+        "submitting": "Sending…"
+      },
+      "validation": {
+        "nameRequired": "Please enter your full name",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneInvalid": "Please enter a valid phone number",
+        "reasonRequired": "Please select a reason",
+        "messageTooShort": "Please describe your concern in a few words",
+        "consentRequired": "Consent is required to submit this form"
+      },
+      "toast": {
+        "success": "Thanks — we'll reach out within one business day.",
+        "error": "Something went wrong. Please try again or call us directly."
+      }
+    }
+  },
+
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Restoring movement, restoring lives.",
+    "legal": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "accessibility": "Accessibility"
+    }
+  },
+
+  "actions": {
+    "learnMore": "Learn more",
+    "call": "Call us",
+    "switchLanguage": "Español"
+  }
+}

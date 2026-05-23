@@ -1,0 +1,21 @@
+---
+import { getLangFromUrl, getAlternateLang, localizePath, useTranslations, languages } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const alternateLang = getAlternateLang(lang);
+const alternatePath = localizePath(Astro.url.pathname, alternateLang);
+const t = useTranslations(lang);
+---
+
+<a
+  href={alternatePath}
+  hreflang={alternateLang}
+  lang={alternateLang}
+  class="inline-flex items-center gap-1.5 text-sm font-medium text-(--color-ink-muted) hover:text-(--color-ink) transition-colors duration-200 ease-(--ease-out-quart) px-3 py-1.5 rounded-(--radius-sm)"
+  aria-label={`Switch to ${languages[alternateLang]}`}
+>
+  <span aria-hidden="true" class="text-(--color-ink-subtle) uppercase tracking-wider text-xs">
+    {alternateLang}
+  </span>
+  <span>{t('actions.switchLanguage')}</span>
+</a>

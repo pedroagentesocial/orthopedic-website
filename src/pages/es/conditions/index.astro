@@ -1,0 +1,163 @@
+---
+import { Footprints, Bone, Dumbbell, Hand, Activity, Sparkles, Phone, ArrowUpRight } from 'lucide-react';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import LeadFormSection from '../../../components/sections/LeadFormSection.astro';
+import CTAStrip from '../../../components/sections/CTAStrip.astro';
+import { useTranslations, localizePath } from '../../../i18n/utils';
+
+const lang = 'es' as const;
+const t = useTranslations(lang);
+
+const featured = [
+  { key: 'joint', image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=900&q=80', specialtyHref: '/services/knee' },
+  { key: 'back',  image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80', specialtyHref: '/services/spine' },
+  { key: 'sport', image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=80', specialtyHref: '/services/sports' },
+] as const;
+
+const groups = [
+  { key: 'kneeHip',       Icon: Footprints, specialty: 'knee',     items: ['kneeArthritis', 'aclTear', 'hipImpingement', 'hipArthritis', 'jointReplacementRevision'] },
+  { key: 'spine',         Icon: Bone,       specialty: 'spine',    items: ['discHerniation', 'spinalStenosis', 'sciatica'] },
+  { key: 'shoulderElbow', Icon: Dumbbell,   specialty: 'shoulder', items: ['rotatorCuff', 'frozenShoulder', 'tennisElbow'] },
+  { key: 'handWrist',     Icon: Hand,       specialty: 'hand',     items: ['carpalTunnel', 'triggerFinger', 'wristFractures'] },
+  { key: 'sports',        Icon: Activity,   specialty: 'sports',   items: ['concussion', 'ankleSprains', 'stressFractures', 'plantarFasciitis', 'achillesTendinopathy'] },
+  { key: 'general',       Icon: Sparkles,   specialty: 'joint',    items: ['osteoporosis'] },
+] as const;
+
+const totalConditions = groups.reduce((sum, g) => sum + g.items.length, 0);
+---
+
+<BaseLayout title={t('pages.conditions.metaTitle')} description={t('pages.conditions.subtitle')}>
+  <PageHero
+    eyebrow={t('pages.conditions.eyebrow')}
+    title={t('pages.conditions.title')}
+    subtitle={t('pages.conditions.subtitle')}
+  />
+
+  <section class="container-page section-y">
+    <div class="reveal-up max-w-2xl">
+      <p class="text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)">
+        <span class="eyebrow-line"></span>
+        {t('pages.conditions.featured.eyebrow')}
+      </p>
+      <h2 class="mt-6">{t('pages.conditions.featured.title')}</h2>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3">
+      {featured.map((f) => (
+        <a href={localizePath(f.specialtyHref, lang)} class="reveal-up group block">
+          <div class="relative aspect-[4/5] overflow-hidden rounded-(--radius-lg) bg-(--color-surface-sunken)">
+            <img
+              src={f.image}
+              alt=""
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.04]"
+            />
+          </div>
+          <h3
+            class="mt-6 font-display text-2xl tracking-tight text-(--color-ink) group-hover:text-(--color-accent) transition-colors duration-300"
+            style={{ fontVariationSettings: '"opsz" 36' }}
+          >
+            {t(`pages.conditions.featured.items.${f.key}.title`)}
+          </h3>
+          <p class="mt-3 text-(--color-ink-muted) leading-relaxed">
+            {t(`pages.conditions.featured.items.${f.key}.description`)}
+          </p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-(--color-accent) group-hover:gap-3 transition-all duration-300 ease-(--ease-out-expo)">
+            {t('pages.conditions.featured.viewSpecialists')}
+            <ArrowUpRight size={16} strokeWidth={1.75} />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-page section-y border-t border-(--color-border)">
+    <div class="reveal-up max-w-2xl">
+      <p class="text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)">
+        <span class="eyebrow-line"></span>
+        {t('pages.conditions.all.eyebrow')}
+      </p>
+      <h2 class="mt-6">{t('pages.conditions.all.title')}</h2>
+      <p class="mt-6 text-lg text-(--color-ink-muted) leading-relaxed">
+        {t('pages.conditions.all.subtitle')}
+      </p>
+    </div>
+
+    <div class="mt-20 space-y-24">
+      {groups.map((group, i) => {
+        const { Icon } = group;
+        return (
+          <div class="reveal-up grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+            <div class="lg:sticky lg:top-28 lg:self-start">
+              <p class="font-mono text-xs tabular-nums uppercase tracking-[0.2em] text-(--color-ink-subtle)">
+                {String(i + 1).padStart(2, '0')} <span class="text-(--color-border-strong)">/</span> {String(groups.length).padStart(2, '0')}
+              </p>
+              <div class="mt-5 flex items-center gap-4">
+                <span class="inline-flex h-14 w-14 items-center justify-center rounded-(--radius-md) bg-(--color-accent-subtle) text-(--color-accent)">
+                  <Icon size={26} strokeWidth={1.5} />
+                </span>
+                <h3
+                  class="font-display text-3xl tracking-tight text-(--color-ink)"
+                  style={{ fontVariationSettings: '"opsz" 72' }}
+                >
+                  {t(`pages.conditions.groups.${group.key}`)}
+                </h3>
+              </div>
+              <p class="mt-4 text-sm text-(--color-ink-muted) tabular-nums">
+                {group.items.length} {t('pages.conditions.all.countSuffix')}
+              </p>
+              <a
+                href={localizePath(`/services/${group.specialty}`, lang)}
+                class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-(--color-accent) hover:gap-3 transition-all duration-300 ease-(--ease-out-expo)"
+              >
+                {t('pages.conditions.all.viewSpecialty')}
+                <ArrowUpRight size={14} strokeWidth={1.75} />
+              </a>
+            </div>
+
+            <ul class="grid sm:grid-cols-2 gap-3 content-start" role="list">
+              {group.items.map((id) => (
+                <li>
+                  <span class="block px-5 py-4 rounded-(--radius-md) border border-(--color-border) bg-(--color-surface-elevated) text-(--color-ink) hover:border-(--color-accent) hover:bg-(--color-accent-subtle) transition-all duration-300 ease-(--ease-out-quart) cursor-default">
+                    {t(`pages.conditions.items.${id}`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="reveal-up mt-24 p-8 md:p-14 rounded-(--radius-2xl) bg-(--color-surface-sunken) border border-(--color-border)">
+      <div class="grid gap-8 md:grid-cols-[2fr_auto] md:items-center md:gap-12">
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-(--color-accent) font-medium">
+            <span class="eyebrow-line"></span>
+            {t('pages.conditions.callToActionLabel')}
+          </p>
+          <p
+            class="mt-4 font-display text-4xl text-(--color-ink) tracking-tight tabular-nums"
+            style={{ fontVariationSettings: '"opsz" 96' }}
+          >
+            (801) 555-0100
+          </p>
+          <p class="mt-3 text-sm text-(--color-ink-muted) tabular-nums">
+            {totalConditions}+ {t('pages.conditions.all.countSuffix')} · 6 {t('pages.conditions.groups.general').toLowerCase()}
+          </p>
+        </div>
+        <a
+          href="tel:+18015550100"
+          class="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-(--radius-md) bg-(--color-ink) text-(--color-ink-inverse) font-medium hover:bg-(--color-accent) transition-colors duration-300 ease-(--ease-out-quart)"
+        >
+          <Phone size={18} strokeWidth={1.75} />
+          {t('actions.call')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormSection />
+  <CTAStrip />
+</BaseLayout>

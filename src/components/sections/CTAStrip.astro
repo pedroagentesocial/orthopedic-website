@@ -1,0 +1,65 @@
+---
+import { Phone } from 'lucide-react';
+import { getLangFromUrl, useTranslations, localizePath } from '../../i18n/utils';
+import SendButton from '../ui/SendButton.tsx';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const ctaImage =
+  'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80';
+---
+
+<section class="container-page py-28">
+  <div class="reveal-scale relative overflow-hidden rounded-(--radius-2xl) bg-(--color-ink) text-(--color-ink-inverse)">
+    <div class="grid lg:grid-cols-[1.3fr_1fr] lg:items-stretch">
+      <!-- Text + CTAs -->
+      <div class="relative p-10 md:p-16 lg:p-20 z-10">
+        <p class="text-sm uppercase tracking-[0.18em] text-(--color-accent) font-medium">
+          <span class="eyebrow-line"></span>
+          {t('home.cta.eyebrow')}
+        </p>
+        <h2 class="mt-6 text-(--color-ink-inverse) text-balance">
+          {t('home.cta.title')}
+        </h2>
+        <p class="mt-6 text-xl text-(--color-ink-inverse)/75 max-w-xl leading-relaxed">
+          {t('home.cta.subtitle')}
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-5">
+          <SendButton href={localizePath('/contact', lang)} loud large>
+            {t('home.cta.primary')}
+          </SendButton>
+          <a
+            href="tel:+18015550100"
+            class="inline-flex items-center gap-2 h-14 px-8 rounded-(--radius-md) border border-(--color-ink-inverse)/30 text-(--color-ink-inverse) font-medium transition-colors duration-200 hover:bg-(--color-ink-inverse)/10"
+          >
+            <Phone size={18} strokeWidth={1.75} />
+            {t('home.cta.secondary')}
+          </a>
+        </div>
+
+        <!-- Subtle decorative line on the right edge of text panel, only visible on desktop -->
+        <span
+          aria-hidden="true"
+          class="hidden lg:block absolute top-12 right-0 bottom-12 w-px bg-(--color-ink-inverse)/10"
+        ></span>
+      </div>
+
+      <!-- Image panel -->
+      <div class="relative min-h-[280px] lg:min-h-[480px]">
+        <img
+          src={ctaImage}
+          alt=""
+          loading="lazy"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <!-- Subtle ink overlay to keep cohesion with dark left panel; solid color, no gradient -->
+        <span
+          aria-hidden="true"
+          class="absolute inset-0 bg-(--color-ink)/15"
+        ></span>
+      </div>
+    </div>
+  </div>
+</section>

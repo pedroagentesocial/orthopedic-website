@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { getLangFromUrl, useTranslations, getAlternateLang, localizePath, type Lang } from '../i18n/utils';
+import SiteHeader from '../components/sections/SiteHeader.astro';
+import SiteFooter from '../components/sections/SiteFooter.astro';
+import Toaster from '../components/ui/Toaster.tsx';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+const lang: Lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const siteName = t('meta.siteName');
+const defaultDescription = t('meta.siteDescription');
+const pageTitle = title ? `${title} — ${siteName}` : siteName;
+const pageDescription = description ?? defaultDescription;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const alternateLang = getAlternateLang(lang);
+const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), Astro.site).toString();
+---
+
+<!doctype html>
+<html lang={lang} dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+    <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace(/^\/es/, '') || '/', Astro.site).toString()} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={t('meta.locale')} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <meta name="theme-color" content="#FAFAF7" />
+    <meta name="color-scheme" content="light" />
+
+    <ClientRouter />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-(--color-surface-elevated) focus:px-4 focus:py-2 focus:rounded-(--radius-md) focus:shadow-md">
+      Skip to content
+    </a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+    <Toaster client:idle />
+
+    <script>
+      import Lenis from 'lenis';
+
+      let lenis: Lenis | null = null;
+
+      function startLenis() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
+        lenis?.destroy();
+        lenis = new Lenis({
+          duration: 1.05,
+          easing: (t: number) => 1 - Math.pow(2, -10 * t),
+          smoothWheel: true,
+          touchMultiplier: 1.5,
+        });
+        function raf(time: number) {
+          lenis?.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
+      startLenis();
+      document.addEventListener('astro:after-swap', startLenis);
+      document.addEventListener('astro:before-swap', () => lenis?.destroy());
+    </script>
+  </body>
+</html>

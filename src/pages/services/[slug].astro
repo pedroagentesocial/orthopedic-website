@@ -1,0 +1,193 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ArrowLeft, ArrowUpRight, Check, Clock, HeartPulse } from 'lucide-react';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadFormSection from '../../components/sections/LeadFormSection.astro';
+import CTAStrip from '../../components/sections/CTAStrip.astro';
+import { SERVICE_ICONS } from '../../lib/icons';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const services = await getCollection('services', (e) => e.data.lang === 'en');
+  return services.map((service) => ({
+    params: { slug: service.data.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const Icon = SERVICE_ICONS[service.data.icon];
+
+const related = (await getCollection('services', (e) => e.data.lang === 'en' && e.data.slug !== service.data.slug))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={service.data.seoTitle ?? service.data.title}
+  description={service.data.seoDescription ?? service.data.summary}
+>
+  <article>
+    <section class="container-page pt-32 pb-12 md:pt-44">
+      <a
+        href="/services"
+        class="inline-flex items-center gap-2 text-sm text-(--color-ink-muted) hover:text-(--color-ink) transition-colors group"
+      >
+        <ArrowLeft size={14} strokeWidth={1.75} className="transition-transform duration-300 ease-(--ease-out-quart) group-hover:-translate-x-1" />
+        {t('pages.services.backLabel')}
+      </a>
+
+      <div class="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:items-start">
+        <div>
+          <div class="inline-flex items-center justify-center h-14 w-14 rounded-(--radius-md) bg-(--color-accent-subtle) text-(--color-accent)">
+            <Icon size={26} strokeWidth={1.5} />
+          </div>
+          <p class="mt-8 text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)">
+            {t('pages.services.eyebrow')}
+          </p>
+          <h1 class="mt-4">{service.data.title}</h1>
+          <p class="mt-8 text-xl text-(--color-ink-muted) leading-relaxed max-w-xl">
+            {service.data.summary}
+          </p>
+
+          <dl class="mt-12 grid grid-cols-2 gap-y-6 max-w-md">
+            {service.data.durationLabel && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-(--color-ink-subtle) flex items-center gap-1.5">
+                  <Clock size={12} strokeWidth={1.75} />
+                  {t('pages.services.labels.duration')}
+                </dt>
+                <dd class="mt-2 text-(--color-ink) font-medium tabular-nums">{service.data.durationLabel}</dd>
+              </div>
+            )}
+            {service.data.recoveryLabel && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-(--color-ink-subtle) flex items-center gap-1.5">
+                  <HeartPulse size={12} strokeWidth={1.75} />
+                  {t('pages.services.labels.recovery')}
+                </dt>
+                <dd class="mt-2 text-(--color-ink) font-medium tabular-nums">{service.data.recoveryLabel}</dd>
+              </div>
+            )}
+          </dl>
+        </div>
+
+        {service.data.image && (
+          <div class="relative aspect-[4/5] overflow-hidden rounded-(--radius-2xl) bg-(--color-surface-sunken) border border-(--color-border)">
+            <Image
+              src={service.data.image}
+              alt={service.data.title}
+              width={1200}
+              height={1500}
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              inferSize={false}
+            />
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="container-page section-y border-t border-(--color-border)">
+      <div class="grid gap-16 lg:grid-cols-[1.6fr_1fr] lg:gap-20">
+        <div class="prose-content">
+          <Content />
+        </div>
+
+        <aside class="space-y-12">
+          {service.data.treatments.length > 0 && (
+            <div>
+              <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-(--color-ink)">
+                {t('pages.services.labels.treatments')}
+              </h3>
+              <ul class="mt-6 space-y-3">
+                {service.data.treatments.map((item) => (
+                  <li class="flex items-start gap-3 text-(--color-ink-muted)">
+                    <Check size={16} strokeWidth={1.75} className="text-(--color-accent) mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {service.data.conditions.length > 0 && (
+            <div>
+              <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-(--color-ink)">
+                {t('pages.services.labels.conditions')}
+              </h3>
+              <ul class="mt-6 space-y-3">
+                {service.data.conditions.map((item) => (
+                  <li class="text-(--color-ink-muted) border-b border-(--color-border) pb-3 last:border-b-0">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      </div>
+    </section>
+
+    <section class="container-page section-y border-t border-(--color-border)">
+      <h2 class="text-3xl">{t('pages.services.relatedTitle')}</h2>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((r) => {
+          const RelatedIcon = SERVICE_ICONS[r.data.icon];
+          return (
+            <a
+              href={`/services/${r.data.slug}`}
+              class="group flex items-start gap-5 p-6 rounded-(--radius-lg) border border-(--color-border) bg-(--color-surface-elevated) hover:border-(--color-border-accent) hover:-translate-y-0.5 hover:shadow-(--shadow-sm) transition-all duration-300 ease-(--ease-out-expo)"
+            >
+              <div class="flex items-center justify-center h-11 w-11 rounded-(--radius-md) bg-(--color-accent-subtle) text-(--color-accent) shrink-0">
+                <RelatedIcon size={20} strokeWidth={1.5} />
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-display text-lg text-(--color-ink) tracking-tight" style={{ fontVariationSettings: '"opsz" 30' }}>
+                  {r.data.title}
+                </p>
+                <p class="mt-1 text-sm text-(--color-ink-muted) line-clamp-2">{r.data.summary}</p>
+              </div>
+              <ArrowUpRight size={16} strokeWidth={1.75} className="text-(--color-ink-muted) shrink-0 transition-all duration-300 ease-(--ease-out-quart) group-hover:text-(--color-accent) group-hover:rotate-12" />
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  </article>
+
+  <LeadFormSection />
+  <CTAStrip />
+</BaseLayout>
+
+<style is:global>
+  .prose-content h2 {
+    font-size: var(--text-3xl);
+    margin-top: 2.5rem;
+    font-variation-settings: "opsz" 72;
+  }
+  .prose-content h2:first-child { margin-top: 0; }
+  .prose-content h3 {
+    font-size: var(--text-2xl);
+    margin-top: 2rem;
+    font-variation-settings: "opsz" 36;
+  }
+  .prose-content p {
+    margin-top: 1.25rem;
+    color: var(--color-ink-muted);
+    line-height: 1.7;
+    max-width: 70ch;
+  }
+  .prose-content ul {
+    margin-top: 1.25rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+    color: var(--color-ink-muted);
+  }
+  .prose-content li { margin-top: 0.5rem; }
+</style>

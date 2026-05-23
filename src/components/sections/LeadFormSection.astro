@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import LeadForm from '../forms/LeadForm.tsx';
+import en from '../../i18n/en.json';
+import es from '../../i18n/es.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const contactStrings = lang === 'es' ? es.pages.contact : en.pages.contact;
+const formStrings = {
+  form: contactStrings.form,
+  validation: contactStrings.validation,
+  toast: contactStrings.toast,
+};
+---
+
+<section class="container-page section-y border-t border-(--color-border)">
+  <div class="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-20">
+    <div class="reveal-up lg:sticky lg:top-28 lg:self-start">
+      <p class="text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)">
+        <span class="eyebrow-line"></span>
+        {t('pages.contact.formTitle')}
+      </p>
+      <h2 class="mt-6">{t('pages.contact.formTitle')}</h2>
+      <p class="mt-6 text-(--color-ink-muted) leading-relaxed">
+        {t('pages.contact.formSubtitle')}
+      </p>
+    </div>
+    <div class="reveal-up">
+      <LeadForm client:visible strings={formStrings} language={lang} />
+    </div>
+  </div>
+</section>

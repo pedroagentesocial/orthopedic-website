@@ -1,0 +1,709 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/inter/index.css";
+
+/* ------------------------------------------------------------------
+ * Design tokens — "Editorial cálido"
+ * No gradients. Flat surfaces. Hierarchy through type weight & space.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Color — Surface */
+  --color-surface: #FAFAF7;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-sunken: #F2F0EA;
+
+  /* Color — Ink */
+  --color-ink: #1A2027;
+  --color-ink-muted: #5C6670;
+  --color-ink-subtle: #8B939B;
+  --color-ink-inverse: #FAFAF7;
+
+  /* Color — Accent (sage green, single accent only) */
+  --color-accent: #5C8374;
+  --color-accent-hover: #4A6E60;
+  --color-accent-pressed: #3D5A4F;
+  --color-accent-subtle: #E8F0EC;
+
+  /* Brighter, more energetic sage — reserved for "loud" CTAs (hero, final CTA).
+     Keeps the sage family for brand cohesion but pops more on cream + dark.
+     Use sparingly: 1-2 places per page max. */
+  --color-accent-loud: #7DC084;
+  --color-accent-loud-hover: #6BA871;
+
+  /* Color — Border */
+  --color-border: #E8E6E0;
+  --color-border-strong: #D4D2CC;
+  --color-border-accent: #5C8374;
+
+  /* Color — Feedback (semantic, muted) */
+  --color-success: #4A7C59;
+  --color-warning: #B8860B;
+  --color-danger: #A04848;
+
+  /* Typography — families */
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Typography — sizes (fluid via clamp) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+  --text-5xl: clamp(3rem, 5vw + 1rem, 4.75rem);
+  --text-6xl: clamp(3.75rem, 6vw + 1rem, 6rem);
+
+  /* Spacing */
+  --spacing-section: clamp(4rem, 8vw, 9rem);
+  --spacing-section-sm: clamp(3rem, 5vw, 5rem);
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows — subtle, hover/elevation only */
+  --shadow-xs: 0 1px 2px 0 rgb(26 32 39 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(26 32 39 / 0.06), 0 1px 2px -1px rgb(26 32 39 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(26 32 39 / 0.08), 0 2px 4px -2px rgb(26 32 39 / 0.04);
+  --shadow-lg: 0 12px 24px -6px rgb(26 32 39 / 0.10), 0 4px 8px -4px rgb(26 32 39 / 0.06);
+
+  /* Easing — natural, calm motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Container */
+  --container-max: 1280px;
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ------------------------------------------------------------------
+ * Base styles
+ * ------------------------------------------------------------------ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-variation-settings: "opsz" 144;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: var(--text-6xl); }
+  h2 { font-size: var(--text-5xl); }
+  h3 { font-size: var(--text-3xl); font-variation-settings: "opsz" 72; }
+  h4 { font-size: var(--text-2xl); font-variation-settings: "opsz" 36; }
+
+  p {
+    text-wrap: pretty;
+    max-width: 65ch;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 200ms var(--ease-out-quart);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-ink);
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Utility helpers
+ * ------------------------------------------------------------------ */
+@utility container-page {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+@utility section-y {
+  padding-block: var(--spacing-section);
+}
+
+/* ==================================================================
+ * Component styles (Uiverse adaptations)
+ * Hoisted here because inline <style> tags inside React components
+ * are unreliable when nested in interactive elements like <button>.
+ * ================================================================== */
+
+/* SendButton — adapted from loud-chicken-53 -------------------------- */
+.send-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 16px;
+  background-color: transparent;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: var(--sb-accent, var(--color-accent));
+  box-shadow: 0 0 0 2px var(--sb-accent, var(--color-accent));
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.send-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.send-btn .sb-arr {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  fill: var(--sb-accent, var(--color-accent));
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.send-btn .sb-arr-1 { right: 16px; }
+.send-btn .sb-arr-2 { left: -25%; }
+.send-btn .sb-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--sb-accent, var(--color-accent));
+  border-radius: 9999px;
+  opacity: 0;
+  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              height 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.send-btn .sb-text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.send-btn:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: var(--color-ink);
+}
+.send-btn:hover .sb-arr-1 { right: -25%; }
+.send-btn:hover .sb-arr-2 { left: 16px; }
+.send-btn:hover .sb-text { transform: translateX(12px); }
+.send-btn:hover .sb-arr { fill: var(--color-ink); }
+.send-btn:hover .sb-circle { width: 320px; height: 320px; opacity: 1; }
+.send-btn:active { transform: scale(0.97); box-shadow: 0 0 0 4px var(--sb-accent, var(--color-accent)); }
+
+/* SendButton — LARGE variant (calibrated for hero/CTA buttons ~250px wide).
+   Bigger padding, snappier transitions, much bigger flood circle so the
+   animation feels as fluid as the original uiverse demo (which is ~115px). */
+.send-btn-large {
+  padding: 18px 40px;
+  font-size: 16px;
+  transition: color 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.18s ease;
+}
+.send-btn-large .sb-arr {
+  transition: all 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.send-btn-large .sb-text {
+  transform: translateX(-16px);
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.send-btn-large .sb-circle {
+  transition: width 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              height 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.35s ease;
+}
+.send-btn-large:hover .sb-text { transform: translateX(16px); }
+.send-btn-large:hover .sb-circle { width: 480px; height: 480px; }
+.send-btn-large:hover .sb-arr-1 { right: -22%; }
+.send-btn-large:hover .sb-arr-2 { left: 18px; }
+
+/* SplashButton — adapted from purple-kangaroo-17 --------------------- */
+.splash-btn {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-ink-inverse);
+  background-color: var(--color-ink);
+  padding: 1em 2.25em;
+  border: none;
+  border-radius: var(--radius-md);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 16px;
+  text-decoration: none;
+}
+.splash-btn .splash-c {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: var(--spl-accent, var(--color-accent));
+  border-radius: 9999px;
+  transition: transform 0.6s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+.splash-btn .splash-c1 { transform: translate(-3.3em, -4em); }
+.splash-btn .splash-c2 { transform: translate(-6em,  1.3em); }
+.splash-btn .splash-c3 { transform: translate(-0.2em, 1.8em); }
+.splash-btn .splash-c4 { transform: translate( 3.5em, 1.4em); }
+.splash-btn .splash-c5 { transform: translate( 3.5em, -3.8em); }
+.splash-btn .splash-text { position: relative; z-index: 1; pointer-events: none; }
+.splash-btn:hover .splash-c {
+  transform: translate(-50%, -50%) scale(4);
+  transition: transform 1.4s ease;
+}
+
+/* AnimatedInput / AnimatedTextarea — adapted from jolly-emu-80 ------- */
+.jolly-emu-input {
+  transition:
+    border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1),
+    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1),
+    background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1);
+}
+.jolly-emu-input:hover,
+.jolly-emu-input:focus {
+  border-color: var(--color-ink);
+  background: rgb(26 32 39 / 0.02);
+  outline: none;
+}
+
+/* Checkbox — adapted from green-donkey-82 ---------------------------- */
+.gd-check {
+  position: relative;
+}
+.gd-check svg {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+  transition: stroke 0.2s ease;
+}
+.gd-check::before {
+  content: "";
+  position: absolute;
+  inset: -13px;
+  border-radius: 9999px;
+  background: var(--color-accent-subtle);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+.gd-check:hover::before { opacity: 1; }
+.gd-check:hover svg,
+.gd-check[data-state="checked"] svg { stroke: var(--color-accent); }
+.gd-shape {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.3s linear;
+}
+.gd-tick {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+  transition: stroke-dashoffset 0.2s linear 0.15s;
+}
+.gd-check[data-state="checked"] .gd-shape { stroke-dashoffset: 60; }
+.gd-check[data-state="checked"] .gd-tick { stroke-dashoffset: 42; }
+
+/* Accordion (native <details>) — indicator from ugly-dog-26 ---------- */
+.ud-details > summary::-webkit-details-marker { display: none; }
+.ud-details > summary { list-style: none; }
+
+.ud-indicator {
+  position: relative;
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-strong);
+  flex-shrink: 0;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ud-summary:hover .ud-indicator,
+.ud-details[open] .ud-indicator { border-color: var(--color-accent); }
+.ud-details[open] .ud-indicator { background-color: var(--color-accent); }
+.ud-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  margin-left: -7px;
+  margin-top: -1px;
+  background-color: var(--color-ink-muted);
+  border-radius: 1px;
+  transition: transform 0.7s cubic-bezier(0, 1, 0.33, 1.2),
+              background-color 0.4s;
+}
+.ud-line-v { transform: rotate(90deg); }
+.ud-summary:hover .ud-line { background-color: var(--color-accent); }
+.ud-details[open] .ud-line { background-color: var(--color-ink-inverse); }
+.ud-details[open] .ud-line-v { transform: rotate(0deg); }
+
+/* Subtle fade-in of answer when details opens (no height anim — too tricky on details) */
+.ud-details[open] > div {
+  animation: ud-answer-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes ud-answer-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SocialIcons — adapted from chilly-eagle-55 ------------------------- */
+.ce-filled {
+  top: auto;
+  bottom: 0;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+.ce-link:hover .ce-filled { height: 100%; }
+.ce-tooltip {
+  position: absolute;
+  left: 50%;
+  top: -28px;
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-ink-inverse);
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: top 0.25s ease, opacity 0.25s ease, visibility 0.25s;
+  white-space: nowrap;
+}
+.ce-item:hover .ce-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -36px;
+}
+
+/* ServiceCardFlip — image front, description back ---------------------- */
+.tr-card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  perspective: 1600px;
+  text-decoration: none;
+}
+.tr-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-lg);
+}
+.tr-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 850ms cubic-bezier(0.5, 0, 0.2, 1),
+              box-shadow 850ms cubic-bezier(0.5, 0, 0.2, 1);
+  border-radius: var(--radius-lg);
+  will-change: transform;
+}
+.tr-card:hover .tr-content,
+.tr-card:focus-within .tr-content {
+  transform: rotateY(180deg);
+  box-shadow: 0 24px 48px -12px rgb(26 32 39 / 0.18);
+}
+
+.tr-front, .tr-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* FRONT (default visible) = image + title bar */
+.tr-back {
+  background-color: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+}
+.tr-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tr-card:hover .tr-image { transform: scale(1.04); }
+.tr-image-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 24px;
+  background-color: rgb(26 32 39 / 0.85);
+  color: var(--color-ink-inverse);
+}
+.tr-image-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink-inverse);
+}
+
+/* BACK (visible on hover) = description + CTA */
+.tr-front {
+  transform: rotateY(180deg);
+  background-color: var(--color-accent-subtle);
+  border: 1px solid var(--color-border-accent);
+}
+.tr-front-inner {
+  width: 100%;
+  height: 100%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tr-back-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.tr-back-desc {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+.tr-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-top: auto;
+}
+
+/* Generic fade-in-up (CSS-only, fires on page load) -------------------- */
+.fade-in-up {
+  animation: fade-in-up 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll-triggered reveals — modern animation-timeline API ------------- *
+ * Default state = fully visible (fallback for older browsers).
+ * Where supported, elements animate IN as they scroll into the viewport.
+ * No JS, no IntersectionObserver, no hydration. Pure CSS.                */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes reveal-from-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-up {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  .reveal-in {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  .reveal-scale {
+    animation: reveal-scale linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  .reveal-from-left {
+    animation: reveal-from-left linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  /* Parallax-ish image drift on scroll — for hero/service card images */
+  .scroll-drift {
+    animation: scroll-drift linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+  @keyframes scroll-drift {
+    from { transform: translateY(-8%) scale(1.08); }
+    to   { transform: translateY(8%)  scale(1.08); }
+  }
+}
+
+/* Animated underline for inline links ---------------------------------- */
+.underline-grow {
+  position: relative;
+  display: inline-block;
+}
+.underline-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 400ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.underline-grow:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Section eyebrow with line that grows on view ------------------------ */
+.eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-accent);
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  transform-origin: left;
+}
+@supports (animation-timeline: view()) {
+  .eyebrow-line {
+    animation: eyebrow-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+  @keyframes eyebrow-grow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+}
+
+/* Hero scroll indicator — line that travels down on loop --------------- */
+@keyframes hero-scroll {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+.hero-scroll-line { animation: hero-scroll 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+/* Tooltip (Radix) animations ----------------------------------------- */
+@keyframes tooltip-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes tooltip-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(2px) scale(0.98); }
+}
+.animate-tooltip-in  { animation: tooltip-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-tooltip-out { animation: tooltip-out 140ms cubic-bezier(0.25, 1, 0.5, 1) both; }
+
+/* Reduced motion: respect user preference across all components ------- */
+@media (prefers-reduced-motion: reduce) {
+  .send-btn, .send-btn *, .send-btn-large, .send-btn-large *,
+  .splash-btn, .splash-btn *,
+  .jolly-emu-input,
+  .gd-shape, .gd-tick,
+  .ud-indicator, .ud-line, .ud-details[open] > div,
+  .ce-filled, .ce-tooltip,
+  .tr-content {
+    transition: none !important;
+    animation: none !important;
+  }
+  .tr-card:hover .tr-content,
+  .tr-card:focus-within .tr-content { transform: none; }
+  .tr-front { display: none; }
+  .tr-image { transform: none !important; }
+  .hero-scroll-line { animation: none !important; }
+  .fade-in-up,
+  .reveal-up, .reveal-in, .reveal-scale, .reveal-from-left,
+  .scroll-drift, .eyebrow-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

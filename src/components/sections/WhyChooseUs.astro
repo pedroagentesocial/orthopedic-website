@@ -1,0 +1,49 @@
+---
+import { Stethoscope, Scissors, HeartPulse } from 'lucide-react';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [
+  { key: 'diagnosis', Icon: Stethoscope },
+  { key: 'minimally', Icon: Scissors },
+  { key: 'recovery', Icon: HeartPulse },
+] as const;
+---
+
+<section class="container-page section-y border-t border-(--color-border)">
+  <div class="max-w-2xl">
+    <p class="text-sm uppercase tracking-[0.18em] text-(--color-ink-muted)">
+      <span class="inline-block w-8 h-px bg-(--color-accent) align-middle mr-2"></span>
+      {t('home.why.eyebrow')}
+    </p>
+    <h2 class="mt-6">{t('home.why.title')}</h2>
+    <p class="mt-6 text-lg text-(--color-ink-muted) leading-relaxed">
+      {t('home.why.subtitle')}
+    </p>
+  </div>
+
+  <div class="mt-16 grid gap-10 md:grid-cols-3">
+    {items.map((item, i) => {
+      const { Icon } = item;
+      return (
+        <div
+          class="fade-in-up flex flex-col gap-6 border-t border-(--color-border) pt-8"
+          style={`animation-delay: ${i * 100}ms`}
+        >
+          <Icon size={32} strokeWidth={1.25} className="text-(--color-accent)" />
+          <h3
+            class="font-display text-2xl tracking-tight text-(--color-ink)"
+            style={{ fontVariationSettings: '"opsz" 36' }}
+          >
+            {t(`home.why.items.${item.key}.title`)}
+          </h3>
+          <p class="text-(--color-ink-muted) leading-relaxed">
+            {t(`home.why.items.${item.key}.description`)}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+</section>

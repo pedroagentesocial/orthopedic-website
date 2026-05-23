@@ -1,0 +1,60 @@
+---
+import { Phone, Clock } from 'lucide-react';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CalendarEmbed from '../components/sections/CalendarEmbed.astro';
+import LeadFormSection from '../components/sections/LeadFormSection.astro';
+import CTAStrip from '../components/sections/CTAStrip.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={t('pages.contact.metaTitle')} description={t('pages.contact.subtitle')}>
+  <PageHero
+    eyebrow={t('pages.contact.eyebrow')}
+    title={t('pages.contact.title')}
+    subtitle={t('pages.contact.subtitle')}
+  />
+
+  <section class="container-page py-16 md:py-20">
+    <div class="relative overflow-hidden rounded-(--radius-2xl) bg-(--color-ink) text-(--color-ink-inverse) p-10 md:p-14">
+      <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-center md:gap-16">
+        <div>
+          <p class="text-sm uppercase tracking-[0.18em] text-(--color-accent)">
+            <Phone size={14} strokeWidth={1.5} className="inline-block align-middle mr-2" />
+            {t('pages.contact.callTitle')}
+          </p>
+          <a
+            href="tel:+18015550100"
+            class="mt-4 inline-block font-display text-5xl md:text-6xl tracking-tight text-(--color-ink-inverse) hover:text-(--color-accent) transition-colors"
+            style={{ fontVariationSettings: '"opsz" 144' }}
+          >
+            {t('pages.contact.callValue')}
+          </a>
+          <p class="mt-4 text-sm text-(--color-ink-inverse)/70 flex items-center gap-2">
+            <Clock size={14} strokeWidth={1.5} />
+            {t('pages.contact.callHours')}
+          </p>
+        </div>
+        <a
+          href="tel:+18015550100"
+          class="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-(--radius-full) bg-(--color-accent) text-(--color-ink-inverse) font-medium hover:bg-(--color-accent-hover) transition-colors duration-300 ease-(--ease-out-quart) whitespace-nowrap"
+        >
+          <Phone size={18} strokeWidth={1.75} />
+          {t('pages.contact.callCta')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CalendarEmbed
+    title={t('pages.contact.calendarTitle')}
+    subtitle={t('pages.contact.calendarSubtitle')}
+    fallbackMessage={t('pages.contact.calendarFallback')}
+  />
+
+  <LeadFormSection />
+  <CTAStrip />
+</BaseLayout>

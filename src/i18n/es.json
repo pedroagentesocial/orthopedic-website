@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "siteName": "Wasatch Orthopedic",
+    "siteDescription": "Atención ortopédica con raíces en Utah. Tratamiento experto para articulaciones, columna, lesiones deportivas y recuperación.",
+    "locale": "es-MX"
+  },
+  "nav": {
+    "services": "Servicios",
+    "conditions": "Condiciones",
+    "patients": "Pacientes",
+    "faq": "Preguntas",
+    "location": "Ubicación",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "book": "Reservar cita"
+  },
+  "home": {
+    "heroEyebrow": "Cuidado ortopédico, Utah",
+    "heroTitle": "El movimiento es medicina.",
+    "heroSubtitle": "Tratamiento ortopédico personalizado que te devuelve a la vida que amas — desde recuperación activa hasta cirugía avanzada.",
+    "heroCtaPrimary": "Reservar consulta",
+    "heroCtaSecondary": "Ver servicios",
+    "scrollHint": "Desliza para descubrir",
+
+    "stats": {
+      "eyebrow": "En cifras",
+      "patients": "Pacientes recuperados",
+      "years": "Años cuidando a Utah",
+      "satisfaction": "Satisfacción del paciente",
+      "specialists": "Especialistas certificados"
+    },
+
+    "services": {
+      "eyebrow": "Especialidades",
+      "title": "Atención diseñada para cada articulación.",
+      "subtitle": "Desde la primera consulta hasta el último día de recuperación, nuestros especialistas tratan a la persona completa — no solo la lesión.",
+      "learnMore": "Conocer más",
+      "viewAll": "Ver todos los servicios",
+      "knee": { "title": "Rodilla y Cadera", "description": "Preservación articular, reemplazo y cirugía mínimamente invasiva para vidas activas." },
+      "spine": { "title": "Columna", "description": "Tratamiento dirigido para condiciones de disco, nervio y estructurales." },
+      "shoulder": { "title": "Hombro y Codo", "description": "Desde manguito rotador hasta codo de tenista — devolvemos rango y fuerza." },
+      "hand": { "title": "Mano y Muñeca", "description": "Precisión microquirúrgica para restaurar mano, muñeca y codo." },
+      "sports": { "title": "Medicina Deportiva", "description": "Desde atletas de fin de semana hasta profesionales — recuperación duradera." },
+      "joint": { "title": "Reemplazo Articular", "description": "Implantes personalizados y protocolos de recuperación rápida para cadera y rodilla." }
+    },
+
+    "why": {
+      "eyebrow": "Nuestro enfoque",
+      "title": "Medicina de precisión, ritmo humano.",
+      "subtitle": "Cada plan se calibra a tu vida — no al revés.",
+      "items": {
+        "diagnosis": { "title": "Diagnóstico la misma semana", "description": "Resonancia y rayos X en sitio para que salgas de tu primera visita con un plan claro." },
+        "minimally": { "title": "Primero mínimamente invasivo", "description": "Tratamiento conservador cuando es posible; cirugía avanzada solo cuando está realmente indicada." },
+        "recovery": { "title": "Recuperación pensada para ti", "description": "Fisioterapia interna con un mismo equipo desde el procedimiento hasta el regreso completo." }
+      }
+    },
+
+    "testimonials": {
+      "eyebrow": "Historias de pacientes",
+      "title": "Recuperación, en primera persona.",
+      "subtitle": "Reseñas verificadas de pacientes reales en Google.",
+      "source": "Reseña de Google",
+      "items": {
+        "one": { "quote": "Seis meses después del reemplazo de rodilla volví a las pistas. Todo el equipo me hizo sentir como la única paciente en la sala.", "name": "Sarah K.", "treatment": "Reemplazo de rodilla", "date": "hace 2 semanas" },
+        "two": { "quote": "Me explicaron cada opción antes de recomendar cirugía. Nunca me sentí apurado y la recuperación fue más rápida de lo esperado.", "name": "Michael R.", "treatment": "Microdiscectomía lumbar", "date": "hace 1 mes" },
+        "three": { "quote": "Después de años con dolor, recuperé mi agarre. Puedo cargar a mi nieta sin estremecerme — eso lo es todo.", "name": "Diane M.", "treatment": "Liberación del túnel carpiano", "date": "hace 3 meses" }
+      }
+    },
+
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Todo lo que podrías estar preguntándote.",
+      "items": {
+        "referral": { "q": "¿Necesito una referencia para programar una visita?", "a": "No se requiere referencia para la mayoría de las consultas ortopédicas. Coordinamos directamente con tu médico de cabecera cuando es relevante." },
+        "insurance": { "q": "¿Qué planes de seguro aceptan?", "a": "Aceptamos la mayoría de los seguros principales en Utah — incluyendo Medicare, SelectHealth, Blue Cross, Aetna y United Healthcare. Contáctanos para verificar tu plan específico." },
+        "wait": { "q": "¿Qué tan pronto puedo ser atendido?", "a": "La mayoría de los pacientes son agendados en 5 a 10 días hábiles. Los casos urgentes — incluyendo post-lesión — se atienden en 48 horas cuando es posible." },
+        "imaging": { "q": "¿Ofrecen estudios de imagen en sitio?", "a": "Sí. Nuestra clínica incluye resonancia magnética interna y rayos X digitales, así que la mayoría de los pacientes salen de su primera visita con un diagnóstico completo." }
+      }
+    },
+
+    "cta": {
+      "eyebrow": "Da el siguiente paso",
+      "title": "¿Listo para avanzar?",
+      "subtitle": "Reserva una consulta esta misma semana con un especialista ortopédico certificado.",
+      "primary": "Reservar cita",
+      "secondary": "Llamar (801) 555-0100"
+    }
+  },
+
+  "pages": {
+    "services": {
+      "metaTitle": "Especialidades",
+      "eyebrow": "Lo que tratamos",
+      "title": "Especialidades diseñadas para cada articulación.",
+      "subtitle": "Atención ortopédica integral diseñada para vidas activas en Utah. Cada especialidad está liderada por un cirujano formado en fellowship enfocado en resultados a largo plazo.",
+      "filterAll": "Todas las especialidades",
+      "labels": {
+        "treatments": "Tratamientos comunes",
+        "conditions": "Condiciones tratadas",
+        "duration": "Duración del procedimiento",
+        "recovery": "Recuperación"
+      },
+      "detailIntro": "Qué esperar",
+      "ctaTitle": "Habla con un especialista",
+      "ctaSubtitle": "Una llamada gratuita de 15 minutos para entender tus opciones.",
+      "ctaButton": "Reservar consulta",
+      "backLabel": "Todas las especialidades",
+      "relatedTitle": "Especialidades relacionadas"
+    },
+    "conditions": {
+      "metaTitle": "Condiciones que tratamos",
+      "eyebrow": "Condiciones",
+      "title": "Si tienes un diagnóstico — o un síntoma — tenemos un plan.",
+      "subtitle": "Explora las condiciones que nuestros especialistas tratan con mayor frecuencia. ¿No sabes por dónde empezar? Nuestro equipo de admisión te dirigirá a la especialidad correcta.",
+      "callToActionLabel": "Hablar con admisión",
+      "featured": {
+        "eyebrow": "Puntos de partida frecuentes",
+        "title": "Por donde empieza la mayoría de los pacientes.",
+        "viewSpecialists": "Ver especialistas",
+        "items": {
+          "joint": {
+            "title": "Dolor articular",
+            "description": "Rodilla, cadera y hombro — cuando el movimiento ya no es lo que era. Imagen la misma semana y un plan claro."
+          },
+          "back": {
+            "title": "Dolor de espalda y cuello",
+            "description": "Disco, nervio o estructural. Primero no quirúrgico; cirugía solo cuando realmente está indicada."
+          },
+          "sport": {
+            "title": "Lesión deportiva",
+            "description": "Aguda o recurrente. Planes diagnóstico-primero construidos alrededor de tu deporte, temporada y regreso al juego."
+          }
+        }
+      },
+      "all": {
+        "eyebrow": "Por especialidad",
+        "title": "Cada condición que tratamos, organizada por área.",
+        "subtitle": "Haz clic en una especialidad para ver cómo nuestro equipo aborda cada caso.",
+        "countSuffix": "condiciones",
+        "viewSpecialty": "Ver especialidad"
+      },
+      "groups": {
+        "kneeHip": "Rodilla y Cadera",
+        "spine": "Columna",
+        "shoulderElbow": "Hombro y Codo",
+        "handWrist": "Mano y Muñeca",
+        "sports": "Lesiones deportivas",
+        "general": "Ortopedia general"
+      },
+      "items": {
+        "kneeArthritis": "Osteoartritis de rodilla",
+        "aclTear": "Lesiones de LCA y menisco",
+        "hipImpingement": "Pinzamiento de cadera",
+        "hipArthritis": "Osteoartritis de cadera",
+        "discHerniation": "Hernia de disco",
+        "spinalStenosis": "Estenosis espinal",
+        "sciatica": "Ciática",
+        "rotatorCuff": "Lesiones del manguito rotador",
+        "frozenShoulder": "Hombro congelado",
+        "tennisElbow": "Codo de tenista y golfista",
+        "carpalTunnel": "Síndrome del túnel carpiano",
+        "triggerFinger": "Dedo en gatillo",
+        "wristFractures": "Fracturas de muñeca y mano",
+        "concussion": "Manejo de conmoción deportiva",
+        "ankleSprains": "Esguinces e inestabilidad de tobillo",
+        "stressFractures": "Fracturas por estrés",
+        "plantarFasciitis": "Fascitis plantar",
+        "achillesTendinopathy": "Tendinopatía de Aquiles",
+        "osteoporosis": "Osteoporosis y salud ósea",
+        "jointReplacementRevision": "Revisión de reemplazo articular"
+      }
+    },
+    "about": {
+      "metaTitle": "Nosotros",
+      "eyebrow": "Nosotros",
+      "title": "Atención que te encuentra donde estás.",
+      "intro": "Wasatch Orthopedic se construyó sobre una sola convicción: que la recuperación ocurre más rápido cuando los pacientes son socios — no pasajeros. Combinamos especialistas con formación en fellowship, imágenes en sitio y fisioterapia interna bajo un mismo techo para que tu atención avance a tu ritmo, no al del sistema.",
+      "valuesEyebrow": "Nuestros valores",
+      "valuesTitle": "Lo que guía cada decisión.",
+      "values": {
+        "trust": { "title": "Confianza", "description": "Lenguaje claro. Opciones honestas. Tiempo suficiente para pensar." },
+        "precision": { "title": "Precisión", "description": "Diagnóstico guiado por imagen y planes basados en evidencia, ajustados a cada paciente." },
+        "humanity": { "title": "Humanidad", "description": "La recuperación es más que física. Nuestro equipo acompaña toda la experiencia." }
+      },
+      "techEyebrow": "Tecnología",
+      "techTitle": "Herramientas tan avanzadas como la medicina.",
+      "techDescription": "Resonancia magnética 3-Tesla en sitio, rayos X digital, reemplazo articular asistido por robot y artroscopia mínimamente invasiva — la misma tecnología usada en los principales centros académicos, disponible en tu comunidad.",
+      "techItems": [
+        "Resonancia magnética 3-Tesla en sitio",
+        "Reemplazo de rodilla y cadera asistido por robot",
+        "Rayos X digital el mismo día",
+        "Artroscopia mínimamente invasiva",
+        "Fisioterapia interna",
+        "Consultas de seguimiento tele-ortopédicas"
+      ]
+    },
+    "patients": {
+      "metaTitle": "Pacientes",
+      "eyebrow": "Pacientes",
+      "title": "Todo lo que necesitas, antes y después de tu visita.",
+      "subtitle": "Recursos prácticos para ayudarte a prepararte, recuperarte y mantenerte informado en cada paso.",
+      "quickActions": {
+        "eyebrow": "Inicio rápido",
+        "title": "Tres formas rápidas de empezar.",
+        "items": {
+          "book": {
+            "title": "Agenda tu visita",
+            "description": "Citas la misma semana. Sin necesidad de referencia.",
+            "cta": "Reservar ahora"
+          },
+          "insurance": {
+            "title": "Verifica tu seguro",
+            "description": "Revisamos tu cobertura en menos de 24 horas y te llamamos con un estimado por escrito.",
+            "cta": "Verificar cobertura"
+          },
+          "forms": {
+            "title": "Descarga formularios",
+            "description": "Llena el papeleo de nuevo paciente desde casa para que el check-in tome minutos, no una hora.",
+            "cta": "Obtener formularios"
+          }
+        }
+      },
+      "insurers": {
+        "eyebrow": "Seguros aceptados",
+        "title": "Trabajamos con la mayoría de planes principales.",
+        "subtitle": "¿No ves tu seguro abajo? Llámanos — la mayoría de coberturas se verifican en minutos.",
+        "list": [
+          "Medicare",
+          "SelectHealth",
+          "Blue Cross",
+          "Aetna",
+          "United Healthcare",
+          "Cigna",
+          "Humana",
+          "Workers' Comp"
+        ]
+      },
+      "sections": {
+        "firstVisit": {
+          "title": "Tu primera visita",
+          "description": "Planea entre 45 y 60 minutos. Revisaremos tu historial, examinaremos el área afectada y — cuando sea necesario — ordenaremos imágenes en sitio para que salgas con un plan claro.",
+          "items": [
+            "Identificación con foto y tarjeta de seguro",
+            "Lista de medicamentos y suplementos actuales",
+            "Cualquier imagen previa en disco o portal del paciente",
+            "Ropa cómoda que permita acceso al área afectada"
+          ]
+        },
+        "insurance": {
+          "title": "Seguro y costos",
+          "description": "Aceptamos Medicare, SelectHealth, Blue Cross, Aetna, United Healthcare y la mayoría de los planes principales. Nuestro equipo de facturación verificará tu cobertura antes de la visita y proporcionará un estimado escrito de cualquier costo de bolsillo."
+        },
+        "preop": {
+          "title": "Instrucciones preoperatorias",
+          "description": "Si se recomienda cirugía, recibirás instrucciones preoperatorias personalizadas al menos dos semanas antes — incluyendo ajustes de medicación, guía de ayuno y qué llevar el día de la cirugía."
+        },
+        "postop": {
+          "title": "Cuidado postoperatorio",
+          "description": "La recuperación es estructurada, apoyada y permanece con un solo equipo. La mayoría de los pacientes inician movimiento suave dentro de las 24 horas posteriores a la cirugía y se reúnen con su fisioterapeuta en la primera semana."
+        }
+      }
+    },
+    "location": {
+      "metaTitle": "Visítanos",
+      "eyebrow": "Visítanos",
+      "title": "Fácil de llegar. Fácil de encontrar.",
+      "subtitle": "Ubicación céntrica en el Wasatch Front, con estacionamiento gratuito para pacientes e instalaciones accesibles.",
+      "address": {
+        "label": "Dirección",
+        "street": "1234 Wasatch Boulevard",
+        "cityState": "Salt Lake City, UT 84109"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "(801) 555-0100"
+      },
+      "hours": {
+        "label": "Horarios",
+        "items": [
+          { "days": "Lunes – Jueves", "time": "7:30 AM – 6:00 PM" },
+          { "days": "Viernes", "time": "7:30 AM – 4:00 PM" },
+          { "days": "Sábado – Domingo", "time": "Cerrado" }
+        ]
+      },
+      "parking": {
+        "label": "Estacionamiento y accesibilidad",
+        "description": "Estacionamiento gratuito para pacientes en sitio. Espacios accesibles y rampa en la entrada principal. Acceso por transporte público vía rutas UTA 220 y 223."
+      },
+      "directionsCta": "Cómo llegar",
+      "mapPlaceholder": "El mapa interactivo carga al hacer clic — para proteger tu privacidad, no cargamos Google Maps hasta que lo pidas."
+    },
+    "contact": {
+      "metaTitle": "Contacto",
+      "eyebrow": "Conecta con nosotros",
+      "title": "Tres formas de empezar.",
+      "subtitle": "Reserva en línea, envíanos un mensaje o llámanos directamente. Respondemos cada consulta en un día hábil.",
+      "callTitle": "Habla con nosotros hoy",
+      "callValue": "(801) 555-0100",
+      "callHours": "Lunes – Viernes, 7:30 AM – 6:00 PM",
+      "callCta": "Llamar ahora",
+      "calendarTitle": "Reserva en línea",
+      "calendarSubtitle": "Elige el horario que te convenga. Confirmación por correo en minutos.",
+      "calendarFallback": "El calendario de reservas se está configurando. Usa el formulario o llámanos.",
+      "formTitle": "Envíanos un mensaje",
+      "formSubtitle": "Cuéntanos brevemente qué está pasando y te dirigiremos al especialista correcto.",
+      "form": {
+        "name": "Nombre completo",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "phoneHint": "Solo llamaremos por tu cita.",
+        "reasonLabel": "¿En qué podemos ayudarte?",
+        "reasons": {
+          "consult": "Nueva consulta",
+          "secondOpinion": "Segunda opinión",
+          "followUp": "Cita de seguimiento",
+          "other": "Algo más"
+        },
+        "message": "Describe brevemente tu motivo",
+        "messagePlaceholder": "¿Cuándo empezó? ¿Qué lo mejora o empeora?",
+        "consent": "Doy mi consentimiento para ser contactado por Wasatch Orthopedic sobre mi consulta.",
+        "consentDescription": "Solo contactaremos por tu cita y atención — nunca marketing sin tu permiso.",
+        "submit": "Enviar mensaje",
+        "submitting": "Enviando…"
+      },
+      "validation": {
+        "nameRequired": "Por favor ingresa tu nombre completo",
+        "emailInvalid": "Por favor ingresa un correo válido",
+        "phoneInvalid": "Por favor ingresa un teléfono válido",
+        "reasonRequired": "Por favor selecciona un motivo",
+        "messageTooShort": "Describe tu motivo en pocas palabras",
+        "consentRequired": "El consentimiento es requerido para enviar el formulario"
+      },
+      "toast": {
+        "success": "Gracias — te contactaremos en un día hábil.",
+        "error": "Algo salió mal. Intenta de nuevo o llámanos directamente."
+      }
+    }
+  },
+
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Restaurando el movimiento, restaurando vidas.",
+    "legal": {
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio",
+      "accessibility": "Accesibilidad"
+    }
+  },
+
+  "actions": {
+    "learnMore": "Conocer más",
+    "call": "Llámanos",
+    "switchLanguage": "English"
+  }
+}

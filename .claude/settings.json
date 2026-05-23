@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:uiverse.io)",
+      "WebSearch",
+      "WebFetch(domain:reactbits.dev)",
+      "WebFetch(domain:magicui.design)",
+      "Bash(command -v pnpm)",
+      "Bash(pnpm --version)",
+      "Bash(command -v bun)",
+      "Bash(bun --version)",
+      "Bash(npm create *)",
+      "Bash(cd \"c:/Users/Admin/Documents/trae/orthopedic/agreeable-accretion\" && mv .gitignore .vscode README.md astro.config.mjs node_modules package-lock.json package.json public src tsconfig.json ..)",
+      "Bash(cd \"c:/Users/Admin/Documents/trae/orthopedic/agreeable-accretion\" && mv .gitignore .vscode README.md astro.config.mjs package-lock.json package.json public src tsconfig.json ..)",
+      "Bash(npm pkg *)",
+      "Bash(npx astro@latest add react --yes)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"EN status: %{http_code}\\\\n\" http://localhost:4322/)",
+      "Bash(curl -s -o /dev/null -w \"ES status: %{http_code}\\\\n\" http://localhost:4322/es/)",
+      "Bash(curl -s http://localhost:4322/)",
+      "WebFetch(domain:mx.pinterest.com)",
+      "Bash(npm ls *)",
+      "Bash(npm view *)",
+      "Bash(curl -s http://localhost:4326/es/)",
+      "Bash(curl -s http://localhost:4327/services/knee)",
+      "Bash(gh api *)",
+      "Bash(echo \"--- themrsami:\"; grep -i \"themrsami\" /tmp/uiverse-tree.txt | head -10; echo \"--- Sr-Ajo / Sr_Ajo:\"; grep -iE \"sr[_-]ajo\" /tmp/uiverse-tree.txt | head -10; echo \"--- ordinary-lion:\"; grep -i \"ordinary\" /tmp/uiverse-tree.txt | head -5; echo \"--- pink-fish:\"; grep -i \"pink-fish\" /tmp/uiverse-tree.txt | head -5)",
+      "Read(//tmp/**)",
+      "WebFetch(domain:www.shadcndesign.com)",
+      "WebFetch(domain:pro-blocks-v4.vercel.app)",
+      "WebFetch(domain:shadcndesign-registry.vercel.app)",
+      "Bash(curl -s http://localhost:4333/)",
+      "Bash(curl -s http://localhost:4334/)",
+      "Bash(curl -s http://localhost:4335/)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git --version)",
+      "Bash(git init *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Admin\\Documents\\trae\\orthopedic\\agreeable-accretion\\.vscode",
+      "c:\\Users\\Admin\\Documents\\trae\\orthopedic\\agreeable-accretion"
+    ]
+  }
+}
