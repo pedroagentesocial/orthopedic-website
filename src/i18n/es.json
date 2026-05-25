@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "Wasatch Orthopedic",
+    "siteName": "Orthopedic PI",
     "siteDescription": "Atención ortopédica con raíces en Utah. Tratamiento experto para articulaciones, columna, lesiones deportivas y recuperación.",
     "locale": "es-MX"
   },
@@ -174,7 +174,7 @@
       "metaTitle": "Nosotros",
       "eyebrow": "Nosotros",
       "title": "Atención que te encuentra donde estás.",
-      "intro": "Wasatch Orthopedic se construyó sobre una sola convicción: que la recuperación ocurre más rápido cuando los pacientes son socios — no pasajeros. Combinamos especialistas con formación en fellowship, imágenes en sitio y fisioterapia interna bajo un mismo techo para que tu atención avance a tu ritmo, no al del sistema.",
+      "intro": "Orthopedic PI se construyó sobre una sola convicción: que la recuperación ocurre más rápido cuando los pacientes son socios — no pasajeros. Combinamos especialistas con formación en fellowship, imágenes en sitio y fisioterapia interna bajo un mismo techo para que tu atención avance a tu ritmo, no al del sistema.",
       "valuesEyebrow": "Nuestros valores",
       "valuesTitle": "Lo que guía cada decisión.",
       "values": {
@@ -317,7 +317,7 @@
         },
         "message": "Describe brevemente tu motivo",
         "messagePlaceholder": "¿Cuándo empezó? ¿Qué lo mejora o empeora?",
-        "consent": "Doy mi consentimiento para ser contactado por Wasatch Orthopedic sobre mi consulta.",
+        "consent": "Doy mi consentimiento para ser contactado por Orthopedic PI sobre mi consulta.",
         "consentDescription": "Solo contactaremos por tu cita y atención — nunca marketing sin tu permiso.",
         "submit": "Enviar mensaje",
         "submitting": "Enviando…"

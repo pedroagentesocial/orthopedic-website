@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "Wasatch Orthopedic",
+    "siteName": "Orthopedic PI",
     "siteDescription": "Orthopedic care rooted in Utah. Expert treatment for joints, spine, sports injuries and recovery.",
     "locale": "en-US"
   },
@@ -174,7 +174,7 @@
       "metaTitle": "About",
       "eyebrow": "About",
       "title": "Care that meets you where you are.",
-      "intro": "Wasatch Orthopedic was built on a single conviction: that recovery happens fastest when patients are partners — not passengers. We combine fellowship-trained specialists, on-site imaging and in-house physical therapy under one roof so your care moves at your pace, not the system's.",
+      "intro": "Orthopedic PI was built on a single conviction: that recovery happens fastest when patients are partners — not passengers. We combine fellowship-trained specialists, on-site imaging and in-house physical therapy under one roof so your care moves at your pace, not the system's.",
       "valuesEyebrow": "Our values",
       "valuesTitle": "What guides every decision we make.",
       "values": {
@@ -317,7 +317,7 @@
         },
         "message": "Briefly describe your concern",
         "messagePlaceholder": "When did it start? What makes it better or worse?",
-        "consent": "I consent to be contacted by Wasatch Orthopedic about my inquiry.",
+        "consent": "I consent to be contacted by Orthopedic PI about my inquiry.",
         "consentDescription": "We'll only reach out about your appointment and care — never marketing without your permission.",
         "submit": "Send message",
         "submitting": "Sending…"

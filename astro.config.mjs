@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://orthopedic-utah.example.com',
+  site: 'https://orthopedicpi.com',
   output: 'static',
 
   i18n: {
