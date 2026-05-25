@@ -28,10 +28,10 @@ const services = [
       </p>
       <a
         href={localizePath('/services', lang)}
-        class="mt-8 inline-flex items-center gap-2 text-(--color-accent) font-medium hover:gap-3 transition-all duration-300 ease-(--ease-out-expo)"
+        class="services-cta mt-8 inline-flex items-center gap-2 text-(--color-accent) font-medium"
       >
-        {t('home.services.viewAll')}
-        <span aria-hidden="true">→</span>
+        <span class="underline-grow">{t('home.services.viewAll')}</span>
+        <span aria-hidden="true" class="services-cta__arrow transition-transform duration-300 ease-(--ease-out-expo)">→</span>
       </a>
     </div>
 

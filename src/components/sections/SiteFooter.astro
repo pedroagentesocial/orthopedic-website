@@ -36,9 +36,14 @@ const legalItems = [
       {navItems.map((item) => (
         <a
           href={localizePath(item.href, lang)}
-          class="text-sm font-medium text-(--color-ink-muted) hover:text-(--color-ink) transition-colors duration-200 ease-(--ease-out-quart)"
+          class="text-sm font-medium text-(--color-ink-muted) rounded-(--radius-sm) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)"
         >
-          {t(`nav.${item.key}`)}
+          <span class="link-swap">
+            <span class="link-swap__inner">
+              <span class="link-swap__top">{t(`nav.${item.key}`)}</span>
+              <span class="link-swap__bottom">{t(`nav.${item.key}`)}</span>
+            </span>
+          </span>
         </a>
       ))}
     </nav>
@@ -58,7 +63,7 @@ const legalItems = [
           <li>
             <a
               href={item.href}
-              class="hover:text-(--color-ink) transition-colors duration-200 ease-(--ease-out-quart)"
+              class="underline-grow hover:text-(--color-ink) transition-colors duration-200 ease-(--ease-out-quart)"
             >
               {t(`footer.legal.${item.key}`)}
             </a>
