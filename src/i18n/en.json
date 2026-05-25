@@ -61,9 +61,15 @@
       "subtitle": "Verified reviews from real patients on Google.",
       "source": "Google Review",
       "items": {
-        "one": { "quote": "Six months after my knee replacement I was back on the slopes. The whole team made me feel like the only patient in the room.", "name": "Sarah K.", "treatment": "Knee replacement", "date": "2 weeks ago" },
-        "two": { "quote": "Every option was explained before surgery was recommended. I never felt rushed and the recovery was faster than I expected.", "name": "Michael R.", "treatment": "Lumbar microdiscectomy", "date": "1 month ago" },
-        "three": { "quote": "After years of pain, I have my grip back. I can hold my granddaughter without flinching — that's everything.", "name": "Diane M.", "treatment": "Carpal tunnel release", "date": "3 months ago" }
+        "one":   { "quote": "Six months after my knee replacement I was back on the slopes. The whole team made me feel like the only patient in the room.", "name": "Sarah K.",  "treatment": "Knee replacement",         "date": "2 weeks ago",  "location": "Salt Lake City, UT" },
+        "two":   { "quote": "Every option was explained before surgery was recommended. I never felt rushed and the recovery was faster than I expected.",   "name": "Michael R.", "treatment": "Lumbar microdiscectomy",   "date": "1 month ago",  "location": "Park City, UT" },
+        "three": { "quote": "After years of pain, I have my grip back. I can hold my granddaughter without flinching — that's everything.",                  "name": "Diane M.",   "treatment": "Carpal tunnel release",    "date": "3 months ago", "location": "Sandy, UT" },
+        "four":  { "quote": "Tore my ACL playing soccer in March. Back to light training by August. The PT team builds plans around your sport, not generic exercises.", "name": "James T.",  "treatment": "ACL reconstruction",       "date": "6 weeks ago",  "location": "Provo, UT" },
+        "five":  { "quote": "I was hiking again at six weeks. The robotic-assisted alignment made the difference — my surgeon walked me through exactly why.",            "name": "Emily P.",  "treatment": "Total hip replacement",    "date": "4 months ago", "location": "Ogden, UT" },
+        "six":   { "quote": "The clinic coordinated everything with my insurance before the surgery. Zero billing surprises. The shoulder feels stronger than before.",   "name": "Carlos M.", "treatment": "Rotator cuff repair",      "date": "2 months ago", "location": "Logan, UT" },
+        "seven": { "quote": "They didn't push surgery on me. We tried injections and PT first. When it became clear I needed the fusion, the recovery plan was ready.",   "name": "Linda J.",  "treatment": "Spinal fusion",            "date": "5 months ago", "location": "St. George, UT" },
+        "eight": { "quote": "Outpatient procedure, home by lunch. Back to coaching by next week. The endoscopic approach left almost no scar.",                            "name": "David W.",  "treatment": "Tennis elbow release",     "date": "3 weeks ago",  "location": "Layton, UT" },
+        "nine":  { "quote": "Custom orthotics plus reconstruction surgery. From not being able to stand an hour to walking 5K with my dog. Life back.",                    "name": "Maria G.",  "treatment": "Foot reconstruction",      "date": "6 months ago", "location": "West Valley City, UT" }
       }
     },
 

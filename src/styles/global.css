@@ -663,6 +663,67 @@
   }
 }
 
+/* Testimonials wall — 3-column vertical marquee ---------------------- */
+.tw-wall {
+  position: relative;
+  overflow: hidden;
+  /* Edge fade mask: technical alpha mask (not a visible color gradient) so cards
+     enter/exit smoothly. Keeps the bg color of the section untouched. */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+.tw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  height: 100%;
+}
+.tw-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.tw-col-up   { animation-name: tw-scroll-up; }
+.tw-col-down { animation-name: tw-scroll-down; }
+.tw-col:nth-child(1) { animation-duration: 38s; }
+.tw-col:nth-child(2) { animation-duration: 50s; }
+.tw-col:nth-child(3) { animation-duration: 44s; }
+
+@keyframes tw-scroll-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-50% - 0.625rem)); }
+}
+@keyframes tw-scroll-down {
+  from { transform: translateY(calc(-50% - 0.625rem)); }
+  to   { transform: translateY(0); }
+}
+
+.tw-wall:hover .tw-col,
+.tw-wall:focus-within .tw-col {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tw-col {
+    animation: none;
+  }
+}
+
 /* Hero scroll indicator — line that travels down on loop --------------- */
 @keyframes hero-scroll {
   0%   { transform: translateY(-100%); }

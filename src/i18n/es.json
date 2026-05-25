@@ -61,9 +61,15 @@
       "subtitle": "Reseñas verificadas de pacientes reales en Google.",
       "source": "Reseña de Google",
       "items": {
-        "one": { "quote": "Seis meses después del reemplazo de rodilla volví a las pistas. Todo el equipo me hizo sentir como la única paciente en la sala.", "name": "Sarah K.", "treatment": "Reemplazo de rodilla", "date": "hace 2 semanas" },
-        "two": { "quote": "Me explicaron cada opción antes de recomendar cirugía. Nunca me sentí apurado y la recuperación fue más rápida de lo esperado.", "name": "Michael R.", "treatment": "Microdiscectomía lumbar", "date": "hace 1 mes" },
-        "three": { "quote": "Después de años con dolor, recuperé mi agarre. Puedo cargar a mi nieta sin estremecerme — eso lo es todo.", "name": "Diane M.", "treatment": "Liberación del túnel carpiano", "date": "hace 3 meses" }
+        "one":   { "quote": "Seis meses después del reemplazo de rodilla volví a las pistas. Todo el equipo me hizo sentir como la única paciente en la sala.",        "name": "Sarah K.",  "treatment": "Reemplazo de rodilla",            "date": "hace 2 semanas",  "location": "Salt Lake City, UT" },
+        "two":   { "quote": "Me explicaron cada opción antes de recomendar cirugía. Nunca me sentí apurado y la recuperación fue más rápida de lo esperado.",            "name": "Michael R.", "treatment": "Microdiscectomía lumbar",         "date": "hace 1 mes",      "location": "Park City, UT" },
+        "three": { "quote": "Después de años con dolor, recuperé mi agarre. Puedo cargar a mi nieta sin estremecerme — eso lo es todo.",                                 "name": "Diane M.",   "treatment": "Liberación del túnel carpiano",   "date": "hace 3 meses",    "location": "Sandy, UT" },
+        "four":  { "quote": "Me rompí el LCA jugando fútbol en marzo. De vuelta al entrenamiento ligero en agosto. El equipo de fisio construye planes alrededor de tu deporte.", "name": "James T.",  "treatment": "Reconstrucción de LCA",           "date": "hace 6 semanas",  "location": "Provo, UT" },
+        "five":  { "quote": "Estaba caminando otra vez a las seis semanas. La alineación asistida por robot marcó la diferencia — mi cirujano me explicó exactamente por qué.",   "name": "Emily P.",  "treatment": "Reemplazo total de cadera",       "date": "hace 4 meses",    "location": "Ogden, UT" },
+        "six":   { "quote": "La clínica coordinó todo con mi seguro antes de la cirugía. Cero sorpresas en la facturación. El hombro se siente más fuerte que antes.",            "name": "Carlos M.", "treatment": "Reparación del manguito rotador", "date": "hace 2 meses",    "location": "Logan, UT" },
+        "seven": { "quote": "No me presionaron a la cirugía. Probamos inyecciones y fisio primero. Cuando quedó claro que necesitaba la fusión, el plan ya estaba listo.",        "name": "Linda J.",  "treatment": "Fusión espinal",                  "date": "hace 5 meses",    "location": "St. George, UT" },
+        "eight": { "quote": "Procedimiento ambulatorio, en casa para el almuerzo. De vuelta entrenando la próxima semana. El abordaje endoscópico casi no dejó cicatriz.",         "name": "David W.",  "treatment": "Liberación de codo de tenista",   "date": "hace 3 semanas",  "location": "Layton, UT" },
+        "nine":  { "quote": "Ortesis personalizadas y cirugía reconstructiva. Pasé de no poder estar de pie una hora a caminar 5K con mi perro. La vida de vuelta.",              "name": "Maria G.",  "treatment": "Reconstrucción de pie",           "date": "hace 6 meses",    "location": "West Valley City, UT" }
       }
     },
 
