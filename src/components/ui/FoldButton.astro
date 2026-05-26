@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+---
+
+<!-- "Corner fold" CTA — adapted from Uiverse by ferlagher.
+     Top-left pseudo-element grows on hover, looking like a page corner
+     being peeled back. Recolored to sage; gradient stops are hard so the
+     fold reads as two solid color zones (per project no-gradient rule). -->
+<a href={href} class:list={['fold-btn focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-accent)', className]}>
+  <span class="relative z-10"><slot /></span>
+</a>

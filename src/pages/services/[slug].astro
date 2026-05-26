@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { ArrowLeft, ArrowUpRight, Check, Clock, HeartPulse } from 'lucide-react';
-import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadFormSection from '../../components/sections/LeadFormSection.astro';
 import CTAStrip from '../../components/sections/CTAStrip.astro';
@@ -79,14 +78,13 @@ const related = (await getCollection('services', (e) => e.data.lang === 'en' && 
 
         {service.data.image && (
           <div class="relative aspect-[4/5] overflow-hidden rounded-(--radius-2xl) bg-(--color-surface-sunken) border border-(--color-border)">
-            <Image
+            <img
               src={service.data.image}
               alt={service.data.title}
-              width={1200}
-              height={1500}
+              width="1200"
+              height="1500"
               class="absolute inset-0 w-full h-full object-cover"
               loading="eager"
-              inferSize={false}
             />
           </div>
         )}

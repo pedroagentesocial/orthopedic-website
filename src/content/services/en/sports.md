@@ -7,7 +7,7 @@ icon: Activity
 order: 5
 durationLabel: 30–120 min
 recoveryLabel: 4–24 weeks
-image: https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1400&q=80
+image: /images/sport-medicine-service.jpg
 treatments:
   - ACL & meniscus reconstruction
   - Cartilage restoration (MACI, OATS)

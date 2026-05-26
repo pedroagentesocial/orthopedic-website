@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.5",
@@ -42,5 +43,8 @@
     "tailwindcss": "^4.3.0",
     "zod": "^4.4.3"
   },
-  "description": "Orthopedic clinic website — Utah"
+  "description": "Orthopedic clinic website — Utah",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
 }

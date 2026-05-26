@@ -7,7 +7,7 @@ icon: Footprints
 order: 1
 durationLabel: 30–120 min
 recoveryLabel: 4–12 weeks
-image: https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1400&q=80
+image: /images/knee-hip-service.jpg
 treatments:
   - Arthroscopic meniscus repair
   - ACL reconstruction

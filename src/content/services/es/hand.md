@@ -7,7 +7,7 @@ icon: Hand
 order: 4
 durationLabel: 15–90 min
 recoveryLabel: 2–8 semanas
-image: https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=80
+image: /images/hand-wrist-service.jpg
 treatments:
   - Liberación endoscópica del túnel carpiano
   - Liberación de dedo en gatillo

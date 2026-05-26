@@ -7,7 +7,7 @@ icon: Dumbbell
 order: 3
 durationLabel: 30–120 min
 recoveryLabel: 6–16 semanas
-image: https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1400&q=80
+image: /images/elbow-shoulder-service.jpg
 treatments:
   - Reparación artroscópica del manguito rotador
   - Reemplazo total de hombro

@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations, localizePath } from '../../i18n/utils';
 import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
-import Button from '../ui/Button.astro';
+import FoldButton from '../ui/FoldButton.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -45,9 +45,9 @@ const navItems = [
 
     <div class="flex items-center gap-2">
       <LanguageSwitcher />
-      <Button href={localizePath('/contact', lang)} variant="primary" size="sm" class="hidden sm:inline-flex">
+      <FoldButton href={localizePath('/contact', lang)} class="hidden sm:inline-flex">
         {t('nav.book')}
-      </Button>
+      </FoldButton>
     </div>
   </div>
 </header>

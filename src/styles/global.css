@@ -622,6 +622,99 @@
   }
 }
 
+/* Ghost burst — radial light flash on hover (adapted from Uiverse by iZOXVL).
+   For outlined buttons on DARK backgrounds. White soft glow expands from center.
+   On light bg buttons it would be invisible, so don't apply there. */
+.ghost-burst {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+.ghost-burst::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgb(255 255 255 / 0.22) 0%,
+    rgb(255 255 255 / 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.ghost-burst:hover::after,
+.ghost-burst:focus-visible::after {
+  transform: scale(4);
+}
+.ghost-burst:hover,
+.ghost-burst:focus-visible {
+  border-color: rgb(255 255 255 / 0.55);
+  background-color: rgb(255 255 255 / 0.05);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ghost-burst, .ghost-burst::after { transition: none; }
+}
+
+/* FoldButton — corner peel CTA (adapted from Uiverse by ferlagher).
+   Pseudo-element in top-left grows on hover, looking like a page corner
+   being peeled back. The "gradient" is hard-stop (two solid color zones
+   meeting at a 135° line), respecting the no-gradient design rule. */
+.fold-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 1.25em;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-ink-inverse);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0.3em 0.3em 0.5em rgba(26, 32, 39, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.fold-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+.fold-btn::before {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  /* Hard stops at exactly 50% — two solid colors meeting at the diagonal,
+     no smooth blend (no gradient in the brand sense). */
+  background: linear-gradient(
+    135deg,
+    var(--color-ink) 0%,
+    var(--color-ink) 50%,
+    var(--color-accent-pressed) 50%,
+    var(--color-accent-pressed) 100%
+  );
+  border-radius: 0 0 8px 0;
+  box-shadow: 0.15em 0.15em 0.25em rgba(0, 0, 0, 0.3);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.fold-btn:hover::before {
+  width: 1.6em;
+  height: 1.6em;
+}
+.fold-btn:active {
+  box-shadow: 0.15em 0.15em 0.3em rgba(26, 32, 39, 0.18);
+  transform: translate(0.08em, 0.08em);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fold-btn, .fold-btn::before { transition: none; }
+}
+
 /* Nav link text-swap — text slides up, sage duplicate slides in from below.
    Used in header nav + language switcher + footer nav.                    */
 .link-swap {

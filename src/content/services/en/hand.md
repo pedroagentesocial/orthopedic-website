@@ -7,7 +7,7 @@ icon: Hand
 order: 4
 durationLabel: 15–90 min
 recoveryLabel: 2–8 weeks
-image: https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1400&q=80
+image: /images/hand-wrist-service.jpg
 treatments:
   - Endoscopic carpal tunnel release
   - Trigger finger release

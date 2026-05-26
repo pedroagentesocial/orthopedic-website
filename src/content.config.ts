@@ -16,7 +16,7 @@ const services = defineCollection({
     title: z.string(),
     summary: z.string(),
     icon: z.enum(SERVICE_ICONS),
-    image: z.string().url().optional(),
+    image: z.string().optional(),
     treatments: z.array(z.string()).default([]),
     conditions: z.array(z.string()).default([]),
     durationLabel: z.string().optional(),

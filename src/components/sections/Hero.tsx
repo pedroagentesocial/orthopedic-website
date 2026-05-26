@@ -105,10 +105,12 @@ export default function Hero({
           </SendButton>
           <a
             href={ctaSecondaryHref}
-            className="inline-flex items-center gap-2 h-14 px-8 rounded-[var(--radius-md)] border border-[var(--color-ink-inverse)]/40 text-[var(--color-ink-inverse)] font-medium transition-colors duration-200 hover:bg-[var(--color-ink-inverse)]/10"
+            className="ghost-burst inline-flex items-center gap-2 h-14 px-8 rounded-[var(--radius-md)] border border-[var(--color-ink-inverse)]/40 text-[var(--color-ink-inverse)] font-medium"
           >
-            <Phone size={18} strokeWidth={1.75} />
-            {ctaSecondaryLabel}
+            <span className="relative z-10 inline-flex items-center gap-2">
+              <Phone size={18} strokeWidth={1.75} />
+              {ctaSecondaryLabel}
+            </span>
           </a>
         </motion.div>
       </div>

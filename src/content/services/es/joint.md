@@ -7,7 +7,7 @@ icon: Sparkles
 order: 6
 durationLabel: 60–120 min
 recoveryLabel: 6–12 semanas
-image: https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1400&q=80
+image: /images/joint-treatment.jpg
 treatments:
   - Reemplazo total de rodilla asistido por robot
   - Reemplazo total de cadera por abordaje anterior

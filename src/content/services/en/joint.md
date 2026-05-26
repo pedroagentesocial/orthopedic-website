@@ -7,7 +7,7 @@ icon: Sparkles
 order: 6
 durationLabel: 60–120 min
 recoveryLabel: 6–12 weeks
-image: https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1400&q=80
+image: /images/joint-treatment.jpg
 treatments:
   - Robotic-assisted total knee replacement
   - Anterior approach total hip replacement

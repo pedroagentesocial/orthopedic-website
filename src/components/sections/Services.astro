@@ -6,12 +6,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const services = [
-  { key: 'knee',     image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=900&q=80' },
-  { key: 'spine',    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80' },
-  { key: 'shoulder', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80' },
-  { key: 'hand',     image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80' },
-  { key: 'sports',   image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=80' },
-  { key: 'joint',    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=80' },
+  { key: 'knee',     image: '/images/knee-hip-service.jpg' },
+  { key: 'spine',    image: '/images/spine-service.jpg' },
+  { key: 'shoulder', image: '/images/elbow-shoulder-service.jpg' },
+  { key: 'hand',     image: '/images/hand-wrist-service.jpg' },
+  { key: 'sports',   image: '/images/sport-medicine-service.jpg' },
+  { key: 'joint',    image: '/images/joint-treatment.jpg' },
 ] as const;
 ---
 
