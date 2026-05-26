@@ -1,0 +1,25 @@
+---
+import { ArrowLeft } from 'lucide-react';
+
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+
+const { href, label, class: className } = Astro.props;
+---
+
+<!-- "Go back" button — adapted from Uiverse by AKAspidey01.
+     Small sage square at the left holds the arrow. On hover, the square
+     expands across the whole button width, hiding the label behind sage.
+     Recolored to our editorial cálido palette. -->
+<a
+  href={href}
+  class:list={['go-back focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-accent)', className]}
+>
+  <span class="go-back__slider" aria-hidden="true">
+    <ArrowLeft size={20} strokeWidth={2} className="text-(--color-ink)" />
+  </span>
+  <span class="go-back__label">{label}</span>
+</a>

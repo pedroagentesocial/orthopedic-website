@@ -623,6 +623,54 @@
   }
 }
 
+/* BackLink — "go back" button, adapted from Uiverse by AKAspidey01.
+   Compact sage square on the left holds the arrow; on hover the square
+   expands across the whole button width, sliding behind/over the label.   */
+.go-back {
+  position: relative;
+  display: inline-block;
+  height: 56px;
+  min-width: 192px;
+  max-width: 100%;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.go-back__slider {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  height: 46px;
+  width: 46px;
+  background: var(--color-accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: width 0.5s cubic-bezier(0.5, 0, 0.2, 1);
+}
+.go-back:hover .go-back__slider,
+.go-back:focus-visible .go-back__slider {
+  width: calc(100% - 8px);
+}
+.go-back__label {
+  display: block;
+  line-height: 56px;
+  padding-left: 60px;
+  padding-right: 18px;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .go-back__slider { transition: none; }
+}
+
 /* MobileMenu — slide-in sheet from the right (toggle + backdrop) ------- */
 .mm-panel {
   position: fixed;

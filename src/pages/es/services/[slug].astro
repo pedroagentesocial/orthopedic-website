@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { ArrowLeft, ArrowUpRight, Check, Clock, HeartPulse } from 'lucide-react';
+import { ArrowUpRight, Check, Clock, HeartPulse } from 'lucide-react';
+import BackLink from '../../../components/ui/BackLink.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LeadFormSection from '../../../components/sections/LeadFormSection.astro';
 import CTAStrip from '../../../components/sections/CTAStrip.astro';
@@ -33,13 +34,7 @@ const related = (await getCollection('services', (e) => e.data.lang === 'es' && 
 >
   <article>
     <section class="container-page pt-32 pb-12 md:pt-44">
-      <a
-        href="/es/services"
-        class="inline-flex items-center gap-2 text-sm text-(--color-ink-muted) hover:text-(--color-ink) transition-colors group"
-      >
-        <ArrowLeft size={14} strokeWidth={1.75} className="transition-transform duration-300 ease-(--ease-out-quart) group-hover:-translate-x-1" />
-        {t('pages.services.backLabel')}
-      </a>
+      <BackLink href="/es/services" label={t('pages.services.backLabel')} />
 
       <div class="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20 lg:items-start">
         <div>
