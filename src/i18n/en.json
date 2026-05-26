@@ -334,11 +334,24 @@
         "phoneInvalid": "Please enter a valid phone number",
         "reasonRequired": "Please select a reason",
         "messageTooShort": "Please describe your concern in a few words",
-        "consentRequired": "Consent is required to submit this form"
+        "consentRequired": "Consent is required to submit this form",
+        "fillRequiredOne": "1 required field is incomplete",
+        "fillRequiredMany": "{count} required fields are incomplete",
+        "allComplete": "All set — you can send your message"
       },
       "toast": {
         "success": "Thanks — we'll reach out within one business day.",
         "error": "Something went wrong. Please try again or call us directly."
+      },
+      "modal": {
+        "successTitle": "Message sent",
+        "successDescription": "We received your message. A care coordinator will reach out within one business day.",
+        "successClose": "Close",
+        "errorTitle": "We couldn't send your message",
+        "errorDescription": "Something went wrong on our end. Please try again, or call us directly at (801) 555-0100.",
+        "errorDetailLabel": "Technical detail",
+        "errorRetry": "Try again",
+        "errorCall": "Call instead"
       }
     }
   },

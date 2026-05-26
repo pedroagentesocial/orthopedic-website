@@ -334,11 +334,24 @@
         "phoneInvalid": "Por favor ingresa un teléfono válido",
         "reasonRequired": "Por favor selecciona un motivo",
         "messageTooShort": "Describe tu motivo en pocas palabras",
-        "consentRequired": "El consentimiento es requerido para enviar el formulario"
+        "consentRequired": "El consentimiento es requerido para enviar el formulario",
+        "fillRequiredOne": "Falta 1 campo requerido",
+        "fillRequiredMany": "Faltan {count} campos requeridos",
+        "allComplete": "Listo — puedes enviar tu mensaje"
       },
       "toast": {
         "success": "Gracias — te contactaremos en un día hábil.",
         "error": "Algo salió mal. Intenta de nuevo o llámanos directamente."
+      },
+      "modal": {
+        "successTitle": "Mensaje enviado",
+        "successDescription": "Recibimos tu mensaje. Un coordinador te contactará en un día hábil.",
+        "successClose": "Cerrar",
+        "errorTitle": "No pudimos enviar tu mensaje",
+        "errorDescription": "Algo salió mal de nuestro lado. Intenta de nuevo o llámanos directamente al (801) 555-0100.",
+        "errorDetailLabel": "Detalle técnico",
+        "errorRetry": "Intentar de nuevo",
+        "errorCall": "Llamar"
       }
     }
   },

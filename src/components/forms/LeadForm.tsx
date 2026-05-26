@@ -1,13 +1,13 @@
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { toast } from 'sonner';
 import { useState } from 'react';
 import AnimatedInput from '../ui/AnimatedInput';
 import AnimatedTextarea from '../ui/AnimatedTextarea';
 import RadioGroup, { type RadioOption } from '../ui/RadioGroup';
 import Checkbox from '../ui/Checkbox';
 import FlySendButton from '../ui/FlySendButton';
+import SubmitDialog, { type SubmitState, type SubmitDialogStrings } from './SubmitDialog';
 import { submitLeadToGHL } from '../../lib/ghl';
 
 export interface LeadFormStrings {
@@ -32,8 +32,12 @@ export interface LeadFormStrings {
     reasonRequired: string;
     messageTooShort: string;
     consentRequired: string;
+    fillRequiredOne: string;
+    fillRequiredMany: string;
+    allComplete: string;
   };
   toast: { success: string; error: string };
+  modal: SubmitDialogStrings;
 }
 
 interface LeadFormProps {
@@ -45,7 +49,8 @@ const REASONS = ['consult', 'secondOpinion', 'followUp', 'other'] as const;
 type Reason = (typeof REASONS)[number];
 
 export default function LeadForm({ strings, language }: LeadFormProps) {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [errorDetail, setErrorDetail] = useState<string | undefined>();
 
   const schema = z.object({
     name: z.string().trim().min(2, strings.validation.nameRequired),
@@ -65,9 +70,10 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
     handleSubmit,
     control,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
+    mode: 'onChange',
     defaultValues: {
       name: '',
       email: '',
@@ -78,6 +84,9 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
     },
   });
 
+  // Count required fields with errors (or never filled). Used for the hint.
+  const missingCount = Object.keys(errors).length;
+
   const reasonOptions: RadioOption[] = [
     { value: 'consult', label: strings.form.reasons.consult },
     { value: 'secondOpinion', label: strings.form.reasons.secondOpinion },
@@ -86,106 +95,131 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
   ];
 
   async function onSubmit(values: FormValues) {
+    setSubmitState('submitting');
+    setErrorDetail(undefined);
     try {
       await submitLeadToGHL({
         ...values,
-        source: 'wasatch-orthopedic.com/contact',
+        source: 'orthopedicpi.com/contact',
         language,
         submittedAt: new Date().toISOString(),
       });
-      toast.success(strings.toast.success);
+      setSubmitState('success');
       reset();
-      setSubmitted(true);
     } catch (err) {
       console.error('[LeadForm] submission error', err);
-      toast.error(strings.toast.error);
+      setErrorDetail(err instanceof Error ? err.message : 'Unknown error');
+      setSubmitState('error');
     }
   }
 
+  const hintReady = isValid;
+  const hintText = hintReady
+    ? strings.validation.allComplete
+    : missingCount === 1
+      ? strings.validation.fillRequiredOne
+      : strings.validation.fillRequiredMany.replace(
+          '{count}',
+          missingCount > 0 ? String(missingCount) : '6',
+        );
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-10" noValidate>
-      <div className="grid gap-10 md:grid-cols-2">
-        <AnimatedInput
-          label={strings.form.name}
-          required
-          autoComplete="name"
-          error={errors.name?.message}
-          {...register('name')}
-        />
-        <AnimatedInput
-          label={strings.form.email}
-          type="email"
-          required
-          autoComplete="email"
-          error={errors.email?.message}
-          {...register('email')}
-        />
-      </div>
-
-      <AnimatedInput
-        label={strings.form.phone}
-        type="tel"
-        required
-        autoComplete="tel"
-        hint={strings.form.phoneHint}
-        error={errors.phone?.message}
-        {...register('phone')}
-      />
-
-      <Controller
-        name="reason"
-        control={control}
-        render={({ field }) => (
-          <RadioGroup
-            label={strings.form.reasonLabel}
-            options={reasonOptions}
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-10" noValidate>
+        <div className="grid gap-10 md:grid-cols-2">
+          <AnimatedInput
+            label={strings.form.name}
             required
-            value={field.value}
-            onValueChange={field.onChange}
-            error={errors.reason?.message}
+            autoComplete="name"
+            error={errors.name?.message}
+            {...register('name')}
           />
-        )}
-      />
+          <AnimatedInput
+            label={strings.form.email}
+            type="email"
+            required
+            autoComplete="email"
+            error={errors.email?.message}
+            {...register('email')}
+          />
+        </div>
 
-      <AnimatedTextarea
-        label={strings.form.message}
-        placeholder={strings.form.messagePlaceholder}
-        required
-        error={errors.message?.message}
-        {...register('message')}
-      />
+        <AnimatedInput
+          label={strings.form.phone}
+          type="tel"
+          required
+          autoComplete="tel"
+          hint={strings.form.phoneHint}
+          error={errors.phone?.message}
+          {...register('phone')}
+        />
 
-      <Controller
-        name="consent"
-        control={control}
-        render={({ field }) => (
-          <div>
-            <Checkbox
-              label={strings.form.consent}
-              description={strings.form.consentDescription}
+        <Controller
+          name="reason"
+          control={control}
+          render={({ field }) => (
+            <RadioGroup
+              label={strings.form.reasonLabel}
+              options={reasonOptions}
               required
-              checked={Boolean(field.value)}
-              onCheckedChange={(c) => field.onChange(c)}
+              value={field.value}
+              onValueChange={field.onChange}
+              error={errors.reason?.message}
             />
-            {errors.consent?.message && (
-              <p className="mt-2 ml-8 text-xs text-[var(--color-danger)]">
-                {errors.consent.message}
-              </p>
-            )}
-          </div>
-        )}
-      />
+          )}
+        />
 
-      <div className="pt-2">
-        <FlySendButton type="submit" disabled={isSubmitting}>
-          {isSubmitting ? strings.form.submitting : strings.form.submit}
-        </FlySendButton>
-        {submitted && !isSubmitting && (
-          <p className="mt-4 text-sm text-[var(--color-accent)]" role="status">
-            {strings.toast.success}
+        <AnimatedTextarea
+          label={strings.form.message}
+          placeholder={strings.form.messagePlaceholder}
+          required
+          error={errors.message?.message}
+          {...register('message')}
+        />
+
+        <Controller
+          name="consent"
+          control={control}
+          render={({ field }) => (
+            <div>
+              <Checkbox
+                label={strings.form.consent}
+                description={strings.form.consentDescription}
+                required
+                checked={Boolean(field.value)}
+                onCheckedChange={(c) => field.onChange(c)}
+              />
+              {errors.consent?.message && (
+                <p className="mt-2 ml-8 text-xs text-[var(--color-danger)]">
+                  {errors.consent.message}
+                </p>
+              )}
+            </div>
+          )}
+        />
+
+        <div className="pt-2 space-y-4">
+          <p
+            className={hintReady ? 'lf-hint lf-hint--ready' : 'lf-hint'}
+            role="status"
+            aria-live="polite"
+          >
+            <span className="lf-hint-dot" aria-hidden="true" />
+            {hintText}
           </p>
-        )}
-      </div>
-    </form>
+          <FlySendButton type="submit" disabled={isSubmitting || !isValid}>
+            {isSubmitting ? strings.form.submitting : strings.form.submit}
+          </FlySendButton>
+        </div>
+      </form>
+
+      <SubmitDialog
+        state={submitState}
+        errorDetail={errorDetail}
+        strings={strings.modal}
+        onClose={() => setSubmitState('idle')}
+        onRetry={() => setSubmitState('idle')}
+      />
+    </>
   );
 }

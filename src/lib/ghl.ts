@@ -42,7 +42,7 @@ export async function submitLeadToGHL(payload: LeadPayload): Promise<SubmitResul
   });
 
   if (!response.ok) {
-    throw new Error(`GHL webhook failed: ${response.status}`);
+    throw new Error(`Server responded ${response.status} ${response.statusText || ''}`.trim());
   }
 
   return { ok: true };

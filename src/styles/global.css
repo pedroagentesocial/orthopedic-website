@@ -622,6 +622,156 @@
   }
 }
 
+/* SubmitDialog — Radix Dialog modal for form submission outcome ------- */
+.sd-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(26 32 39 / 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  animation: sd-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sd-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  max-width: 460px;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: 36px 32px 28px;
+  z-index: 101;
+  box-shadow: 0 24px 48px -12px rgb(26 32 39 / 0.25);
+  text-align: center;
+  animation: sd-zoom-in 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sd-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  margin: 0 auto 20px;
+}
+.sd-icon--success {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+.sd-icon--error {
+  background: rgb(160 72 72 / 0.12);
+  color: var(--color-danger);
+}
+.sd-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 0;
+}
+.sd-description {
+  margin: 14px auto 0;
+  max-width: 38ch;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+.sd-detail {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-sunken);
+  font-size: 0.8125rem;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  word-break: break-word;
+}
+.sd-detail-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.6875rem;
+  color: var(--color-ink-subtle);
+  margin-right: 4px;
+}
+.sd-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.sd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.sd-btn--primary {
+  background: var(--color-accent);
+  color: var(--color-ink-inverse);
+}
+.sd-btn--primary:hover { background: var(--color-accent-hover); }
+.sd-btn--secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border-strong);
+}
+.sd-btn--secondary:hover {
+  border-color: var(--color-ink);
+  background: var(--color-surface-sunken);
+}
+
+@keyframes sd-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes sd-zoom-in {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sd-overlay, .sd-content { animation: none; }
+}
+
+/* Validation hint above submit button ---------------------------------- */
+.lf-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+}
+.lf-hint--ready {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-color: var(--color-border-accent);
+}
+.lf-hint-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-ink-subtle);
+  flex-shrink: 0;
+}
+.lf-hint--ready .lf-hint-dot {
+  background: var(--color-accent);
+}
+
 /* BackToTop FAB — adapted from Uiverse by satyamchaudharydev.
    Fixed bottom-right, fades in past 600px scroll. Click → smooth scroll to top.
    Letters slide up (text out, clone in) with stagger. Arrow rotates -45°→-90°. */
