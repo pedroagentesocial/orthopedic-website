@@ -1,0 +1,132 @@
+---
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { getLangFromUrl, useTranslations, localizePath, getAlternateLang, languages } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const alternateLang = getAlternateLang(lang);
+const alternatePath = localizePath(Astro.url.pathname, alternateLang);
+
+const navItems = [
+  { key: 'services',   href: '/services' },
+  { key: 'conditions', href: '/conditions' },
+  { key: 'patients',   href: '/patients' },
+  { key: 'faq',        href: '/#faq' },
+  { key: 'about',      href: '/about' },
+  { key: 'contact',    href: '/contact' },
+] as const;
+---
+
+<button
+  id="mm-toggle"
+  type="button"
+  class="mm-toggle lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-(--radius-sm) text-(--color-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)"
+  aria-label="Open menu"
+  aria-controls="mm-panel"
+  aria-expanded="false"
+>
+  <Menu size={22} strokeWidth={1.75} aria-hidden="true" />
+</button>
+
+<div id="mm-panel" class="mm-panel" aria-hidden="true">
+  <div class="mm-backdrop" data-mm-close></div>
+  <aside class="mm-sheet" role="dialog" aria-label="Navigation" aria-modal="true">
+    <header class="mm-sheet__header">
+      <a
+        href={localizePath('/', lang)}
+        class="font-display text-xl tracking-tight text-(--color-ink)"
+        data-mm-close
+      >
+        Orthopedic <span class="text-(--color-accent)">PI</span>
+      </a>
+      <button
+        type="button"
+        class="inline-flex items-center justify-center h-11 w-11 rounded-(--radius-sm) text-(--color-ink) hover:bg-(--color-surface-sunken) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)"
+        aria-label="Close menu"
+        data-mm-close
+      >
+        <X size={22} strokeWidth={1.75} aria-hidden="true" />
+      </button>
+    </header>
+
+    <nav class="mm-sheet__nav" aria-label="Mobile">
+      {navItems.map((item) => (
+        <a
+          href={localizePath(item.href, lang)}
+          class="mm-link"
+          data-mm-close
+        >
+          <span>{t(`nav.${item.key}`)}</span>
+          <ArrowUpRight size={18} strokeWidth={1.5} className="mm-link__arrow" aria-hidden="true" />
+        </a>
+      ))}
+    </nav>
+
+    <footer class="mm-sheet__footer">
+      <a
+        href={alternatePath}
+        hreflang={alternateLang}
+        lang={alternateLang}
+        class="inline-flex items-center gap-2 px-4 py-3 rounded-(--radius-md) border border-(--color-border-strong) text-(--color-ink) font-medium hover:border-(--color-ink)"
+        aria-label={`Switch to ${languages[alternateLang]}`}
+      >
+        <span class="text-(--color-ink-subtle) uppercase tracking-wider text-xs">{alternateLang}</span>
+        <span>{t('actions.switchLanguage')}</span>
+      </a>
+      <a
+        href={localizePath('/contact', lang)}
+        class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-(--radius-md) bg-(--color-accent) text-(--color-ink-inverse) font-medium hover:bg-(--color-accent-hover)"
+        data-mm-close
+      >
+        {t('nav.book')}
+      </a>
+    </footer>
+  </aside>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const toggle = document.getElementById('mm-toggle');
+    const panel = document.getElementById('mm-panel');
+    if (!toggle || !panel || toggle.dataset.bound === '1') return;
+    toggle.dataset.bound = '1';
+
+    function open() {
+      panel.classList.add('mm-panel--open');
+      panel.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      panel.classList.remove('mm-panel--open');
+      panel.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (panel.classList.contains('mm-panel--open')) close();
+      else open();
+    });
+    panel.querySelectorAll('[data-mm-close]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.classList.contains('mm-panel--open')) close();
+    });
+    // Close on viewport resize past lg breakpoint (1024px)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024 && panel.classList.contains('mm-panel--open')) close();
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', () => {
+    const toggle = document.getElementById('mm-toggle');
+    if (toggle) delete toggle.dataset.bound;
+    document.body.style.overflow = '';
+    setupMobileMenu();
+  });
+</script>
