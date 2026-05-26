@@ -39,6 +39,7 @@ const services = [
       {services.map(({ key, image }) => (
         <div class="reveal-up">
           <ServiceCardFlip
+            client:visible
             image={image}
             title={t(`home.services.${key}.title`)}
             description={t(`home.services.${key}.description`)}
