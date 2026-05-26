@@ -127,6 +127,7 @@ const credits = [
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((s) => (
           <ServiceCardFlip
+            client:visible
             image={s.image}
             title={s.title}
             description={s.description}

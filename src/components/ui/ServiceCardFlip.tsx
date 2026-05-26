@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '../../lib/cn';
 
@@ -11,14 +12,13 @@ interface ServiceCardFlipProps {
 }
 
 /**
- * Front (default): full-bleed image with title overlay strip at bottom.
- * Back (on hover/focus): description + "Learn more" CTA on a sage panel.
+ * Service flip card.
+ *  - Desktop (pointer: fine): :hover flips the card via CSS only.
+ *  - Touch (pointer: coarse): first tap flips, second tap navigates.
  *
- * Pure CSS 3D flip — no client-side JS, no Astro hydration directive needed.
- * The image prop is a serializable string, so safe to render statically.
- *
- * Inspired by Uiverse's "tricky-robin-67" flip mechanic, adapted here for
- * the editorial cálido system (no gradients, sage accent, image-led front).
+ * Pointer-type is queried on the first click so we don't run any matchMedia
+ * during SSR. The `tr-card--flipped` class drives the flip equivalently to
+ * the :hover state.
  */
 export default function ServiceCardFlip({
   image,
@@ -28,8 +28,27 @@ export default function ServiceCardFlip({
   learnMoreLabel,
   className,
 }: ServiceCardFlipProps) {
+  const [flipped, setFlipped] = useState(false);
+  const isTouchRef = useRef<boolean | null>(null);
+
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isTouchRef.current === null) {
+      isTouchRef.current = window.matchMedia('(pointer: coarse)').matches;
+    }
+    // On touch: first tap flips, second tap (already flipped) navigates.
+    if (isTouchRef.current && !flipped) {
+      e.preventDefault();
+      setFlipped(true);
+    }
+  }
+
   return (
-    <a href={href} className={cn('tr-card group', className)} aria-label={title}>
+    <a
+      href={href}
+      className={cn('tr-card group', flipped && 'tr-card--flipped', className)}
+      aria-label={title}
+      onClick={handleClick}
+    >
       <div className="tr-content">
         {/* DEFAULT VISIBLE: image + title overlay */}
         <div className="tr-back">
@@ -44,7 +63,7 @@ export default function ServiceCardFlip({
           </div>
         </div>
 
-        {/* ON HOVER: description + CTA */}
+        {/* ON HOVER / FLIPPED: description + CTA */}
         <div className="tr-front">
           <div className="tr-front-inner">
             <h3

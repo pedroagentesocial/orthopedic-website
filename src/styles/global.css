@@ -474,7 +474,8 @@
   will-change: transform;
 }
 .tr-card:hover .tr-content,
-.tr-card:focus-within .tr-content {
+.tr-card:focus-within .tr-content,
+.tr-card--flipped .tr-content {
   transform: rotateY(180deg);
   box-shadow: 0 24px 48px -12px rgb(26 32 39 / 0.18);
 }

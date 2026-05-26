@@ -27,6 +27,7 @@ const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1559757148-5c350d0d3c5
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((s) => (
         <ServiceCardFlip
+          client:visible
           image={s.data.image ?? FALLBACK_IMAGE}
           title={s.data.title}
           description={s.data.summary}
