@@ -356,6 +356,7 @@
   "actions": {
     "learnMore": "Conocer más",
     "call": "Llámanos",
-    "switchLanguage": "English"
+    "switchLanguage": "English",
+    "backToTop": "Volver arriba"
   }
 }

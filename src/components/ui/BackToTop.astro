@@ -1,0 +1,61 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const aria = t('actions.backToTop');
+
+// Visible label kept short and language-neutral. "Top" reads cleanly in both
+// English and Spanish, and keeps a tight stagger animation.
+const label = 'Top';
+const letters = label.split('');
+---
+
+<!-- Back to top FAB — adapted from Uiverse by satyamchaudharydev.
+     Text slides up out of view, clone of the text slides up from below with
+     per-letter stagger. Arrow rotates from -50° at rest to -90° on hover
+     (ends pointing straight up). Underline swipes right→left. -->
+<button
+  id="back-to-top"
+  type="button"
+  class="bt-top focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-accent)"
+  aria-label={aria}
+>
+  <div class="bt-top__text" aria-hidden="true">
+    {letters.map((l) => <span>{l}</span>)}
+  </div>
+  <div class="bt-top__clone" aria-hidden="true">
+    {letters.map((l) => <span>{l}</span>)}
+  </div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M5 12h14"></path>
+    <path d="M13 5l7 7-7 7"></path>
+  </svg>
+</button>
+
+<script>
+  function setupBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn || btn.dataset.bound === '1') return;
+    btn.dataset.bound = '1';
+
+    const onScroll = () => {
+      btn.classList.toggle('bt-top--visible', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    btn.addEventListener('click', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+
+  setupBackToTop();
+  document.addEventListener('astro:after-swap', () => {
+    // Re-bind after view transitions (the button may be re-created)
+    const btn = document.getElementById('back-to-top');
+    if (btn) delete btn.dataset.bound;
+    setupBackToTop();
+  });
+</script>

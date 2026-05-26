@@ -356,6 +356,7 @@
   "actions": {
     "learnMore": "Learn more",
     "call": "Call us",
-    "switchLanguage": "Español"
+    "switchLanguage": "Español",
+    "backToTop": "Back to top"
   }
 }

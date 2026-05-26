@@ -7,7 +7,7 @@ import AnimatedInput from '../ui/AnimatedInput';
 import AnimatedTextarea from '../ui/AnimatedTextarea';
 import RadioGroup, { type RadioOption } from '../ui/RadioGroup';
 import Checkbox from '../ui/Checkbox';
-import SendButton from '../ui/SendButton';
+import FlySendButton from '../ui/FlySendButton';
 import { submitLeadToGHL } from '../../lib/ghl';
 
 export interface LeadFormStrings {
@@ -177,9 +177,9 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
       />
 
       <div className="pt-2">
-        <SendButton type="submit">
+        <FlySendButton type="submit" disabled={isSubmitting}>
           {isSubmitting ? strings.form.submitting : strings.form.submit}
-        </SendButton>
+        </FlySendButton>
         {submitted && !isSubmitting && (
           <p className="mt-4 text-sm text-[var(--color-accent)]" role="status">
             {strings.toast.success}
