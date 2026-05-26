@@ -624,19 +624,19 @@
 
 /* BackToTop FAB — adapted from Uiverse by satyamchaudharydev.
    Fixed bottom-right, fades in past 600px scroll. Click → smooth scroll to top.
-   Letters slide up (text out, clone in) with stagger. Arrow rotates -50°→-90°. */
+   Letters slide up (text out, clone in) with stagger. Arrow rotates -45°→-90°. */
 .bt-top {
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  width: 140px;
-  height: 56px;
+  width: 132px;
+  height: 52px;
   overflow: hidden;
   border: none;
   background: var(--color-ink);
   color: var(--color-ink-inverse);
-  padding: 0 1.5em 0.4em 1.25em;
-  border-radius: var(--radius-full);
+  padding: 0;
+  border-radius: 9999px;
   cursor: pointer;
   z-index: 50;
   opacity: 0;
@@ -652,20 +652,19 @@
 }
 .bt-top:hover { background: var(--color-accent); }
 
-.bt-top__text,
-.bt-top__clone,
-.bt-top > svg {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
+/* Text + clone — same absolute position, only one visible at a time. */
 .bt-top__text,
 .bt-top__clone {
-  left: 1.25em;
-  font-size: 1.1rem;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 22px;
+  font-size: 0.95rem;
   font-weight: 500;
-  gap: 1px;
+  letter-spacing: 0.3px;
+  line-height: 1;
 }
 .bt-top__text > span,
 .bt-top__clone > span {
@@ -673,13 +672,13 @@
   transition: transform 0.25s, opacity 0.25s;
 }
 .bt-top__clone > span {
-  transform: translateY(56px);
+  transform: translateY(52px);
   opacity: 0;
 }
 
 .bt-top:hover .bt-top__text > span,
 .bt-top:focus-visible .bt-top__text > span {
-  transform: translateY(-56px);
+  transform: translateY(-52px);
   opacity: 0;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -689,7 +688,7 @@
   opacity: 1;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-/* Per-letter stagger on exit and entry */
+/* Per-letter stagger on entry */
 .bt-top:hover .bt-top__text > :nth-child(1),
 .bt-top:hover .bt-top__clone > :nth-child(1) { transition-delay: 0s; }
 .bt-top:hover .bt-top__text > :nth-child(2),
@@ -697,31 +696,15 @@
 .bt-top:hover .bt-top__text > :nth-child(3),
 .bt-top:hover .bt-top__clone > :nth-child(3) { transition-delay: 0.1s; }
 
-/* Underline swipe right→left then re-grow from left on hover (Uiverse pattern) */
-.bt-top::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.bt-top:hover::before,
-.bt-top:focus-visible::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
+/* SVG arrow — absolute right, vertically centered, rotates on hover */
 .bt-top > svg {
-  width: 20px;
-  right: 1em;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 22px;
   top: 50%;
-  transform: translateY(-50%) rotate(-50deg);
-  transition: transform 0.25s ease-out;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform 0.3s ease-out;
 }
 .bt-top:hover > svg,
 .bt-top:focus-visible > svg {
@@ -729,23 +712,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bt-top, .bt-top *, .bt-top::before {
+  .bt-top, .bt-top * {
     transition: none !important;
   }
 }
 
 /* FlySendButton — adapted from Uiverse by adamgiebl, recolored to sage.
    Paper plane "flies" out to the upper-right on hover while the text slides
-   off to the right. The icon wrapper also bobs up/down (fly-y keyframe). */
+   off to the right (translate by 150% of its own width to clear any length). */
 .fly-send {
   font-family: inherit;
   font-size: 16px;
   background: var(--color-accent);
   color: var(--color-ink-inverse);
-  padding: 0.7em 1.4em 0.7em 1em;
+  padding: 0.85em 1.5em;
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
+  justify-content: center;
+  gap: 0.55em;
   border: none;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -755,7 +739,7 @@
   transition: background-color 0.25s, transform 0.15s;
 }
 .fly-send:hover { background: var(--color-accent-hover); }
-.fly-send:active { transform: scale(0.96); }
+.fly-send:active { transform: scale(0.97); }
 .fly-send:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .fly-send__wrap {
@@ -764,6 +748,7 @@
   transition: transform 0.3s ease-in-out;
 }
 .fly-send__wrap svg {
+  display: block;
   transition: transform 0.3s ease-in-out;
 }
 .fly-send span {
@@ -777,7 +762,8 @@
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 .fly-send:hover span {
-  transform: translateX(5em);
+  /* 150% of the span's own width — works for any text length */
+  transform: translateX(150%);
 }
 
 @keyframes fly-send-y {
