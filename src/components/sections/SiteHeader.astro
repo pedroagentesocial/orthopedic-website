@@ -4,6 +4,13 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
 import FoldButton from '../ui/FoldButton.astro';
 import MobileMenu from './MobileMenu.astro';
 
+interface Props {
+  /** Fixed + transparent over a dark full-screen hero (home). Turns solid on scroll. */
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -16,13 +23,11 @@ const navItems = [
 ] as const;
 ---
 
-<header
-  class="sticky top-0 z-40 bg-(--color-surface)/85 backdrop-blur-md border-b border-(--color-border)"
->
+<header class:list={['site-header', { 'site-header--overlay': overlay }]}>
   <div class="container-page flex items-center justify-between h-20">
     <a
       href={localizePath('/', lang)}
-      class="shrink-0 transition-opacity hover:opacity-80"
+      class="sh-logo shrink-0 transition-opacity hover:opacity-80"
     >
       <img
         src="/images/logo-lockup.png"
@@ -50,7 +55,7 @@ const navItems = [
     </nav>
 
     <div class="flex items-center gap-2">
-      <div class="hidden lg:block">
+      <div class="sh-lang hidden lg:block">
         <LanguageSwitcher />
       </div>
       <FoldButton href={localizePath('/contact', lang)} class="hidden lg:inline-flex">
@@ -60,3 +65,23 @@ const navItems = [
     </div>
   </div>
 </header>
+
+<script>
+  // Overlay header (home): transparent over the hero, solid once the visitor
+  // scrolls near the hero's end. Single global listener — the header element
+  // is re-queried on every tick so Astro view transitions stay in sync.
+  function updateOverlayHeader() {
+    const header = document.querySelector('.site-header--overlay');
+    if (!header) return;
+    const threshold = Math.max(window.innerHeight - 120, 160);
+    header.classList.toggle('site-header--scrolled', window.scrollY > threshold);
+  }
+
+  if (document.documentElement.dataset.shOverlayBound !== '1') {
+    document.documentElement.dataset.shOverlayBound = '1';
+    window.addEventListener('scroll', updateOverlayHeader, { passive: true });
+    window.addEventListener('resize', updateOverlayHeader);
+    document.addEventListener('astro:page-load', updateOverlayHeader);
+  }
+  updateOverlayHeader();
+</script>

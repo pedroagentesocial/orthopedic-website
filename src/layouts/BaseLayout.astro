@@ -11,9 +11,11 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Transparent header fixed over the hero (home only); turns solid on scroll. */
+  transparentHeader?: boolean;
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, transparentHeader = false } = Astro.props;
 const lang: Lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -64,7 +66,7 @@ const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), As
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-(--color-surface-elevated) focus:px-4 focus:py-2 focus:rounded-(--radius-md) focus:shadow-md">
       Skip to content
     </a>
-    <SiteHeader />
+    <SiteHeader overlay={transparentHeader} />
     <main id="main">
       <slot />
     </main>

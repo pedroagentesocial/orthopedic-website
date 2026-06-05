@@ -673,6 +673,56 @@
   .go-back__slider { transition: none; }
 }
 
+/* SiteHeader — sticky + solid by default. The home page uses the overlay
+   variant: fixed over the full-screen hero, fully transparent with white
+   logo/nav, then transitions to the regular solid style once the visitor
+   scrolls near the end of the hero (.site-header--scrolled). ------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+.site-header--overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+.site-header--overlay:not(.site-header--scrolled) {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+/* Logo: recolored to pure white via filter while transparent */
+.sh-logo img {
+  transition: filter 0.4s ease;
+}
+.site-header--overlay:not(.site-header--scrolled) .sh-logo img {
+  filter: brightness(0) invert(1);
+}
+/* Nav links + language switcher: white text while transparent */
+.site-header--overlay:not(.site-header--scrolled) nav[aria-label="Primary"] a,
+.site-header--overlay:not(.site-header--scrolled) .sh-lang a,
+.site-header--overlay:not(.site-header--scrolled) .sh-lang a > span {
+  color: var(--color-ink-inverse);
+}
+/* Hover duplicate (link-swap) in Soft Aqua so it still pops on dark */
+.site-header--overlay:not(.site-header--scrolled) .link-swap__bottom {
+  color: #A8D7DC;
+}
+/* Hamburger toggle: white while transparent */
+.site-header--overlay:not(.site-header--scrolled) .mm-toggle {
+  color: var(--color-ink-inverse);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header, .sh-logo img { transition: none; }
+}
+
 /* MobileMenu — slide-in sheet from the right (toggle + backdrop) ------- */
 .mm-panel {
   position: fixed;
