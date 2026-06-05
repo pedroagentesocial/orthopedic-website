@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const lastUpdated = '5 de junio de 2026';
+
+const sections = [
+  {
+    heading: 'Nuestro compromiso',
+    body: [
+      'Orthopedic PI está comprometido con que su sitio web y su clínica sean accesibles para todas las personas, incluidas las personas con discapacidad. La accesibilidad es parte de cómo diseñamos la atención — en línea y en persona.',
+    ],
+  },
+  {
+    heading: 'Estándares que seguimos',
+    body: [
+      'Nuestro objetivo es cumplir las Pautas de Accesibilidad para el Contenido Web (WCAG) 2.1 nivel AA. La accesibilidad se revisa como parte de nuestro proceso de diseño y desarrollo, no como un añadido posterior.',
+    ],
+  },
+  {
+    heading: 'Qué incluye este sitio',
+    body: ['Funciones integradas en este sitio web:'],
+    items: [
+      'Navegación completa por teclado con indicadores de foco visibles',
+      'Estructura semántica y etiquetas para lectores de pantalla',
+      'Contraste de color que cumple o supera WCAG AA',
+      'Modo de movimiento reducido: las animaciones se desactivan cuando tu sistema lo solicita',
+      'Alternativas de texto para imágenes significativas',
+      'Enlace "saltar al contenido" en todas las páginas',
+      'Contenido disponible en inglés y español',
+    ],
+  },
+  {
+    heading: 'En la clínica',
+    body: [
+      'Nuestras instalaciones ofrecen estacionamiento accesible, rampa en la entrada principal, baños y consultorios accesibles, y personal capacitado para asistir a pacientes con necesidades de movilidad, visuales o auditivas. Si necesitas alguna adaptación para tu visita — incluyendo servicios de interpretación — dínoslo al agendar y lo organizaremos.',
+    ],
+  },
+  {
+    heading: 'Limitaciones conocidas',
+    body: [
+      'Parte del contenido de terceros integrado (como el calendario de citas o los mapas) puede no cumplir totalmente nuestros estándares. Cuando eso ocurre, ofrecemos una alternativa equivalente — siempre puedes agendar o resolver dudas por teléfono al (801) 555-0100.',
+    ],
+  },
+  {
+    heading: 'Comentarios',
+    body: [
+      'Si encuentras una barrera en este sitio web, por favor cuéntanos. Llama al (801) 555-0100 o usa el formulario de contacto, incluyendo la dirección de la página y una breve descripción del problema. Tomamos en serio los reportes de accesibilidad y buscamos responder en un máximo de 2 días hábiles.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Accesibilidad"
+  description="Declaración de accesibilidad de Orthopedic PI — nuestros estándares, funciones del sitio y cómo reportar una barrera."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Declaración de accesibilidad"
+    subtitle={`La atención debe ser accesible para todos — nuestro sitio web también. Última actualización: ${lastUpdated}.`}
+  />
+
+  <section class="container-page section-y">
+    <div class="max-w-3xl space-y-12">
+      {sections.map((s) => (
+        <div class="reveal-up">
+          <h2 class="text-2xl">{s.heading}</h2>
+          {s.body.map((p) => (
+            <p class="mt-4 text-(--color-ink-muted) leading-relaxed">{p}</p>
+          ))}
+          {s.items && (
+            <ul class="mt-4 list-disc pl-5 space-y-2 text-(--color-ink-muted)" role="list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

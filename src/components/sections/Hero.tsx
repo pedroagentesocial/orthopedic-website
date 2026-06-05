@@ -138,7 +138,9 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
       </div>
 
       {/* Centered content — re-mounts per slide with a direction-aware motion */}
-      <div className="relative z-10 container-page text-center text-[var(--color-ink-inverse)] py-24 px-14 sm:px-[var(--container-padding)]">
+      {/* pb-48 reserves room for the dots (bottom-32) + scroll hint, so long
+          slides (e.g. Hand & Wrist) never overlap the controls */}
+      <div className="relative z-10 container-page text-center text-[var(--color-ink-inverse)] pt-28 pb-48 px-14 sm:px-[var(--container-padding)]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={index}

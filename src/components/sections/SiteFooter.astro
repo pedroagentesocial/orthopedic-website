@@ -16,9 +16,9 @@ const navItems = [
 ] as const;
 
 const legalItems = [
-  { key: 'privacy', href: '#' },
-  { key: 'terms', href: '#' },
-  { key: 'accessibility', href: '#' },
+  { key: 'privacy', href: '/privacy' },
+  { key: 'terms', href: '/terms' },
+  { key: 'accessibility', href: '/accessibility' },
 ] as const;
 ---
 
@@ -68,7 +68,7 @@ const legalItems = [
         {legalItems.map((item) => (
           <li>
             <a
-              href={item.href}
+              href={localizePath(item.href, lang)}
               class="underline-grow hover:text-(--color-ink) transition-colors duration-200 ease-(--ease-out-quart)"
             >
               {t(`footer.legal.${item.key}`)}

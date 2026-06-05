@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+
+const lastUpdated = 'June 5, 2026';
+
+const sections = [
+  {
+    heading: 'Acceptance of these terms',
+    body: [
+      'By using the Orthopedic PI website you agree to these terms of service. If you do not agree, please do not use the site. These terms apply to the website only — your medical care is governed by the consent and policy documents you sign at the clinic.',
+    ],
+  },
+  {
+    heading: 'Not medical advice',
+    body: [
+      'Content on this website is provided for general information and education. It is not medical advice, does not create a physician–patient relationship, and should never replace an evaluation by a qualified professional.',
+      'If you are experiencing a medical emergency, call 911 immediately. Do not use this website or its forms for urgent matters.',
+    ],
+  },
+  {
+    heading: 'Appointments & online forms',
+    body: [
+      'Submitting a form or booking request does not guarantee an appointment until it is confirmed by our team. Please provide accurate contact information so we can reach you. You are responsible for the information you choose to submit.',
+    ],
+  },
+  {
+    heading: 'Acceptable use',
+    body: ['When using this site you agree not to:'],
+    items: [
+      'Attempt to gain unauthorized access to our systems',
+      'Submit false, misleading or harmful content through our forms',
+      'Use automated tools to scrape or overload the site',
+      'Infringe the rights of others or violate applicable law',
+    ],
+  },
+  {
+    heading: 'Intellectual property',
+    body: [
+      'The Orthopedic PI name, logo, text, graphics and videos on this site are the property of Orthopedic PI or used under license. You may not reproduce them for commercial purposes without written permission.',
+    ],
+  },
+  {
+    heading: 'Third-party links & services',
+    body: [
+      'The site may link to or embed third-party services (such as maps or a booking calendar). We are not responsible for their content or privacy practices; their own terms apply.',
+    ],
+  },
+  {
+    heading: 'Disclaimers & limitation of liability',
+    body: [
+      'The website is provided "as is" without warranties of any kind. To the maximum extent permitted by law, Orthopedic PI is not liable for indirect or consequential damages arising from use of the website itself. Nothing in these terms limits our professional responsibilities regarding the medical care we provide at the clinic.',
+    ],
+  },
+  {
+    heading: 'Governing law',
+    body: [
+      'These terms are governed by the laws of the State of Utah, United States, without regard to conflict-of-law principles.',
+    ],
+  },
+  {
+    heading: 'Changes to these terms',
+    body: [
+      'We may update these terms from time to time. The current version will always be published on this page with its revision date. Continued use of the site after changes means you accept the updated terms.',
+    ],
+  },
+  {
+    heading: 'Contact',
+    body: [
+      'Questions about these terms? Orthopedic PI — 1234 Wasatch Boulevard, Salt Lake City, UT 84109. Phone: (801) 555-0100.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Terms of service"
+  description="The terms that govern your use of the Orthopedic PI website."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Terms of service"
+    subtitle={`The rules that apply when you use this website. Last updated ${lastUpdated}.`}
+  />
+
+  <section class="container-page section-y">
+    <div class="max-w-3xl space-y-12">
+      {sections.map((s) => (
+        <div class="reveal-up">
+          <h2 class="text-2xl">{s.heading}</h2>
+          {s.body.map((p) => (
+            <p class="mt-4 text-(--color-ink-muted) leading-relaxed">{p}</p>
+          ))}
+          {s.items && (
+            <ul class="mt-4 list-disc pl-5 space-y-2 text-(--color-ink-muted)" role="list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

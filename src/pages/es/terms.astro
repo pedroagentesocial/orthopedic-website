@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const lastUpdated = '5 de junio de 2026';
+
+const sections = [
+  {
+    heading: 'Aceptación de estos términos',
+    body: [
+      'Al usar el sitio web de Orthopedic PI aceptas estos términos de servicio. Si no estás de acuerdo, por favor no uses el sitio. Estos términos aplican únicamente al sitio web — tu atención médica se rige por los consentimientos y documentos que firmas en la clínica.',
+    ],
+  },
+  {
+    heading: 'No es consejo médico',
+    body: [
+      'El contenido de este sitio se ofrece con fines informativos y educativos generales. No constituye consejo médico, no crea una relación médico–paciente y nunca debe sustituir la evaluación de un profesional calificado.',
+      'Si tienes una emergencia médica, llama al 911 de inmediato. No uses este sitio ni sus formularios para asuntos urgentes.',
+    ],
+  },
+  {
+    heading: 'Citas y formularios en línea',
+    body: [
+      'Enviar un formulario o solicitud de cita no garantiza la cita hasta que nuestro equipo la confirme. Proporciona datos de contacto correctos para poder comunicarnos contigo. Eres responsable de la información que decides enviar.',
+    ],
+  },
+  {
+    heading: 'Uso aceptable',
+    body: ['Al usar este sitio te comprometes a no:'],
+    items: [
+      'Intentar acceder sin autorización a nuestros sistemas',
+      'Enviar contenido falso, engañoso o dañino a través de los formularios',
+      'Usar herramientas automatizadas para extraer datos o sobrecargar el sitio',
+      'Infringir derechos de terceros o violar la ley aplicable',
+    ],
+  },
+  {
+    heading: 'Propiedad intelectual',
+    body: [
+      'El nombre Orthopedic PI, el logo, los textos, gráficos y videos de este sitio son propiedad de Orthopedic PI o se usan bajo licencia. No puedes reproducirlos con fines comerciales sin permiso por escrito.',
+    ],
+  },
+  {
+    heading: 'Enlaces y servicios de terceros',
+    body: [
+      'El sitio puede enlazar o integrar servicios de terceros (como mapas o un calendario de citas). No somos responsables de su contenido ni de sus prácticas de privacidad; aplican sus propios términos.',
+    ],
+  },
+  {
+    heading: 'Exenciones y límite de responsabilidad',
+    body: [
+      'El sitio web se ofrece "tal cual", sin garantías de ningún tipo. En la máxima medida que permita la ley, Orthopedic PI no es responsable de daños indirectos o consecuentes derivados del uso del sitio web en sí. Nada en estos términos limita nuestras responsabilidades profesionales respecto a la atención médica que brindamos en la clínica.',
+    ],
+  },
+  {
+    heading: 'Ley aplicable',
+    body: [
+      'Estos términos se rigen por las leyes del Estado de Utah, Estados Unidos, sin atender a principios de conflicto de leyes.',
+    ],
+  },
+  {
+    heading: 'Cambios a estos términos',
+    body: [
+      'Podemos actualizar estos términos ocasionalmente. La versión vigente siempre estará publicada en esta página con su fecha de revisión. Seguir usando el sitio después de un cambio implica aceptar los términos actualizados.',
+    ],
+  },
+  {
+    heading: 'Contacto',
+    body: [
+      '¿Preguntas sobre estos términos? Orthopedic PI — 1234 Wasatch Boulevard, Salt Lake City, UT 84109. Teléfono: (801) 555-0100.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Términos de servicio"
+  description="Los términos que rigen el uso del sitio web de Orthopedic PI."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Términos de servicio"
+    subtitle={`Las reglas que aplican al usar este sitio web. Última actualización: ${lastUpdated}.`}
+  />
+
+  <section class="container-page section-y">
+    <div class="max-w-3xl space-y-12">
+      {sections.map((s) => (
+        <div class="reveal-up">
+          <h2 class="text-2xl">{s.heading}</h2>
+          {s.body.map((p) => (
+            <p class="mt-4 text-(--color-ink-muted) leading-relaxed">{p}</p>
+          ))}
+          {s.items && (
+            <ul class="mt-4 list-disc pl-5 space-y-2 text-(--color-ink-muted)" role="list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

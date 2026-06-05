@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+
+const lastUpdated = 'June 5, 2026';
+
+const sections = [
+  {
+    heading: 'Our commitment',
+    body: [
+      'Orthopedic PI is committed to making its website and its clinic accessible to everyone, including people with disabilities. Accessibility is part of how we design care — online and in person.',
+    ],
+  },
+  {
+    heading: 'Standards we follow',
+    body: [
+      'We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. Accessibility is reviewed as part of our design and development process, not as an afterthought.',
+    ],
+  },
+  {
+    heading: 'What this site includes',
+    body: ['Features built into this website:'],
+    items: [
+      'Full keyboard navigation with visible focus indicators',
+      'Semantic structure and labels for screen readers',
+      'Color contrast that meets or exceeds WCAG AA',
+      'Reduced-motion mode: animations are disabled when your system requests it',
+      'Text alternatives for meaningful images',
+      'A "skip to content" link on every page',
+      'Content available in English and Spanish',
+    ],
+  },
+  {
+    heading: 'At the clinic',
+    body: [
+      'Our facility offers accessible parking spaces, ramp access at the main entrance, accessible restrooms and exam rooms, and staff trained to assist patients with mobility, visual or hearing needs. If you need an accommodation for your visit — including interpretation services — let us know when booking and we will arrange it.',
+    ],
+  },
+  {
+    heading: 'Known limitations',
+    body: [
+      'Some embedded third-party content (such as the booking calendar or maps) may not fully meet our standards. Where that happens, we offer an equivalent alternative — you can always book or ask questions by phone at (801) 555-0100.',
+    ],
+  },
+  {
+    heading: 'Feedback',
+    body: [
+      'If you encounter a barrier on this website, please tell us. Call (801) 555-0100 or use the contact form, and include the page address and a short description of the problem. We take accessibility reports seriously and aim to respond within 2 business days.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Accessibility"
+  description="Orthopedic PI's accessibility statement — our standards, site features and how to report a barrier."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Accessibility statement"
+    subtitle={`Care should be accessible to everyone — so should our website. Last updated ${lastUpdated}.`}
+  />
+
+  <section class="container-page section-y">
+    <div class="max-w-3xl space-y-12">
+      {sections.map((s) => (
+        <div class="reveal-up">
+          <h2 class="text-2xl">{s.heading}</h2>
+          {s.body.map((p) => (
+            <p class="mt-4 text-(--color-ink-muted) leading-relaxed">{p}</p>
+          ))}
+          {s.items && (
+            <ul class="mt-4 list-disc pl-5 space-y-2 text-(--color-ink-muted)" role="list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

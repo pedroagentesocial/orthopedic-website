@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const lastUpdated = '5 de junio de 2026';
+
+const sections = [
+  {
+    heading: 'Información que recopilamos',
+    body: [
+      'Cuando usas este sitio web o nos contactas, podemos recopilar: tu nombre, correo electrónico y teléfono al enviar un formulario de contacto o cita; el motivo de tu consulta tal como lo describes; e información técnica básica como tipo de navegador y páginas visitadas, usada para que el sitio funcione correctamente.',
+    ],
+  },
+  {
+    heading: 'Cómo usamos tu información',
+    body: ['Usamos la información que nos das para:'],
+    items: [
+      'Responder a tu consulta y agendar citas',
+      'Verificar tu cobertura de seguro cuando nos lo pidas',
+      'Enviar confirmaciones y recordatorios de cita',
+      'Mejorar nuestro sitio web y la forma en que nos comunicamos',
+    ],
+  },
+  {
+    heading: 'Información de salud (HIPAA)',
+    body: [
+      'La información de salud protegida (PHI) compartida durante tu atención se rige por nuestro Aviso de Prácticas de Privacidad bajo HIPAA, que recibes en tu primera visita y puedes solicitar en cualquier momento. Este sitio web no está diseñado para recopilar expedientes médicos — evita incluir historial médico detallado en los formularios web.',
+    ],
+  },
+  {
+    heading: 'Con quién compartimos tu información',
+    body: [
+      'No vendemos ni rentamos tu información personal. Solo la compartimos con proveedores que nos ayudan a operar (como nuestra plataforma de agendado y mensajería), cuando la ley lo exige, o con tu consentimiento explícito.',
+    ],
+  },
+  {
+    heading: 'Cookies y analítica',
+    body: [
+      'Este sitio usa únicamente las cookies necesarias para funcionar. No cargamos rastreadores publicitarios de terceros. Los servicios integrados (como el calendario de citas o los mapas) se cargan solo cuando interactúas con ellos.',
+    ],
+  },
+  {
+    heading: 'Seguridad y retención de datos',
+    body: [
+      'Los formularios se transmiten por conexiones cifradas (HTTPS) y se almacenan en sistemas con acceso controlado. Conservamos la información de tu consulta solo el tiempo necesario para atenderte, o el que exija la ley.',
+    ],
+  },
+  {
+    heading: 'Tus derechos',
+    body: [
+      'Puedes solicitar acceso, corrección o eliminación de la información personal que tenemos sobre ti en cualquier momento. Contáctanos al (801) 555-0100 o mediante el formulario de contacto y responderemos en un plazo de 30 días.',
+    ],
+  },
+  {
+    heading: 'Menores de edad',
+    body: [
+      'Este sitio no está dirigido a menores de 13 años y no recopilamos su información en línea de forma deliberada. La atención de menores siempre se coordina a través de su padre, madre o tutor legal.',
+    ],
+  },
+  {
+    heading: 'Cambios a esta política',
+    body: [
+      'Si actualizamos esta política, la nueva versión se publicará en esta página con la fecha revisada. Los cambios significativos se destacarán en el sitio.',
+    ],
+  },
+  {
+    heading: 'Contacto',
+    body: [
+      'Orthopedic PI — 1234 Wasatch Boulevard, Salt Lake City, UT 84109. Teléfono: (801) 555-0100.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Política de privacidad"
+  description="Cómo Orthopedic PI recopila, usa y protege tu información personal."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Política de privacidad"
+    subtitle={`Cómo recopilamos, usamos y protegemos tu información. Última actualización: ${lastUpdated}.`}
+  />
+
+  <section class="container-page section-y">
+    <div class="max-w-3xl space-y-12">
+      {sections.map((s) => (
+        <div class="reveal-up">
+          <h2 class="text-2xl">{s.heading}</h2>
+          {s.body.map((p) => (
+            <p class="mt-4 text-(--color-ink-muted) leading-relaxed">{p}</p>
+          ))}
+          {s.items && (
+            <ul class="mt-4 list-disc pl-5 space-y-2 text-(--color-ink-muted)" role="list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
