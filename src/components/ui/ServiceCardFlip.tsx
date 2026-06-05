@@ -56,7 +56,6 @@ export default function ServiceCardFlip({
           <div className="tr-image-overlay">
             <h3
               className="tr-image-title"
-              style={{ fontVariationSettings: '"opsz" 36' }}
             >
               {title}
             </h3>
@@ -68,7 +67,6 @@ export default function ServiceCardFlip({
           <div className="tr-front-inner">
             <h3
               className="tr-back-title"
-              style={{ fontVariationSettings: '"opsz" 36' }}
             >
               {title}
             </h3>

@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/montserrat/index.css";
 @import "@fontsource-variable/inter/index.css";
+@import "@fontsource/poppins/500.css";
 
 /* ------------------------------------------------------------------
  * Design tokens — Orthopedic PI brand identity (see public/images/identidad.png)
@@ -43,9 +44,10 @@
   --color-warning: #B8860B;
   --color-danger: #A04848;
 
-  /* Typography — families */
-  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  /* Typography — families (brand: Montserrat SemiBold / Inter / Poppins Medium) */
+  --font-display: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Typography — sizes (fluid via clamp) */
@@ -132,17 +134,22 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-ink);
-    font-weight: 400;
+    font-weight: 600; /* brand: Montserrat SemiBold */
     letter-spacing: -0.02em;
     line-height: 1.1;
-    font-variation-settings: "opsz" 144;
     text-wrap: balance;
   }
 
   h1 { font-size: var(--text-6xl); }
   h2 { font-size: var(--text-5xl); }
-  h3 { font-size: var(--text-3xl); font-variation-settings: "opsz" 72; }
-  h4 { font-size: var(--text-2xl); font-variation-settings: "opsz" 36; }
+  h3 { font-size: var(--text-3xl); }
+  h4 { font-size: var(--text-2xl); }
+
+  /* Non-heading display text (stats, card titles) also reads SemiBold.
+     Base layer — any explicit font-weight utility still wins. */
+  .font-display {
+    font-weight: 600;
+  }
 
   p {
     text-wrap: pretty;
@@ -194,6 +201,7 @@
   gap: 4px;
   padding: 16px 36px;
   border: 4px solid transparent;
+  font-family: var(--font-accent);
   font-size: 16px;
   background-color: transparent;
   border-radius: 9999px;
@@ -282,7 +290,7 @@
 
 /* SplashButton — adapted from purple-kangaroo-17 --------------------- */
 .splash-btn {
-  font-family: var(--font-sans);
+  font-family: var(--font-accent);
   font-weight: 500;
   color: var(--color-ink-inverse);
   background-color: var(--color-ink);
@@ -641,6 +649,7 @@
   text-decoration: none;
   cursor: pointer;
   color: var(--color-ink);
+  font-family: var(--font-accent);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -783,7 +792,7 @@
   padding: 18px 4px;
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-variation-settings: "opsz" 36;
+  font-weight: 600;
   color: var(--color-ink);
   letter-spacing: -0.01em;
   border-bottom: 1px solid var(--color-border);
@@ -912,6 +921,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-accent);
   height: 44px;
   padding: 0 22px;
   border-radius: var(--radius-md);
@@ -1024,6 +1034,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-family: var(--font-accent);
   padding-left: 22px;
   font-size: 0.95rem;
   font-weight: 500;
@@ -1094,7 +1105,7 @@
    Paper plane "flies" out to the upper-right on hover while the text slides
    off to the right (translate by 150% of its own width to clear any length). */
 .fly-send {
-  font-family: inherit;
+  font-family: var(--font-accent);
   font-size: 16px;
   background: var(--color-accent);
   color: var(--color-ink-inverse);
@@ -1198,6 +1209,7 @@
   justify-content: center;
   height: 38px;
   padding: 0 1.25em;
+  font-family: var(--font-accent);
   background-color: var(--color-accent);
   border: none;
   border-radius: 8px;

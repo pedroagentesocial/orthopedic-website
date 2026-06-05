@@ -141,7 +141,7 @@ const related = (await getCollection('services', (e) => e.data.lang === 'es' && 
                 <RelatedIcon size={20} strokeWidth={1.5} />
               </div>
               <div class="flex-1 min-w-0">
-                <p class="font-display text-lg text-(--color-ink) tracking-tight" style={{ fontVariationSettings: '"opsz" 30' }}>
+                <p class="font-display text-lg text-(--color-ink) tracking-tight">
                   {r.data.title}
                 </p>
                 <p class="mt-1 text-sm text-(--color-ink-muted) line-clamp-2">{r.data.summary}</p>
@@ -162,13 +162,11 @@ const related = (await getCollection('services', (e) => e.data.lang === 'es' && 
   .prose-content h2 {
     font-size: var(--text-3xl);
     margin-top: 2.5rem;
-    font-variation-settings: "opsz" 72;
   }
   .prose-content h2:first-child { margin-top: 0; }
   .prose-content h3 {
     font-size: var(--text-2xl);
     margin-top: 2rem;
-    font-variation-settings: "opsz" 36;
   }
   .prose-content p {
     margin-top: 1.25rem;

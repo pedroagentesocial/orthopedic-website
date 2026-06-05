@@ -40,7 +40,6 @@ export default function ServiceCard({
       <div className="mt-8 flex-1">
         <h3
           className="font-display text-2xl tracking-tight text-[var(--color-ink)] transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-1"
-          style={{ fontVariationSettings: '"opsz" 36' }}
         >
           {title}
         </h3>

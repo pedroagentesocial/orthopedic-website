@@ -22,7 +22,7 @@ const stats = [
   <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
     {stats.map((s) => (
       <div class="reveal-up flex flex-col items-center text-center border-l border-(--color-border) px-6 first:border-l-0 lg:border-l">
-        <div class="font-display text-5xl md:text-6xl text-(--color-ink) leading-none" style={{ fontVariationSettings: '"opsz" 144' }}>
+        <div class="font-display text-5xl md:text-6xl text-(--color-ink) leading-none">
           <NumberTicker client:visible value={s.value} suffix={s.suffix} locale={locale} />
         </div>
         <p class="mt-4 text-sm uppercase tracking-wider text-(--color-ink-muted)">
