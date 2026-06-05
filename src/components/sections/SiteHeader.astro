@@ -58,9 +58,13 @@ const navItems = [
       <div class="sh-lang hidden lg:block">
         <LanguageSwitcher />
       </div>
-      <FoldButton href={localizePath('/contact', lang)} class="hidden lg:inline-flex">
-        {t('nav.book')}
-      </FoldButton>
+      {/* Wrapper div hides the CTA <lg — .fold-btn's own display rule is
+          unlayered CSS and would beat Tailwind's `hidden` utility directly */}
+      <div class="hidden lg:block">
+        <FoldButton href={localizePath('/contact', lang)}>
+          {t('nav.book')}
+        </FoldButton>
+      </div>
       <MobileMenu />
     </div>
   </div>

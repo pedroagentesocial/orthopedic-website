@@ -739,6 +739,9 @@
   z-index: 60;
   visibility: hidden;
   pointer-events: none;
+  /* Clip the off-screen sheet (translateX 100%) so it never widens the
+     document's horizontal scroll area on mobile. */
+  overflow: hidden;
 }
 .mm-panel--open {
   visibility: visible;
@@ -1362,11 +1365,25 @@ a:hover > .services-cta__arrow {
     transparent 100%
   );
 }
+/* 2 columns on tablet (the cards' min-content width doesn't fit 3-up
+   below ~1024px); full 3-column wall on desktop. minmax(0,1fr) lets
+   columns shrink below their content's intrinsic width. */
 .tw-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
   height: 100%;
+}
+.tw-col:nth-child(3) {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .tw-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tw-col:nth-child(3) {
+    display: flex;
+  }
 }
 .tw-col {
   display: flex;
