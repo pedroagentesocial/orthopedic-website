@@ -4,37 +4,39 @@
 @import "@fontsource-variable/inter/index.css";
 
 /* ------------------------------------------------------------------
- * Design tokens — "Editorial cálido"
+ * Design tokens — Orthopedic PI brand identity (see public/images/identidad.png)
+ * Palette: Deep Navy #062056 · Medical Teal #068F97 · Soft Aqua #A8D7DC
+ *          Slate Blue #2C536E · Light Gray #FCFDFD
  * No gradients. Flat surfaces. Hierarchy through type weight & space.
  * ------------------------------------------------------------------ */
 @theme {
-  /* Color — Surface */
-  --color-surface: #FAFAF7;
+  /* Color — Surface (brand Light Gray base) */
+  --color-surface: #FCFDFD;
   --color-surface-elevated: #FFFFFF;
-  --color-surface-sunken: #F2F0EA;
+  --color-surface-sunken: #EFF4F6;
 
-  /* Color — Ink */
-  --color-ink: #1A2027;
-  --color-ink-muted: #5C6670;
-  --color-ink-subtle: #8B939B;
-  --color-ink-inverse: #FAFAF7;
+  /* Color — Ink (brand Deep Navy + Slate Blue) */
+  --color-ink: #062056;
+  --color-ink-muted: #2C536E;
+  --color-ink-subtle: #7A8CA0;
+  --color-ink-inverse: #FCFDFD;
 
-  /* Color — Accent (sage green, single accent only) */
-  --color-accent: #5C8374;
-  --color-accent-hover: #4A6E60;
-  --color-accent-pressed: #3D5A4F;
-  --color-accent-subtle: #E8F0EC;
+  /* Color — Accent (brand Medical Teal, single accent only) */
+  --color-accent: #068F97;
+  --color-accent-hover: #057179;
+  --color-accent-pressed: #045B61;
+  --color-accent-subtle: #E3F1F3;
 
-  /* Brighter, more energetic sage — reserved for "loud" CTAs (hero, final CTA).
-     Keeps the sage family for brand cohesion but pops more on cream + dark.
+  /* Brighter, more energetic teal — reserved for "loud" CTAs (hero, final CTA).
+     Keeps the teal family for brand cohesion but pops more on light + navy.
      Use sparingly: 1-2 places per page max. */
-  --color-accent-loud: #7DC084;
-  --color-accent-loud-hover: #6BA871;
+  --color-accent-loud: #1FB6C1;
+  --color-accent-loud-hover: #17A3AD;
 
-  /* Color — Border */
-  --color-border: #E8E6E0;
-  --color-border-strong: #D4D2CC;
-  --color-border-accent: #5C8374;
+  /* Color — Border (brand Soft Aqua for accent borders) */
+  --color-border: #E1E9EC;
+  --color-border-strong: #C8D5DB;
+  --color-border-accent: #A8D7DC;
 
   /* Color — Feedback (semantic, muted) */
   --color-success: #4A7C59;
@@ -72,10 +74,10 @@
   --radius-full: 9999px;
 
   /* Shadows — subtle, hover/elevation only */
-  --shadow-xs: 0 1px 2px 0 rgb(26 32 39 / 0.04);
-  --shadow-sm: 0 1px 3px 0 rgb(26 32 39 / 0.06), 0 1px 2px -1px rgb(26 32 39 / 0.04);
-  --shadow-md: 0 4px 12px -2px rgb(26 32 39 / 0.08), 0 2px 4px -2px rgb(26 32 39 / 0.04);
-  --shadow-lg: 0 12px 24px -6px rgb(26 32 39 / 0.10), 0 4px 8px -4px rgb(26 32 39 / 0.06);
+  --shadow-xs: 0 1px 2px 0 rgb(6 32 86 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(6 32 86 / 0.06), 0 1px 2px -1px rgb(6 32 86 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(6 32 86 / 0.08), 0 2px 4px -2px rgb(6 32 86 / 0.04);
+  --shadow-lg: 0 12px 24px -6px rgb(6 32 86 / 0.10), 0 4px 8px -4px rgb(6 32 86 / 0.06);
 
   /* Easing — natural, calm motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -331,7 +333,7 @@
 .jolly-emu-input:hover,
 .jolly-emu-input:focus {
   border-color: var(--color-ink);
-  background: rgb(26 32 39 / 0.02);
+  background: rgb(6 32 86 / 0.02);
   outline: none;
 }
 
@@ -477,7 +479,7 @@
 .tr-card:focus-within .tr-content,
 .tr-card--flipped .tr-content {
   transform: rotateY(180deg);
-  box-shadow: 0 24px 48px -12px rgb(26 32 39 / 0.18);
+  box-shadow: 0 24px 48px -12px rgb(6 32 86 / 0.18);
 }
 
 .tr-front, .tr-back {
@@ -509,7 +511,7 @@
   right: 0;
   bottom: 0;
   padding: 20px 24px;
-  background-color: rgb(26 32 39 / 0.85);
+  background-color: rgb(6 32 86 / 0.85);
   color: var(--color-ink-inverse);
 }
 .tr-image-title {
@@ -686,7 +688,7 @@
 .mm-backdrop {
   position: absolute;
   inset: 0;
-  background: rgb(26 32 39 / 0.5);
+  background: rgb(6 32 86 / 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -705,7 +707,7 @@
   flex-direction: column;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: -8px 0 32px -8px rgb(26 32 39 / 0.25);
+  box-shadow: -8px 0 32px -8px rgb(6 32 86 / 0.25);
 }
 .mm-panel--open .mm-sheet {
   transform: translateX(0);
@@ -769,7 +771,7 @@
 .sd-overlay {
   position: fixed;
   inset: 0;
-  background: rgb(26 32 39 / 0.55);
+  background: rgb(6 32 86 / 0.55);
   backdrop-filter: blur(4px);
   z-index: 100;
   animation: sd-fade-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -788,7 +790,7 @@
   border-radius: var(--radius-xl);
   padding: 28px 22px 24px;
   z-index: 101;
-  box-shadow: 0 24px 48px -12px rgb(26 32 39 / 0.25);
+  box-shadow: 0 24px 48px -12px rgb(6 32 86 / 0.25);
   text-align: center;
   animation: sd-zoom-in 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -947,7 +949,7 @@
   transform: translateY(20px) scale(0.95);
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
-  box-shadow: 0 8px 24px -8px rgb(26 32 39 / 0.25);
+  box-shadow: 0 8px 24px -8px rgb(6 32 86 / 0.25);
 }
 @media (min-width: 640px) {
   .bt-top {
@@ -1156,7 +1158,7 @@
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0.3em 0.3em 0.5em rgba(26, 32, 39, 0.18);
+  box-shadow: 0.3em 0.3em 0.5em rgba(6, 32, 86, 0.18);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 .fold-btn:hover {
@@ -1187,7 +1189,7 @@
   height: 1.6em;
 }
 .fold-btn:active {
-  box-shadow: 0.15em 0.15em 0.3em rgba(26, 32, 39, 0.18);
+  box-shadow: 0.15em 0.15em 0.3em rgba(6, 32, 86, 0.18);
   transform: translate(0.08em, 0.08em);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1335,6 +1337,20 @@ a:hover > .services-cta__arrow {
 @media (prefers-reduced-motion: reduce) {
   .tw-col {
     animation: none;
+  }
+}
+
+/* CTA strip image blend — alpha mask so the photo "fuses" into the navy
+   panel. Technical alpha mask (like .tw-wall), not a visible color gradient.
+   Mobile (stacked): fades from the top. Desktop (side-by-side): from the left. */
+.cta-img-blend {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 55%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 55%);
+}
+@media (min-width: 1024px) {
+  .cta-img-blend {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 60%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 60%);
   }
 }
 

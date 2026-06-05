@@ -36,8 +36,8 @@ const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), As
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
     <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
@@ -55,7 +55,7 @@ const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), As
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
 
-    <meta name="theme-color" content="#FAFAF7" />
+    <meta name="theme-color" content="#FCFDFD" />
     <meta name="color-scheme" content="light" />
 
     <ClientRouter />

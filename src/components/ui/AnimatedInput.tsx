@@ -43,7 +43,7 @@ const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
             'jolly-emu-input',
             'block w-full h-12 px-4 rounded-[var(--radius-md)]',
             'text-base text-[var(--color-ink)]',
-            'bg-[rgb(26_32_39/0.04)]',
+            'bg-[rgb(6_32_86/0.04)]',
             'border-2 border-transparent outline-none',
             'placeholder:text-[var(--color-ink-subtle)]',
             error && '!border-[var(--color-danger)]',

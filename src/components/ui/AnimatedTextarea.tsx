@@ -42,7 +42,7 @@ const AnimatedTextarea = forwardRef<HTMLTextAreaElement, AnimatedTextareaProps>(
             'jolly-emu-input',
             'block w-full px-4 py-3 rounded-[var(--radius-md)]',
             'text-base text-[var(--color-ink)] leading-relaxed',
-            'bg-[rgb(26_32_39/0.04)]',
+            'bg-[rgb(6_32_86/0.04)]',
             'border-2 border-transparent outline-none resize-y min-h-[140px]',
             'placeholder:text-[var(--color-ink-subtle)]',
             error && '!border-[var(--color-danger)]',

@@ -34,10 +34,16 @@ const navItems = [
     <header class="mm-sheet__header">
       <a
         href={localizePath('/', lang)}
-        class="font-display text-xl tracking-tight text-(--color-ink)"
+        class="shrink-0"
         data-mm-close
       >
-        Orthopedic <span class="text-(--color-accent)">PI</span>
+        <img
+          src="/images/logo-lockup.png"
+          alt={t('meta.siteName')}
+          class="h-12 w-auto"
+          width="759"
+          height="454"
+        />
       </a>
       <button
         type="button"

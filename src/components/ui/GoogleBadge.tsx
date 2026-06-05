@@ -48,7 +48,7 @@ function Star({ filled }: { filled: boolean }) {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
       <path
-        fill={filled ? '#FBBC05' : '#E8E6E0'}
+        fill={filled ? '#FBBC05' : '#E1E9EC'}
         d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
       />
     </svg>

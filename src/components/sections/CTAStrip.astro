@@ -40,20 +40,15 @@ const ctaImage = '/images/ctafinal.jpg';
           </a>
         </div>
 
-        <!-- Subtle decorative line on the right edge of text panel, only visible on desktop -->
-        <span
-          aria-hidden="true"
-          class="hidden lg:block absolute top-12 right-0 bottom-12 w-px bg-(--color-ink-inverse)/10"
-        ></span>
       </div>
 
-      <!-- Image panel -->
+      <!-- Image panel — photo fades out towards the text so both feel fused -->
       <div class="relative min-h-[280px] lg:min-h-[480px]">
         <img
           src={ctaImage}
           alt=""
           loading="lazy"
-          class="absolute inset-0 w-full h-full object-cover"
+          class="cta-img-blend absolute inset-0 w-full h-full object-cover"
         />
         <!-- Subtle ink overlay to keep cohesion with dark left panel; solid color, no gradient -->
         <span

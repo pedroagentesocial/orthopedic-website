@@ -22,10 +22,15 @@ const navItems = [
   <div class="container-page flex items-center justify-between h-20">
     <a
       href={localizePath('/', lang)}
-      class="font-display text-xl tracking-tight text-(--color-ink) hover:text-(--color-accent) transition-colors"
-      aria-label={t('meta.siteName')}
+      class="shrink-0 transition-opacity hover:opacity-80"
     >
-      Orthopedic <span class="text-(--color-accent)">PI</span>
+      <img
+        src="/images/logo-lockup.png"
+        alt={t('meta.siteName')}
+        class="h-14 w-auto"
+        width="759"
+        height="454"
+      />
     </a>
 
     <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">

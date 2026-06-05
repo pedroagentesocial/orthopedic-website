@@ -26,10 +26,16 @@ const legalItems = [
   <div class="container-page py-12 flex flex-col gap-10 md:flex-row md:items-center md:justify-between md:gap-8">
     <a
       href={localizePath('/', lang)}
-      class="font-display text-xl tracking-tight text-(--color-ink) hover:text-(--color-accent) transition-colors shrink-0"
-      aria-label={t('meta.siteName')}
+      class="shrink-0 transition-opacity hover:opacity-80"
     >
-      Orthopedic <span class="text-(--color-accent)">PI</span>
+      <img
+        src="/images/logo-lockup.png"
+        alt={t('meta.siteName')}
+        class="h-16 w-auto"
+        width="759"
+        height="454"
+        loading="lazy"
+      />
     </a>
 
     <nav class="flex flex-wrap gap-x-6 gap-y-2 md:justify-center" aria-label="Footer">
