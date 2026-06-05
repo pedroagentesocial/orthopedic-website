@@ -16,21 +16,51 @@ const heroPoster = 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?au
 const heroVideoUrl =
   import.meta.env.PUBLIC_HERO_VIDEO_URL ||
   '/videos/medical-professional-assists-senior-woman-with-arm-2025-12-17-21-06-54-utc.mp4';
+const heroSlides = [
+  {
+    eyebrow: t('home.heroEyebrow'),
+    title: t('home.heroTitle'),
+    subtitle: t('home.heroSubtitle'),
+    ctaPrimaryLabel: t('home.heroCtaPrimary'),
+    ctaPrimaryHref: '/es/contact',
+    ctaSecondaryLabel: t('actions.call'),
+    ctaSecondaryHref: 'tel:+18015550100',
+    posterImage: heroPoster,
+    videoUrl: heroVideoUrl,
+  },
+  {
+    eyebrow: t('home.heroSlides.sports.eyebrow'),
+    title: t('home.heroSlides.sports.title'),
+    subtitle: t('home.heroSlides.sports.subtitle'),
+    ctaPrimaryLabel: t('home.heroSlides.sports.primary'),
+    ctaPrimaryHref: '/es/contact',
+    ctaSecondaryLabel: t('home.heroSlides.sports.secondary'),
+    ctaSecondaryHref: '/es/services/sports',
+    posterImage: '/images/sport-medicine-service.jpg',
+    videoUrl: '/videos/hero-2.mp4',
+  },
+  {
+    eyebrow: t('home.heroSlides.hand.eyebrow'),
+    title: t('home.heroSlides.hand.title'),
+    subtitle: t('home.heroSlides.hand.subtitle'),
+    ctaPrimaryLabel: t('home.heroSlides.hand.primary'),
+    ctaPrimaryHref: '/es/contact',
+    ctaSecondaryLabel: t('home.heroSlides.hand.secondary'),
+    ctaSecondaryHref: '/es/services/hand',
+    posterImage: '/images/hand-wrist-service.jpg',
+    videoUrl: '/videos/hero-3.mp4',
+  },
+];
 ---
 
 <BaseLayout transparentHeader>
   <Hero
     client:load
-    eyebrow={t('home.heroEyebrow')}
-    title={t('home.heroTitle')}
-    subtitle={t('home.heroSubtitle')}
-    ctaPrimaryLabel={t('home.heroCtaPrimary')}
-    ctaPrimaryHref="/es/contact"
-    ctaSecondaryLabel={t('actions.call')}
-    ctaSecondaryHref="tel:+18015550100"
+    slides={heroSlides}
     scrollHint={t('home.scrollHint')}
-    posterImage={heroPoster}
-    videoUrl={heroVideoUrl}
+    prevLabel={t('home.heroNav.prev')}
+    nextLabel={t('home.heroNav.next')}
+    goToLabel={t('home.heroNav.goTo')}
   />
   <Stats />
   <Services />

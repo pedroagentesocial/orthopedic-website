@@ -22,6 +22,28 @@
     "heroCtaSecondary": "Explore services",
     "scrollHint": "Scroll to discover",
 
+    "heroSlides": {
+      "sports": {
+        "eyebrow": "Sports Medicine",
+        "title": "Injured in the game? Let's get you back in it.",
+        "subtitle": "From ACL tears to overuse injuries — same-week diagnosis and a recovery plan built around your sport, your season and your goals.",
+        "primary": "Book a consultation",
+        "secondary": "Explore sports medicine"
+      },
+      "hand": {
+        "eyebrow": "Hand & Wrist",
+        "title": "Your hands do everything. We treat them that way.",
+        "subtitle": "Microsurgical precision for fractures, tendon injuries and carpal tunnel — restoring grip, dexterity and confidence in daily life.",
+        "primary": "Book a consultation",
+        "secondary": "Explore hand & wrist care"
+      }
+    },
+    "heroNav": {
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "goTo": "Go to slide"
+    },
+
     "stats": {
       "eyebrow": "By the numbers",
       "patients": "Patients restored to motion",

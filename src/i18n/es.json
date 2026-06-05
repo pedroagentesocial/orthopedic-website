@@ -22,6 +22,28 @@
     "heroCtaSecondary": "Ver servicios",
     "scrollHint": "Desliza para descubrir",
 
+    "heroSlides": {
+      "sports": {
+        "eyebrow": "Medicina deportiva",
+        "title": "¿Lesión deportiva? Volvamos al juego.",
+        "subtitle": "De rupturas de ligamento a lesiones por sobreuso — diagnóstico en la misma semana y un plan de recuperación diseñado para tu deporte, tu temporada y tus metas.",
+        "primary": "Reservar consulta",
+        "secondary": "Conoce medicina deportiva"
+      },
+      "hand": {
+        "eyebrow": "Mano y muñeca",
+        "title": "Tus manos lo hacen todo. Las tratamos así.",
+        "subtitle": "Precisión microquirúrgica para fracturas, lesiones de tendón y túnel carpiano — recuperando fuerza, destreza y confianza en tu día a día.",
+        "primary": "Reservar consulta",
+        "secondary": "Conoce mano y muñeca"
+      }
+    },
+    "heroNav": {
+      "prev": "Slide anterior",
+      "next": "Slide siguiente",
+      "goTo": "Ir al slide"
+    },
+
     "stats": {
       "eyebrow": "En cifras",
       "patients": "Pacientes recuperados",
