@@ -2,7 +2,7 @@
 slug: knee
 lang: es
 title: Rodilla y Cadera
-summary: Preservación articular, reemplazo y cirugía mínimamente invasiva para vidas activas.
+summary: Preservación articular, reemplazo y cirugía mínimamente invasiva para personas activas.
 icon: Footprints
 order: 1
 durationLabel: 30–120 min
@@ -27,7 +27,7 @@ seoDescription: Desde artroscopia mínimamente invasiva hasta reemplazo articula
 
 ## Qué esperar
 
-La mayoría de las evaluaciones de rodilla y cadera comienzan con una visita de 45 minutos. Revisaremos tu historial de síntomas, realizaremos un examen enfocado y — cuando esté indicado — tomaremos imágenes de la articulación con resonancia o rayos X en sitio. Saldrás con un plan claro: primero atención conservadora, cirugía solo cuando esté realmente indicada.
+La mayoría de las evaluaciones de rodilla y cadera comienzan con una visita de 45 minutos. Revisaremos tu historial de síntomas, realizaremos un examen enfocado y — cuando esté indicado — tomaremos imágenes de la articulación con resonancia o rayos X en la clínica. Saldrás con un plan claro: primero atención conservadora, cirugía solo cuando esté realmente indicada.
 
 ## Nuestro enfoque
 

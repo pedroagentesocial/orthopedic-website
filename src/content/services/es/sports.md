@@ -27,8 +27,8 @@ seoDescription: Especialistas en medicina deportiva en Utah para atletas de cada
 
 ## Qué esperar
 
-Las visitas de medicina deportiva se centran en lo que quieres hacer, no solo en lo que duele. Examinaremos la lesión, tomaremos imágenes según sea necesario y construiremos un plan orientado a tu deporte, tu temporada y tus objetivos.
+Las visitas de medicina deportiva se centran en lo que quieres hacer, no solo en lo que duele. Examinaremos la lesión, tomaremos imágenes según sea necesario y armaremos un plan orientado a tu deporte, tu temporada y tus objetivos.
 
 ## Nuestro enfoque
 
-Los atletas necesitan planes que consideren las exigencias del deporte, los ciclos de entrenamiento y los compromisos del equipo. Coordinamos la atención con tus entrenadores y fisioterapeutas para construir programas de retorno al juego sin interrupciones — respaldados por pruebas objetivas que confirman que estás listo antes de volver a competir.
+Los atletas necesitan planes que consideren las exigencias del deporte, los ciclos de entrenamiento y los compromisos del equipo. Coordinamos la atención con tus entrenadores y fisioterapeutas para diseñar programas de retorno al juego sin interrupciones — respaldados por pruebas objetivas que confirman que estás listo antes de volver a competir.

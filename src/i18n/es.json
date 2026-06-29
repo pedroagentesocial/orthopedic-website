@@ -39,9 +39,9 @@
       }
     },
     "heroNav": {
-      "prev": "Slide anterior",
-      "next": "Slide siguiente",
-      "goTo": "Ir al slide"
+      "prev": "Imagen anterior",
+      "next": "Imagen siguiente",
+      "goTo": "Ir a la imagen"
     },
 
     "stats": {
@@ -58,7 +58,7 @@
       "subtitle": "Desde la primera consulta hasta el último día de recuperación, nuestros especialistas tratan a la persona completa — no solo la lesión.",
       "learnMore": "Conocer más",
       "viewAll": "Ver todos los servicios",
-      "knee": { "title": "Rodilla y Cadera", "description": "Preservación articular, reemplazo y cirugía mínimamente invasiva para vidas activas." },
+      "knee": { "title": "Rodilla y Cadera", "description": "Preservación articular, reemplazo y cirugía mínimamente invasiva para personas activas." },
       "spine": { "title": "Columna", "description": "Tratamiento dirigido para condiciones de disco, nervio y estructurales." },
       "shoulder": { "title": "Hombro y Codo", "description": "Desde manguito rotador hasta codo de tenista — devolvemos rango y fuerza." },
       "hand": { "title": "Mano y Muñeca", "description": "Precisión microquirúrgica para restaurar mano, muñeca y codo." },
@@ -71,8 +71,8 @@
       "title": "Medicina de precisión, ritmo humano.",
       "subtitle": "Cada plan se calibra a tu vida — no al revés.",
       "items": {
-        "diagnosis": { "title": "Diagnóstico la misma semana", "description": "Resonancia y rayos X en sitio para que salgas de tu primera visita con un plan claro." },
-        "minimally": { "title": "Primero mínimamente invasivo", "description": "Tratamiento conservador cuando es posible; cirugía avanzada solo cuando está realmente indicada." },
+        "diagnosis": { "title": "Diagnóstico la misma semana", "description": "Resonancia y rayos X en la clínica para que salgas de tu primera visita con un plan claro." },
+        "minimally": { "title": "Primero, lo menos invasivo", "description": "Tratamiento conservador cuando es posible; cirugía avanzada solo cuando está realmente indicada." },
         "recovery": { "title": "Recuperación pensada para ti", "description": "Fisioterapia interna con un mismo equipo desde el procedimiento hasta el regreso completo." }
       }
     },
@@ -86,7 +86,7 @@
         "one":   { "quote": "Seis meses después del reemplazo de rodilla volví a las pistas. Todo el equipo me hizo sentir como la única paciente en la sala.",        "name": "Sarah K.",  "treatment": "Reemplazo de rodilla",            "date": "hace 2 semanas",  "location": "Salt Lake City, UT" },
         "two":   { "quote": "Me explicaron cada opción antes de recomendar cirugía. Nunca me sentí apurado y la recuperación fue más rápida de lo esperado.",            "name": "Michael R.", "treatment": "Microdiscectomía lumbar",         "date": "hace 1 mes",      "location": "Park City, UT" },
         "three": { "quote": "Después de años con dolor, recuperé mi agarre. Puedo cargar a mi nieta sin estremecerme — eso lo es todo.",                                 "name": "Diane M.",   "treatment": "Liberación del túnel carpiano",   "date": "hace 3 meses",    "location": "Sandy, UT" },
-        "four":  { "quote": "Me rompí el LCA jugando fútbol en marzo. De vuelta al entrenamiento ligero en agosto. El equipo de fisio construye planes alrededor de tu deporte.", "name": "James T.",  "treatment": "Reconstrucción de LCA",           "date": "hace 6 semanas",  "location": "Provo, UT" },
+        "four":  { "quote": "Me rompí el LCA jugando fútbol en marzo. De vuelta al entrenamiento ligero en agosto. El equipo de fisio arma planes en torno a tu deporte.", "name": "James T.",  "treatment": "Reconstrucción de LCA",           "date": "hace 6 semanas",  "location": "Provo, UT" },
         "five":  { "quote": "Estaba caminando otra vez a las seis semanas. La alineación asistida por robot marcó la diferencia — mi cirujano me explicó exactamente por qué.",   "name": "Emily P.",  "treatment": "Reemplazo total de cadera",       "date": "hace 4 meses",    "location": "Ogden, UT" },
         "six":   { "quote": "La clínica coordinó todo con mi seguro antes de la cirugía. Cero sorpresas en la facturación. El hombro se siente más fuerte que antes.",            "name": "Carlos M.", "treatment": "Reparación del manguito rotador", "date": "hace 2 meses",    "location": "Logan, UT" },
         "seven": { "quote": "No me presionaron a la cirugía. Probamos inyecciones y fisio primero. Cuando quedó claro que necesitaba la fusión, el plan ya estaba listo.",        "name": "Linda J.",  "treatment": "Fusión espinal",                  "date": "hace 5 meses",    "location": "St. George, UT" },
@@ -102,7 +102,7 @@
         "referral": { "q": "¿Necesito una referencia para programar una visita?", "a": "No se requiere referencia para la mayoría de las consultas ortopédicas. Coordinamos directamente con tu médico de cabecera cuando es relevante." },
         "insurance": { "q": "¿Qué planes de seguro aceptan?", "a": "Aceptamos la mayoría de los seguros principales en Utah — incluyendo Medicare, SelectHealth, Blue Cross, Aetna y United Healthcare. Contáctanos para verificar tu plan específico." },
         "wait": { "q": "¿Qué tan pronto puedo ser atendido?", "a": "La mayoría de los pacientes son agendados en 5 a 10 días hábiles. Los casos urgentes — incluyendo post-lesión — se atienden en 48 horas cuando es posible." },
-        "imaging": { "q": "¿Ofrecen estudios de imagen en sitio?", "a": "Sí. Nuestra clínica incluye resonancia magnética interna y rayos X digitales, así que la mayoría de los pacientes salen de su primera visita con un diagnóstico completo." }
+        "imaging": { "q": "¿Ofrecen estudios de imagen en la clínica?", "a": "Sí. Nuestra clínica incluye resonancia magnética interna y rayos X digitales, así que la mayoría de los pacientes salen de su primera visita con un diagnóstico completo." }
       }
     },
 
@@ -120,7 +120,7 @@
       "metaTitle": "Especialidades",
       "eyebrow": "Lo que tratamos",
       "title": "Especialidades diseñadas para cada articulación.",
-      "subtitle": "Atención ortopédica integral diseñada para vidas activas en Utah. Cada especialidad está liderada por un cirujano formado en fellowship enfocado en resultados a largo plazo.",
+      "subtitle": "Atención ortopédica integral diseñada para personas activas en Utah. Cada especialidad está liderada por un cirujano formado en fellowship enfocado en resultados a largo plazo.",
       "filterAll": "Todas las especialidades",
       "labels": {
         "treatments": "Tratamientos comunes",
@@ -148,7 +148,7 @@
         "items": {
           "joint": {
             "title": "Dolor articular",
-            "description": "Rodilla, cadera y hombro — cuando el movimiento ya no es lo que era. Imagen la misma semana y un plan claro."
+            "description": "Rodilla, cadera y hombro — cuando el movimiento ya no es lo que era. Estudios de imagen la misma semana y un plan claro."
           },
           "back": {
             "title": "Dolor de espalda y cuello",
@@ -156,7 +156,7 @@
           },
           "sport": {
             "title": "Lesión deportiva",
-            "description": "Aguda o recurrente. Planes diagnóstico-primero construidos alrededor de tu deporte, temporada y regreso al juego."
+            "description": "Aguda o recurrente. Planes que empiezan por el diagnóstico, en torno a tu deporte, tu temporada y tu regreso al juego."
           }
         }
       },
@@ -202,7 +202,7 @@
       "metaTitle": "Nosotros",
       "eyebrow": "Nosotros",
       "title": "Atención que te encuentra donde estás.",
-      "intro": "Orthopedic PI se construyó sobre una sola convicción: que la recuperación ocurre más rápido cuando los pacientes son socios — no pasajeros. Combinamos especialistas con formación en fellowship, imágenes en sitio y fisioterapia interna bajo un mismo techo para que tu atención avance a tu ritmo, no al del sistema.",
+      "intro": "Orthopedic PI nació de una sola convicción: que la recuperación ocurre más rápido cuando los pacientes son socios — no pasajeros. Combinamos especialistas con formación en fellowship, imágenes en la clínica y fisioterapia interna bajo un mismo techo para que tu atención avance a tu ritmo, no al del sistema.",
       "valuesEyebrow": "Nuestros valores",
       "valuesTitle": "Lo que guía cada decisión.",
       "values": {
@@ -212,9 +212,9 @@
       },
       "techEyebrow": "Tecnología",
       "techTitle": "Herramientas tan avanzadas como la medicina.",
-      "techDescription": "Resonancia magnética 3-Tesla en sitio, rayos X digital, reemplazo articular asistido por robot y artroscopia mínimamente invasiva — la misma tecnología usada en los principales centros académicos, disponible en tu comunidad.",
+      "techDescription": "Resonancia magnética 3-Tesla en la clínica, rayos X digital, reemplazo articular asistido por robot y artroscopia mínimamente invasiva — la misma tecnología usada en los principales centros académicos, disponible en tu comunidad.",
       "techItems": [
-        "Resonancia magnética 3-Tesla en sitio",
+        "Resonancia magnética 3-Tesla en la clínica",
         "Reemplazo de rodilla y cadera asistido por robot",
         "Rayos X digital el mismo día",
         "Artroscopia mínimamente invasiva",
@@ -243,7 +243,7 @@
           },
           "forms": {
             "title": "Descarga formularios",
-            "description": "Llena el papeleo de nuevo paciente desde casa para que el check-in tome minutos, no una hora.",
+            "description": "Llena el papeleo de nuevo paciente desde casa para que el registro tome minutos, no una hora.",
             "cta": "Obtener formularios"
           }
         }
@@ -266,7 +266,7 @@
       "sections": {
         "firstVisit": {
           "title": "Tu primera visita",
-          "description": "Planea entre 45 y 60 minutos. Revisaremos tu historial, examinaremos el área afectada y — cuando sea necesario — ordenaremos imágenes en sitio para que salgas con un plan claro.",
+          "description": "Planea entre 45 y 60 minutos. Revisaremos tu historial, examinaremos el área afectada y — cuando sea necesario — ordenaremos imágenes en la clínica para que salgas con un plan claro.",
           "items": [
             "Identificación con foto y tarjeta de seguro",
             "Lista de medicamentos y suplementos actuales",
@@ -312,7 +312,7 @@
       },
       "parking": {
         "label": "Estacionamiento y accesibilidad",
-        "description": "Estacionamiento gratuito para pacientes en sitio. Espacios accesibles y rampa en la entrada principal. Acceso por transporte público vía rutas UTA 220 y 223."
+        "description": "Estacionamiento gratuito para pacientes en nuestras instalaciones. Espacios accesibles y rampa en la entrada principal. Acceso por transporte público vía rutas UTA 220 y 223."
       },
       "directionsCta": "Cómo llegar",
       "mapPlaceholder": "El mapa interactivo carga al hacer clic — para proteger tu privacidad, no cargamos Google Maps hasta que lo pidas."

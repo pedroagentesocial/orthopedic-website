@@ -2,7 +2,7 @@
 slug: joint
 lang: es
 title: Reemplazo Articular
-summary: Implantes personalizados y protocolos de recuperación rápida para cadera y rodilla — construidos sobre precisión robótica y décadas de experiencia.
+summary: Implantes personalizados y protocolos de recuperación rápida para cadera y rodilla — con precisión robótica y décadas de experiencia.
 icon: Sparkles
 order: 6
 durationLabel: 60–120 min
