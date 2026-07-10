@@ -1,48 +1,42 @@
 /**
- * GoHighLevel webhook client.
+ * Lead submission client.
  *
- * In production set PUBLIC_GHL_WEBHOOK_URL in your environment. Without it,
- * submissions short-circuit with a simulated success (handy for local dev
- * before the webhook is wired up).
+ * Posts to the internal `/api/lead` serverless endpoint, which validates the
+ * payload and forwards it to GoHighLevel server-side. The CRM webhook URL is
+ * never exposed to the browser.
  */
 export interface LeadPayload {
   name: string;
-  email: string;
+  email?: string;
   phone: string;
-  reason: string;
-  message: string;
+  reason?: string;
+  message?: string;
   consent: boolean;
-  source: string;
   language: 'en' | 'es';
-  submittedAt: string;
+  /** Honeypot — must stay empty. */
+  company?: string;
 }
 
 export interface SubmitResult {
   ok: boolean;
-  simulated?: boolean;
 }
 
-const SIMULATED_LATENCY_MS = 900;
-
-export async function submitLeadToGHL(payload: LeadPayload): Promise<SubmitResult> {
-  const webhookUrl = import.meta.env.PUBLIC_GHL_WEBHOOK_URL;
-
-  if (!webhookUrl) {
-    await new Promise((resolve) => setTimeout(resolve, SIMULATED_LATENCY_MS));
-    if (import.meta.env.DEV) {
-      console.info('[GHL] PUBLIC_GHL_WEBHOOK_URL not set — simulated submission', payload);
-    }
-    return { ok: true, simulated: true };
-  }
-
-  const response = await fetch(webhookUrl, {
+export async function submitLead(payload: LeadPayload): Promise<SubmitResult> {
+  const response = await fetch('/api/lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
-    throw new Error(`Server responded ${response.status} ${response.statusText || ''}`.trim());
+    let detail = '';
+    try {
+      const data = (await response.json()) as { error?: string };
+      detail = data?.error ? ` (${data.error})` : '';
+    } catch {
+      /* non-JSON error body */
+    }
+    throw new Error(`Server responded ${response.status}${detail}`.trim());
   }
 
   return { ok: true };

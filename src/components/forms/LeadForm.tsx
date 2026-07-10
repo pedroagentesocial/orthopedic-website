@@ -8,7 +8,7 @@ import RadioGroup, { type RadioOption } from '../ui/RadioGroup';
 import Checkbox from '../ui/Checkbox';
 import FlySendButton from '../ui/FlySendButton';
 import SubmitDialog, { type SubmitState, type SubmitDialogStrings } from './SubmitDialog';
-import { submitLeadToGHL } from '../../lib/ghl';
+import { submitLead } from '../../lib/ghl';
 
 export interface LeadFormStrings {
   form: {
@@ -52,16 +52,22 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [errorDetail, setErrorDetail] = useState<string | undefined>();
 
+  // Required minimum: name + phone + consent. Email, reason and message optional.
   const schema = z.object({
     name: z.string().trim().min(2, strings.validation.nameRequired),
-    email: z.string().trim().email(strings.validation.emailInvalid),
     phone: z
       .string()
       .trim()
       .regex(/^[+\d\s()\-.]{7,}$/, strings.validation.phoneInvalid),
-    reason: z.enum(REASONS, { message: strings.validation.reasonRequired }),
-    message: z.string().trim().min(10, strings.validation.messageTooShort).max(2000),
+    // Optional: empty string is valid; anything non-empty must be a valid email.
+    email: z
+      .union([z.literal(''), z.string().trim().email(strings.validation.emailInvalid).max(160)])
+      .optional(),
+    reason: z.enum(REASONS).optional(),
+    message: z.string().trim().max(2000).optional(),
     consent: z.literal(true, { message: strings.validation.consentRequired }),
+    // Honeypot — no client constraint; the server silently drops filled ones.
+    company: z.string().optional(),
   });
   type FormValues = z.infer<typeof schema>;
 
@@ -81,6 +87,7 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
       reason: undefined as unknown as Reason,
       message: '',
       consent: false as unknown as true,
+      company: '',
     },
   });
 
@@ -98,11 +105,15 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
     setSubmitState('submitting');
     setErrorDetail(undefined);
     try {
-      await submitLeadToGHL({
-        ...values,
-        source: 'orthopedicpi.com/contact',
+      await submitLead({
+        name: values.name,
+        email: values.email || undefined,
+        phone: values.phone,
+        reason: values.reason,
+        message: values.message || undefined,
+        consent: values.consent,
+        company: values.company,
         language,
-        submittedAt: new Date().toISOString(),
       });
       setSubmitState('success');
       reset();
@@ -120,12 +131,22 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
       ? strings.validation.fillRequiredOne
       : strings.validation.fillRequiredMany.replace(
           '{count}',
-          missingCount > 0 ? String(missingCount) : '6',
+          missingCount > 0 ? String(missingCount) : '3',
         );
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-10" noValidate>
+        {/* Honeypot — hidden from real users; bots that fill it are dropped server-side. */}
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+          {...register('company')}
+        />
+
         <div className="grid gap-10 md:grid-cols-2">
           <AnimatedInput
             label={strings.form.name}
@@ -137,7 +158,6 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
           <AnimatedInput
             label={strings.form.email}
             type="email"
-            required
             autoComplete="email"
             error={errors.email?.message}
             {...register('email')}
@@ -161,7 +181,6 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
             <RadioGroup
               label={strings.form.reasonLabel}
               options={reasonOptions}
-              required
               value={field.value}
               onValueChange={field.onChange}
               error={errors.reason?.message}
@@ -172,7 +191,6 @@ export default function LeadForm({ strings, language }: LeadFormProps) {
         <AnimatedTextarea
           label={strings.form.message}
           placeholder={strings.form.messagePlaceholder}
-          required
           error={errors.message?.message}
           {...register('message')}
         />

@@ -333,17 +333,17 @@
       "formSubtitle": "Tell us briefly what's going on and we'll route you to the right specialist.",
       "form": {
         "name": "Full name",
-        "email": "Email address",
+        "email": "Email address (optional)",
         "phone": "Phone number",
         "phoneHint": "We'll call only about your appointment.",
-        "reasonLabel": "What can we help with?",
+        "reasonLabel": "What can we help with? (optional)",
         "reasons": {
           "consult": "New consultation",
           "secondOpinion": "Second opinion",
           "followUp": "Follow-up visit",
           "other": "Something else"
         },
-        "message": "Briefly describe your concern",
+        "message": "Briefly describe your concern (optional)",
         "messagePlaceholder": "When did it start? What makes it better or worse?",
         "consent": "I consent to be contacted by Orthopedic PI about my inquiry.",
         "consentDescription": "We'll only reach out about your appointment and care — never marketing without your permission.",

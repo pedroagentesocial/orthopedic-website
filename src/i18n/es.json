@@ -333,17 +333,17 @@
       "formSubtitle": "Cuéntanos brevemente qué está pasando y te dirigiremos al especialista correcto.",
       "form": {
         "name": "Nombre completo",
-        "email": "Correo electrónico",
+        "email": "Correo electrónico (opcional)",
         "phone": "Teléfono",
         "phoneHint": "Solo llamaremos por tu cita.",
-        "reasonLabel": "¿En qué podemos ayudarte?",
+        "reasonLabel": "¿En qué podemos ayudarte? (opcional)",
         "reasons": {
           "consult": "Nueva consulta",
           "secondOpinion": "Segunda opinión",
           "followUp": "Cita de seguimiento",
           "other": "Algo más"
         },
-        "message": "Describe brevemente tu motivo",
+        "message": "Describe brevemente tu motivo (opcional)",
         "messagePlaceholder": "¿Cuándo empezó? ¿Qué lo mejora o empeora?",
         "consent": "Doy mi consentimiento para ser contactado por Orthopedic PI sobre mi consulta.",
         "consentDescription": "Solo contactaremos por tu cita y atención — nunca marketing sin tu permiso.",
