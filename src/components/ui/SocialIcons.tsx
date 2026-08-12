@@ -9,6 +9,8 @@ interface SocialLink {
 interface SocialIconsProps {
   links?: SocialLink[];
   className?: string;
+  /** Shown on a network whose profile does not exist yet. */
+  pendingLabel?: string;
 }
 
 const iconClass = 'h-[18px] w-[18px]';
@@ -47,11 +49,27 @@ function YouTubeIcon({ className = iconClass }: { className?: string }) {
   );
 }
 
+function TikTokIcon({ className = iconClass }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M14.2 3v10.4a3.6 3.6 0 1 1-2.9-3.5" />
+      <path d="M14.2 3c.3 2.2 2 3.8 4.2 4" />
+    </svg>
+  );
+}
+
+/**
+ * The five networks the brand always shows, in display order. `href: ''` means
+ * the profile does not exist yet: the mark still renders (the five are part of
+ * the brand) but is inert, so we never publish a dead link — and never point at
+ * a bare facebook.com, which is what these placeholders used to do.
+ */
 const DEFAULT_LINKS: SocialLink[] = [
-  { href: 'https://facebook.com', label: 'Facebook', Icon: FacebookIcon },
-  { href: 'https://instagram.com', label: 'Instagram', Icon: InstagramIcon },
-  { href: 'https://linkedin.com', label: 'LinkedIn', Icon: LinkedInIcon },
-  { href: 'https://youtube.com', label: 'YouTube', Icon: YouTubeIcon },
+  { href: '', label: 'Facebook', Icon: FacebookIcon },
+  { href: '', label: 'Instagram', Icon: InstagramIcon },
+  { href: '', label: 'TikTok', Icon: TikTokIcon },
+  { href: '', label: 'YouTube', Icon: YouTubeIcon },
+  { href: '', label: 'LinkedIn', Icon: LinkedInIcon },
 ];
 
 /**
@@ -62,23 +80,35 @@ const DEFAULT_LINKS: SocialLink[] = [
  *
  * Original tooltip pattern: https://uiverse.io/PriyanshuGupta28/chilly-eagle-55
  */
-export default function SocialIcons({ links = DEFAULT_LINKS, className }: SocialIconsProps) {
+export default function SocialIcons({ links = DEFAULT_LINKS, className, pendingLabel = 'Coming soon' }: SocialIconsProps) {
   return (
     <ul className={cn('flex items-center gap-3', className)} role="list">
       {links.map(({ href, label, Icon }) => (
         <li key={label} className="ce-item relative">
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="ce-link group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-elevated)] text-[var(--color-ink-muted)] transition-colors duration-300 ease-[var(--ease-out-quart)] hover:text-[var(--color-ink-inverse)] hover:border-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-          >
-            <span aria-hidden="true" className="ce-filled absolute inset-0 bg-[var(--color-accent)]" />
-            <span className="relative z-10 flex">
-              <Icon />
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer me"
+              aria-label={label}
+              className="ce-link group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-elevated)] text-[var(--color-ink-muted)] transition-colors duration-300 ease-[var(--ease-out-quart)] hover:text-[var(--color-ink-inverse)] hover:border-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+            >
+              <span aria-hidden="true" className="ce-filled absolute inset-0 bg-[var(--color-accent)]" />
+              <span className="relative z-10 flex">
+                <Icon />
+              </span>
+            </a>
+          ) : (
+            <span
+              aria-label={`${label} — ${pendingLabel}`}
+              title={`${label} — ${pendingLabel}`}
+              className="relative inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-elevated)] text-[var(--color-ink-muted)] opacity-50"
+            >
+              <span className="relative z-10 flex">
+                <Icon />
+              </span>
             </span>
-          </a>
+          )}
           <span className="ce-tooltip" aria-hidden="true">{label}</span>
         </li>
       ))}
