@@ -97,6 +97,7 @@
     },
 
     "faq": {
+      "learnMoreLink": "Learn more about our patient care",
       "eyebrow": "Common questions",
       "title": "Everything you might be wondering.",
       "items": {

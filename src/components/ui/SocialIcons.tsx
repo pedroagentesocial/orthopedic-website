@@ -100,6 +100,7 @@ export default function SocialIcons({ links = DEFAULT_LINKS, className, pendingL
             </a>
           ) : (
             <span
+              role="img"
               aria-label={`${label} — ${pendingLabel}`}
               title={`${label} — ${pendingLabel}`}
               className="relative inline-flex h-11 w-11 cursor-default items-center justify-center rounded-full border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-elevated)] text-[var(--color-ink-muted)] opacity-50"

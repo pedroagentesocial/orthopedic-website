@@ -33,6 +33,9 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [hovering, setHovering] = useState(false);
+  // El primer slide se pinta ya visible: si arrancaba en opacity 0 esperaba a
+  // que cargara React y el LCP en móvil subía a ~7 s. Se anima desde el 2.º.
+  const [hasMoved, setHasMoved] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const touchStartX = useRef<number | null>(null);
   const count = slides.length;
@@ -42,6 +45,7 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
       const target = (next + count) % count;
       setDirection(dir ?? (target > index ? 1 : -1));
       setIndex(target);
+      setHasMoved(true);
     },
     [count, index],
   );
@@ -79,7 +83,7 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
   };
 
   const fadeUp = (delay: number) => ({
-    initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+    initial: !hasMoved || shouldReduceMotion ? false : { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 1, delay, ease: EASE },
   });
@@ -145,9 +149,11 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
           <motion.div
             key={index}
             initial={
-              shouldReduceMotion
-                ? { opacity: 0 }
-                : { opacity: 0, x: direction * 64 }
+              !hasMoved
+                ? false
+                : shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, x: direction * 64 }
             }
             animate={{ opacity: 1, x: 0 }}
             exit={
@@ -224,7 +230,7 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
+      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -232,12 +238,17 @@ export default function Hero({ slides, scrollHint, prevLabel, nextLabel, goToLab
             onClick={() => goTo(i)}
             aria-label={`${goToLabel} ${i + 1}`}
             aria-current={i === index ? 'true' : undefined}
-            className={`h-2.5 rounded-full transition-all duration-500 ease-[var(--ease-out-expo)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ink-inverse)] ${
-              i === index
-                ? 'w-8 bg-[var(--color-ink-inverse)]'
-                : 'w-2.5 bg-[var(--color-ink-inverse)]/40 hover:bg-[var(--color-ink-inverse)]/70'
-            }`}
-          />
+            className={`group flex h-6 min-w-6 items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ink-inverse)] rounded-full`}
+          >
+            <span
+              aria-hidden="true"
+              className={`block h-2.5 rounded-full transition-all duration-500 ease-[var(--ease-out-expo)] ${
+                i === index
+                  ? 'w-8 bg-[var(--color-ink-inverse)]'
+                  : 'w-2.5 bg-[var(--color-ink-inverse)]/40 group-hover:bg-[var(--color-ink-inverse)]/70'
+              }`}
+            />
+          </button>
         ))}
       </div>
 

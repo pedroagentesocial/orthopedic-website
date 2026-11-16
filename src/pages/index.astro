@@ -37,7 +37,7 @@ const heroSlides = [
     ctaPrimaryHref: '/contact',
     ctaSecondaryLabel: t('home.heroSlides.sports.secondary'),
     ctaSecondaryHref: '/services/sports',
-    posterImage: '/images/sport-medicine-service.jpg',
+    posterImage: '/images/sport-medicine-service-full.webp',
     videoUrl: '/videos/hero-2.mp4',
   },
   {
@@ -48,7 +48,7 @@ const heroSlides = [
     ctaPrimaryHref: '/contact',
     ctaSecondaryLabel: t('home.heroSlides.hand.secondary'),
     ctaSecondaryHref: '/services/hand',
-    posterImage: '/images/hand-wrist-service.jpg',
+    posterImage: '/images/hand-wrist-service-full.webp',
     videoUrl: '/videos/hero-3.mp4',
   },
 ];
@@ -56,7 +56,7 @@ const heroSlides = [
 
 <BaseLayout transparentHeader>
   <Hero
-    client:load
+    client:idle
     slides={heroSlides}
     scrollHint={t('home.scrollHint')}
     prevLabel={t('home.heroNav.prev')}
