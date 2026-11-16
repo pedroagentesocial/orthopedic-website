@@ -68,6 +68,7 @@ export default function NumberTicker({
     <span
       ref={ref as React.Ref<HTMLSpanElement>}
       className={cn('tabular-nums tracking-tight', className)}
+      role="img"
       aria-label={`${prefix}${formatter.format(value)}${suffix}`}
     >
       <span aria-hidden="true">{prefix}{formatted}{suffix}</span>

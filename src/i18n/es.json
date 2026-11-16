@@ -97,6 +97,7 @@
     },
 
     "faq": {
+      "learnMoreLink": "Conoce más sobre la atención al paciente",
       "eyebrow": "Preguntas frecuentes",
       "title": "Todo lo que podrías estar preguntándote.",
       "items": {

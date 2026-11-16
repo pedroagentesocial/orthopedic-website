@@ -6,11 +6,11 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const services = [
-  { key: 'knee',     image: '/images/knee-hip-service.jpg' },
-  { key: 'spine',    image: '/images/spine-service.jpg' },
-  { key: 'shoulder', image: '/images/elbow-shoulder-service.jpg' },
-  { key: 'hand',     image: '/images/hand-wrist-service.jpg' },
-  { key: 'sports',   image: '/images/sport-medicine-service.jpg' },
+  { key: 'knee',     image: '/images/knee-hip-service.webp' },
+  { key: 'spine',    image: '/images/spine-service.webp' },
+  { key: 'shoulder', image: '/images/elbow-shoulder-service.webp' },
+  { key: 'hand',     image: '/images/hand-wrist-service.webp' },
+  { key: 'sports',   image: '/images/sport-medicine-service.webp' },
   { key: 'joint',    image: '/images/joint-treatment.jpg' },
 ] as const;
 ---
@@ -28,7 +28,7 @@ const services = [
       </p>
       <a
         href={localizePath('/services', lang)}
-        class="services-cta mt-8 inline-flex items-center gap-2 text-(--color-accent) font-medium"
+        class="services-cta mt-8 inline-flex items-center gap-2 text-(--color-accent-hover) font-medium"
       >
         <span class="underline-grow">{t('home.services.viewAll')}</span>
         <span aria-hidden="true" class="services-cta__arrow transition-transform duration-300 ease-(--ease-out-expo)">→</span>
