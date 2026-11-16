@@ -4,10 +4,13 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://orthopedicpi.com',
+  // Con www: es el host que sirve el sitio (el apex redirige). Sin www, el
+  // canonical y el hreflang apuntaban a una URL que redirige.
+  site: 'https://www.orthopedicpi.com',
 
   // Pages stay static (prerendered); only routes that opt out with
   // `export const prerender = false` — e.g. the /api/lead endpoint — run
@@ -40,7 +43,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/components-lab') && !page.includes('/api/'),
+      i18n: { defaultLocale: 'en', locales: { en: 'en-US', es: 'es-US' } },
+    }),
+  ],
 
   image: {
     remotePatterns: [
