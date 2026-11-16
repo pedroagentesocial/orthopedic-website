@@ -21,7 +21,20 @@ const t = useTranslations(lang);
 
 const siteName = t('meta.siteName');
 const defaultDescription = t('meta.siteDescription');
-const pageTitle = title ? `${title} — ${siteName}` : siteName;
+// Sin title (la portada) el título era solo "Orthopedic PI": se agrega el servicio.
+const pageTitle = title ? `${title} — ${siteName}` : `${t('meta.homeTitle')} — ${siteName}`;
+// JSON-LD de la organización. Sin dirección ni teléfono a propósito: los que hay
+// en el sitio (1234 Wasatch Blvd, 801-555-0100) son de relleno y no deben ir a
+// Google. Agregarlos cuando estén los datos reales.
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalOrganization',
+  '@id': new URL('/#organization', Astro.site).toString(),
+  name: siteName,
+  url: new URL('/', Astro.site).toString(),
+  logo: new URL('/favicon.png', Astro.site).toString(),
+  description: defaultDescription,
+};
 const pageDescription = description ?? defaultDescription;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const alternateLang = getAlternateLang(lang);
@@ -60,6 +73,7 @@ const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), As
     <meta name="theme-color" content="#FCFDFD" />
     <meta name="color-scheme" content="light" />
 
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
     <ClientRouter />
   </head>
   <body>
