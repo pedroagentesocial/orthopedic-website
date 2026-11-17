@@ -1,0 +1,53 @@
+---
+/**
+ * GA4 (paso 10 del plan SEO). No emite NADA mientras no exista la variable
+ * PUBLIC_GA4_ID en Vercel (ej. G-XXXXXXXXXX): se deja listo para activarlo
+ * solo con el ID.
+ *
+ * Configuración restrictiva a propósito (marcas de salud y finanzas):
+ *  - sin señales de Google ni personalización de anuncios;
+ *  - la URL se manda sin parámetros (?…) ni ancla (#…);
+ *  - solo se miden visitas y clics en "llamar" (click_call). Nunca datos de
+ *    formularios ni texto escrito por el visitante.
+ * gtag.js llega con la primera interacción o 4 s después de cargar, para no
+ * frenar la página; lo anterior espera en dataLayer y se envía igual.
+ */
+const GA4 = import.meta.env.PUBLIC_GA4_ID;
+---
+
+{GA4 && (
+  <script is:inline define:vars={{ GA4 }}>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      var pagina = location.origin + location.pathname;
+      gtag('js', new Date());
+      gtag('config', GA4, {
+        page_location: pagina,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
+      // Clic en un enlace tel: — sin el número ni datos del visitante.
+      document.addEventListener('click', function (e) {
+        var a = e.target instanceof Element ? e.target.closest('a[href^="tel:"]') : null;
+        if (a) gtag('event', 'click_call', { page_location: pagina });
+      });
+      var cargado = false;
+      function cargar() {
+        if (cargado) return;
+        cargado = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4;
+        document.head.appendChild(s);
+      }
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, cargar, { once: true, passive: true });
+      });
+      function luego() { setTimeout(cargar, 4000); }
+      if (document.readyState === 'complete') luego();
+      else window.addEventListener('load', luego, { once: true });
+    })();
+  </script>
+)}
