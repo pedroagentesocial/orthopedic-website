@@ -7,6 +7,7 @@ import SiteFooter from '../components/sections/SiteFooter.astro';
 import BackToTop from '../components/ui/BackToTop.astro';
 import Toaster from '../components/ui/Toaster.tsx';
 import { tituloSeo, descripcionSeo } from '../lib/seo-text';
+import { migasDePan } from '../lib/migas';
 
 interface Props {
   title?: string;
@@ -42,6 +43,16 @@ const pageDescription = description ?? defaultDescription;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const alternateLang = getAlternateLang(lang);
 const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), Astro.site).toString();
+const prefijo = lang === 'es' ? '/es' : '';
+const enSitio = (p: string) => new URL(`${prefijo}${p}/`, Astro.site).toString();
+const breadcrumbJsonLd = migasDePan({
+  ruta: Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/',
+  inicio: { name: lang === 'es' ? 'Inicio' : 'Home', url: enSitio('') },
+  secciones: { '/services': { name: t('nav.services'), url: enSitio('/services') } },
+  // Nombre corto: lo de antes de " — " o ":" ("Joint Replacement in Utah").
+  actual: (title ?? siteName).split(/ — |: /)[0],
+  urlActual: canonicalUrl,
+});
 ---
 
 <!doctype html>
@@ -78,6 +89,7 @@ const alternateUrl = new URL(localizePath(Astro.url.pathname, alternateLang), As
     <meta name="color-scheme" content="light" />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
+    {breadcrumbJsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbJsonLd)} />}
     <ClientRouter />
   </head>
   <body>
