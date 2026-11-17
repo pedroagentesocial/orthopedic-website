@@ -14,6 +14,8 @@ interface Props {
   ogImage?: string;
   /** Transparent header fixed over the hero (home only); turns solid on scroll. */
   transparentHeader?: boolean;
+  /** Páginas internas (components-lab): fuera de Google. */
+  noindex?: boolean;
 }
 
 const { title, description, ogImage, transparentHeader = false, noindex = false } = Astro.props;
