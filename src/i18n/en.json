@@ -201,7 +201,7 @@
       }
     },
     "about": {
-      "metaTitle": "About",
+      "metaTitle": "About Our Orthopedic Care in Utah",
       "eyebrow": "About",
       "title": "Care that meets you where you are.",
       "intro": "Orthopedic PI was built on a single conviction: that recovery happens fastest when patients are partners — not passengers. We combine fellowship-trained specialists, on-site imaging and in-house physical therapy under one roof so your care moves at your pace, not the system's.",
@@ -225,7 +225,7 @@
       ]
     },
     "patients": {
-      "metaTitle": "For patients",
+      "metaTitle": "Patient Resources: Before and After Your Visit",
       "eyebrow": "For patients",
       "title": "Everything you need, before and after your visit.",
       "subtitle": "Practical resources to help you prepare, recover, and stay informed every step of the way.",
@@ -291,7 +291,7 @@
       }
     },
     "location": {
-      "metaTitle": "Visit us",
+      "metaTitle": "Visit Us: Orthopedic Care in Utah",
       "eyebrow": "Visit us",
       "title": "Easy to reach. Easy to find.",
       "subtitle": "Centrally located in the Wasatch Front, with free patient parking and accessible facilities.",
@@ -320,7 +320,7 @@
       "mapPlaceholder": "Interactive map loads on click — to protect your privacy, we don't load Google Maps until you ask."
     },
     "contact": {
-      "metaTitle": "Contact",
+      "metaTitle": "Contact Our Utah Orthopedic Team",
       "eyebrow": "Get in touch",
       "title": "Three ways to get started.",
       "subtitle": "Book online, send us a message, or call us directly. We respond to every inquiry within one business day.",
