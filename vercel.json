@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/location/",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/es/location/",
+      "destination": "/es/contact/",
+      "permanent": true
+    }
+  ]
+}

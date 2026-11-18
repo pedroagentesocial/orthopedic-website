@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import { CheckCircle2, XCircle, Phone } from 'lucide-react';
+import { CheckCircle2, XCircle } from 'lucide-react';
 
 export type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -77,10 +77,6 @@ export default function SubmitDialog({
                 <button type="button" onClick={onRetry} className="sd-btn sd-btn--primary">
                   {strings.errorRetry}
                 </button>
-                <a href="tel:+18015550100" className="sd-btn sd-btn--secondary">
-                  <Phone size={16} strokeWidth={1.75} aria-hidden="true" />
-                  {strings.errorCall}
-                </a>
               </div>
             </>
           )}

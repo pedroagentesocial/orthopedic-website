@@ -113,7 +113,7 @@
       "title": "Ready to move forward?",
       "subtitle": "Book a same-week consultation with a board-certified orthopedic specialist.",
       "primary": "Book appointment",
-      "secondary": "Call (801) 555-0100"
+      "secondary": "Contact us"
     }
   },
 
@@ -297,12 +297,12 @@
       "subtitle": "Centrally located in the Wasatch Front, with free patient parking and accessible facilities.",
       "address": {
         "label": "Address",
-        "street": "1234 Wasatch Boulevard",
+        "street": "",
         "cityState": "Salt Lake City, UT 84109"
       },
       "phone": {
         "label": "Phone",
-        "value": "(801) 555-0100"
+        "value": ""
       },
       "hours": {
         "label": "Hours",
@@ -322,15 +322,15 @@
     "contact": {
       "metaTitle": "Contact Our Utah Orthopedic Team",
       "eyebrow": "Get in touch",
-      "title": "Three ways to get started.",
-      "subtitle": "Book online, send us a message, or call us directly. We respond to every inquiry within one business day.",
+      "title": "Two ways to get started.",
+      "subtitle": "Book online or send us a message. We respond to every inquiry within one business day.",
       "callTitle": "Speak with us today",
-      "callValue": "(801) 555-0100",
+      "callValue": "",
       "callHours": "Monday – Friday, 7:30 AM – 6:00 PM",
       "callCta": "Call now",
       "calendarTitle": "Book online",
       "calendarSubtitle": "Pick a time that works for you. Email confirmation in minutes.",
-      "calendarFallback": "The booking calendar is being configured. Please use the form below or call us.",
+      "calendarFallback": "The booking calendar is being configured. Please use the form below.",
       "formTitle": "Send a message",
       "formSubtitle": "Tell us briefly what's going on and we'll route you to the right specialist.",
       "form": {
@@ -372,7 +372,7 @@
         "successDescription": "We received your message. A care coordinator will reach out within one business day.",
         "successClose": "Close",
         "errorTitle": "We couldn't send your message",
-        "errorDescription": "Something went wrong on our end. Please try again, or call us directly at (801) 555-0100.",
+        "errorDescription": "Something went wrong on our end. Please try again, or use the contact form.",
         "errorDetailLabel": "Technical detail",
         "errorRetry": "Try again",
         "errorCall": "Call instead"

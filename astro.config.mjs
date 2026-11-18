@@ -43,6 +43,13 @@ export default defineConfig({
     },
   },
 
+  /* La página de ubicación tenía dirección, horario y estacionamiento de
+     plantilla. Hasta tener la dirección real, quien llegue a ella va a Contacto. */
+  redirects: {
+    '/location': '/contact',
+    '/es/location': '/es/contact',
+  },
+
   integrations: [
     react(),
     sitemap({
