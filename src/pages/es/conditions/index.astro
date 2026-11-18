@@ -135,21 +135,16 @@ const totalConditions = groups.reduce((sum, g) => sum + g.items.length, 0);
             <span class="eyebrow-line"></span>
             {t('pages.conditions.callToActionLabel')}
           </p>
-          <p
-            class="mt-4 font-display text-4xl text-(--color-ink) tracking-tight tabular-nums"
-          >
-            (801) 555-0100
-          </p>
           <p class="mt-3 text-sm text-(--color-ink-muted) tabular-nums">
             {totalConditions}+ {t('pages.conditions.all.countSuffix')} · 6 {t('pages.conditions.groups.general').toLowerCase()}
           </p>
         </div>
         <a
-          href="tel:+18015550100"
+          href={localizePath('/contact', lang)}
           class="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-(--radius-md) bg-(--color-ink) text-(--color-ink-inverse) font-medium hover:bg-(--color-accent) transition-colors duration-300 ease-(--ease-out-quart)"
         >
           <Phone size={18} strokeWidth={1.75} />
-          {t('actions.call')}
+          {t('nav.contact')}
         </a>
       </div>
     </div>

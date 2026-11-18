@@ -113,7 +113,7 @@
       "title": "¿Listo para avanzar?",
       "subtitle": "Reserva una consulta esta misma semana con un especialista ortopédico certificado.",
       "primary": "Reservar cita",
-      "secondary": "Llamar (801) 555-0100"
+      "secondary": "Contáctanos"
     }
   },
 
@@ -297,12 +297,12 @@
       "subtitle": "Ubicación céntrica en el Wasatch Front, con estacionamiento gratuito para pacientes e instalaciones accesibles.",
       "address": {
         "label": "Dirección",
-        "street": "1234 Wasatch Boulevard",
+        "street": "",
         "cityState": "Salt Lake City, UT 84109"
       },
       "phone": {
         "label": "Teléfono",
-        "value": "(801) 555-0100"
+        "value": ""
       },
       "hours": {
         "label": "Horarios",
@@ -322,15 +322,15 @@
     "contact": {
       "metaTitle": "Contacto: equipo de ortopedia en Utah",
       "eyebrow": "Conecta con nosotros",
-      "title": "Tres formas de empezar.",
-      "subtitle": "Reserva en línea, envíanos un mensaje o llámanos directamente. Respondemos cada consulta en un día hábil.",
+      "title": "Dos formas de empezar.",
+      "subtitle": "Reserva en línea o envíanos un mensaje. Respondemos cada consulta en un día hábil.",
       "callTitle": "Habla con nosotros hoy",
-      "callValue": "(801) 555-0100",
+      "callValue": "",
       "callHours": "Lunes – Viernes, 7:30 AM – 6:00 PM",
       "callCta": "Llamar ahora",
       "calendarTitle": "Reserva en línea",
       "calendarSubtitle": "Elige el horario que te convenga. Confirmación por correo en minutos.",
-      "calendarFallback": "El calendario de reservas se está configurando. Usa el formulario o llámanos.",
+      "calendarFallback": "El calendario de reservas se está configurando. Usa el formulario.",
       "formTitle": "Envíanos un mensaje",
       "formSubtitle": "Cuéntanos brevemente qué está pasando y te dirigiremos al especialista correcto.",
       "form": {
@@ -372,7 +372,7 @@
         "successDescription": "Recibimos tu mensaje. Un coordinador te contactará en un día hábil.",
         "successClose": "Cerrar",
         "errorTitle": "No pudimos enviar tu mensaje",
-        "errorDescription": "Algo salió mal de nuestro lado. Intenta de nuevo o llámanos directamente al (801) 555-0100.",
+        "errorDescription": "Algo salió mal de nuestro lado. Intenta de nuevo o usa el formulario de contacto.",
         "errorDetailLabel": "Detalle técnico",
         "errorRetry": "Intentar de nuevo",
         "errorCall": "Llamar"

@@ -23,8 +23,8 @@ const heroSlides = [
     subtitle: t('home.heroSubtitle'),
     ctaPrimaryLabel: t('home.heroCtaPrimary'),
     ctaPrimaryHref: '/es/contact',
-    ctaSecondaryLabel: t('actions.call'),
-    ctaSecondaryHref: 'tel:+18015550100',
+    ctaSecondaryLabel: t('nav.services'),
+    ctaSecondaryHref: '/es/services',
     posterImage: heroPoster,
     videoUrl: heroVideoUrl,
   },
@@ -62,10 +62,10 @@ const heroSlides = [
     nextLabel={t('home.heroNav.next')}
     goToLabel={t('home.heroNav.goTo')}
   />
-  <Stats />
+  {/* Cifras de plantilla (12,000+ pacientes, 25 años, 98 %, 9 especialistas): fuera hasta que Pedro las confirme. */}
   <Services />
   <WhyChooseUs />
-  <TestimonialsSection />
+  {/* Testimonios de plantilla presentados como reseñas de Google: fuera. Volver solo con reseñas reales y autorizadas. */}
   <FAQ />
   <LeadFormSection />
   <CTAStrip />
